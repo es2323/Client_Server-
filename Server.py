@@ -39,7 +39,7 @@ def init_database():
 def get_device_state(device_name):
     conn = sqlite3.connect("smart_home.db")
     cursor = conn.cursor()
-    cursor.execute("SELECT state, temperature FROM devices WHERE name = ?", (device_name,))
+    cursor.execute("SELECT state, temperature FROM devices WHERE LOWER(name) = LOWER(?)", (device_name,))
     result = cursor.fetchone()
     conn.close()
     return result
@@ -70,21 +70,32 @@ def encrypt_message(message, key):
     encrypted = cipher.encrypt(pad(message.encode('utf-8'), AES.block_size))
     return base64.b64encode(iv + encrypted).decode('utf-8')
 
-# Process client commands
 async def process_command(command):
     try:
-        print(f"Received raw command: {command}")  # Debugging input
+        # Debugging the received raw command
+        print(f"Received raw command: {command}")
 
-        command = command.lower()
-        print(f"Processed to lowercase: {command}")  # Debugging input
+        command = command.lower()  # Normalize to lowercase
+        print(f"Processed to lowercase: {command}")  # Debugging normalized command
+
         parts = command.split(' ')
-        device_name = ' '.join(parts[:2]) if len(parts) > 2 else parts[0]
-        action = parts[1] if len(parts) > 1 else None
-        print(f"Device: {device_name}, Action: {action}")
 
+        # Handle multi-word devices, e.g., "smart lock"
+        if len(parts) > 2 and parts[0] == 'smart' and parts[1] == 'lock':
+            device_name = 'smart lock'  # Special case for "smart lock"
+            action = parts[2] if len(parts) > 2 else None
+        else:
+            device_name = parts[0]
+            action = parts[1] if len(parts) > 1 else None
+
+        print(f"Device name: {device_name}, Action: {action}")  # Debug parsed data
+
+        # Fetch the device state from the database
         device_state = get_device_state(device_name)
+        print(f"Device state: {device_state}")
+
         if device_state is None:
-            print("Device not found in database.")
+            print(f"Device {device_name} not found in database.")  # Debugging device not found
             return "Device not found"
 
         if action == "on" or action == "off":
@@ -98,11 +109,12 @@ async def process_command(command):
             update_device_state_db(device_name, action)
             return f"Smart lock is now {action}"
         else:
-            print("Invalid command received.")
+            print("Invalid command received.")  # Debugging invalid command
             return "Invalid command"
     except Exception as e:
-        print(f"Error while processing command: {e}")  # Debug exception
+        print(f"Error while processing command: {e}")  # Debugging error
         return f"Error: {str(e)}"
+
 
 # Handle client connections
 async def handle_client(reader, writer):
