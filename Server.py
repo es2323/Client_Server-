@@ -12,6 +12,7 @@ SECRET_KEY = raw_key[:16]
 def init_database():
     conn = sqlite3.connect("smart_home.db")  # Creates `smart_home.db` file
     cursor = conn.cursor()
+    print("Initializing database...")
     # Create devices table
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS devices (
@@ -20,6 +21,8 @@ def init_database():
             temperature INTEGER
         )
     """)
+
+    print("Table 'devices' created or verified.")
     # Insert default devices
     default_devices = [
         ("light", "off", None),
@@ -30,6 +33,7 @@ def init_database():
     cursor.executemany("INSERT OR IGNORE INTO devices VALUES (?, ?, ?)", default_devices)
     conn.commit()
     conn.close()
+    print("Default devices inserted.")
 
 # Fetch device state
 def get_device_state(device_name):
@@ -69,12 +73,18 @@ def encrypt_message(message, key):
 # Process client commands
 async def process_command(command):
     try:
+        print(f"Received raw command: {command}")  # Debugging input
+
+        command = command.lower()
+        print(f"Processed to lowercase: {command}")  # Debugging input
         parts = command.split(' ')
         device_name = ' '.join(parts[:2]) if len(parts) > 2 else parts[0]
         action = parts[1] if len(parts) > 1 else None
+        print(f"Device: {device_name}, Action: {action}")
 
         device_state = get_device_state(device_name)
         if device_state is None:
+            print("Device not found in database.")
             return "Device not found"
 
         if action == "on" or action == "off":
@@ -88,8 +98,10 @@ async def process_command(command):
             update_device_state_db(device_name, action)
             return f"Smart lock is now {action}"
         else:
+            print("Invalid command received.")
             return "Invalid command"
     except Exception as e:
+        print(f"Error while processing command: {e}")  # Debug exception
         return f"Error: {str(e)}"
 
 # Handle client connections
