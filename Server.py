@@ -3,15 +3,16 @@ import sqlite3
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 import base64
+from argon2 import PasswordHasher
 import logging
 
 # Set up logging
 logging.basicConfig(
-    level=logging.INFO,  # Log levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
+    level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("server.log"),  # Logs to a file
-        logging.StreamHandler()  # Logs to the console
+        logging.FileHandler("server.log"),
+        logging.StreamHandler()
     ]
 )
 
@@ -25,7 +26,13 @@ def init_database():
     cursor = conn.cursor()
     logging.info("Initializing database...")
 
-    # Create devices table
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            username TEXT PRIMARY KEY,
+            password TEXT
+        )
+    """)
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS devices (
             name TEXT PRIMARY KEY,
@@ -33,9 +40,9 @@ def init_database():
             temperature INTEGER
         )
     """)
-    logging.info("Table 'devices' created or verified.")
 
-    # Insert default devices
+    logging.info("Tables 'users' and 'devices' created or verified.")
+
     default_devices = [
         ("light", "off", None),
         ("thermostat", "off", 20),
@@ -43,21 +50,47 @@ def init_database():
         ("smart lock", "locked", None),
     ]
     cursor.executemany("INSERT OR IGNORE INTO devices VALUES (?, ?, ?)", default_devices)
+
+    default_users = [
+        ("testuser", hash_password("testpassword"))
+    ]
+    cursor.executemany("INSERT OR IGNORE INTO users VALUES (?, ?)", default_users)
+
     conn.commit()
     conn.close()
-    logging.info("Default devices inserted.")
+    logging.info("Default devices and users inserted.")
 
-# Fetch device state
+def hash_password(password):
+    ph = PasswordHasher()
+    return ph.hash(password)
+
+def verify_password(stored_password, provided_password):
+    ph = PasswordHasher()
+    try:
+        return ph.verify(stored_password, provided_password)
+    except:
+        return False
+
+def authenticate_user(username, password):
+    conn = sqlite3.connect("smart_home.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT password FROM users WHERE username = ?", (username,))
+    result = cursor.fetchone()
+    conn.close()
+
+    if result:
+        stored_password = result[0]
+        return verify_password(stored_password, password)
+    return False
+
 def get_device_state(device_name):
     conn = sqlite3.connect("smart_home.db")
     cursor = conn.cursor()
     cursor.execute("SELECT state, temperature FROM devices WHERE LOWER(name) = LOWER(?)", (device_name,))
     result = cursor.fetchone()
     conn.close()
-    logging.info(f"Fetched state for device '{device_name}': {result}")
     return result
 
-# Update device state
 def update_device_state_db(device_name, state, temperature=None):
     conn = sqlite3.connect("smart_home.db")
     cursor = conn.cursor()
@@ -67,36 +100,20 @@ def update_device_state_db(device_name, state, temperature=None):
     )
     conn.commit()
     conn.close()
-    logging.info(f"Updated device '{device_name}' to state '{state}' with temperature '{temperature}'.")
 
-# Decrypt message
 def decrypt_message(encrypted_message, key):
-    try:
-        raw_data = base64.b64decode(encrypted_message)
-        iv = raw_data[:16]
-        encrypted = raw_data[16:]
-        cipher = AES.new(key, AES.MODE_CBC, iv)
-        decrypted_message = unpad(cipher.decrypt(encrypted), AES.block_size).decode('utf-8')
-        logging.debug(f"Decrypted message: {decrypted_message}")
-        return decrypted_message
-    except Exception as e:
-        logging.error(f"Error decrypting message: {e}")
-        raise
+    raw_data = base64.b64decode(encrypted_message)
+    iv = raw_data[:16]
+    encrypted = raw_data[16:]
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    return unpad(cipher.decrypt(encrypted), AES.block_size).decode('utf-8')
 
-# Encrypt message
 def encrypt_message(message, key):
-    try:
-        cipher = AES.new(key, AES.MODE_CBC)
-        iv = cipher.iv
-        encrypted = cipher.encrypt(pad(message.encode('utf-8'), AES.block_size))
-        encrypted_message = base64.b64encode(iv + encrypted).decode('utf-8')
-        logging.debug(f"Encrypted message: {encrypted_message}")
-        return encrypted_message
-    except Exception as e:
-        logging.error(f"Error encrypting message: {e}")
-        raise
+    cipher = AES.new(key, AES.MODE_CBC)
+    iv = cipher.iv
+    encrypted = cipher.encrypt(pad(message.encode('utf-8'), AES.block_size))
+    return base64.b64encode(iv + encrypted).decode('utf-8')
 
-# Process client commands
 async def process_command(command):
     try:
         logging.info(f"Received command: {command}")
@@ -104,28 +121,22 @@ async def process_command(command):
         command = command.lower()
         parts = command.split(' ')
 
-        # Handle multi-word devices, e.g., "smart lock"
+        # Handle multi-word devices like "smart lock"
         if len(parts) > 2 and parts[0] == 'smart' and parts[1] == 'lock':
             device_name = 'smart lock'
-            action = parts[2]
+            action = parts[2] if len(parts) > 2 else None
         else:
             device_name = parts[0]
             action = parts[1] if len(parts) > 1 else None
 
-        logging.info(f"Parsed device: '{device_name}', action: '{action}'")
+        logging.info(f"Device name: {device_name}, Action: {action}")
 
-        # Validate action
-        if not action or action not in ["on", "off", "set", "locked", "unlocked"]:
-            logging.warning(f"Invalid action: {action}")
-            return "Invalid command. Use 'help' for a list of valid commands."
-
-        # Fetch the device state from the database
+        # Fetch device state from the database
         device_state = get_device_state(device_name)
         if device_state is None:
-            logging.error(f"Device '{device_name}' not found.")
-            return "Device not found"
+            return f"Device '{device_name}' not found"
 
-        # Handle device actions
+        # Process actions
         if action in ["on", "off"]:
             update_device_state_db(device_name, action)
             return f"{device_name} is now {action}"
@@ -137,42 +148,60 @@ async def process_command(command):
             update_device_state_db(device_name, action)
             return f"Smart lock is now {action}"
         else:
-            logging.warning(f"Invalid command received: {command}")
             return "Invalid command"
     except Exception as e:
         logging.error(f"Error processing command: {e}")
         return f"Error: {str(e)}"
 
-# Handle client connections
+
 async def handle_client(reader, writer):
     client_address = writer.get_extra_info('peername')
     logging.info(f"New connection from {client_address}")
 
     try:
+        encrypted_auth_message = await reader.read(1024)
+        auth_message = decrypt_message(encrypted_auth_message.decode('utf-8'), SECRET_KEY)
+        logging.info(f"Authentication attempt: {auth_message}")
+
+        if auth_message.startswith("AUTH"):
+            _, username, password = auth_message.split(' ')
+            if authenticate_user(username, password):
+                response = "Authentication successful"
+                logging.info(f"User '{username}' authenticated.")
+            else:
+                response = "Authentication failed"
+                logging.warning(f"User '{username}' failed authentication.")
+                encrypted_response = encrypt_message(response, SECRET_KEY)
+                writer.write(encrypted_response.encode('utf-8'))
+                await writer.drain()
+                writer.close()
+                return
+
+            encrypted_response = encrypt_message(response, SECRET_KEY)
+            writer.write(encrypted_response.encode('utf-8'))
+            await writer.drain()
+
         while True:
             data = await reader.read(1024)
             if not data:
                 break
 
             encrypted_message = data.decode('utf-8')
-            logging.info(f"Received encrypted message: {encrypted_message}")
-
             command = decrypt_message(encrypted_message, SECRET_KEY)
             response = await process_command(command)
             encrypted_response = encrypt_message(response, SECRET_KEY)
 
             writer.write(encrypted_response.encode('utf-8'))
             await writer.drain()
-            logging.info(f"Sent response: {response}")
+
     except Exception as e:
         logging.error(f"Error handling client {client_address}: {e}")
     finally:
         writer.close()
         logging.info(f"Connection with {client_address} closed.")
 
-# Main function to start the server
 async def main():
-    init_database()  # Initialize the database
+    init_database()
     server = await asyncio.start_server(handle_client, "127.0.0.1", 12345)
     logging.info("Server is running on 127.0.0.1:12345")
     async with server:

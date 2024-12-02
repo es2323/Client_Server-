@@ -39,3 +39,58 @@
 2024-12-02 12:22:39,504 - INFO - Parsed device: 'exit', action: ''
 2024-12-02 12:22:39,505 - WARNING - Invalid action: 
 2024-12-02 12:22:39,505 - INFO - Sent response: Invalid command. Use 'help' for a list of valid commands.
+2024-12-02 12:53:16,000 - INFO - Initializing database...
+2024-12-02 12:54:38,570 - INFO - Initializing database...
+2024-12-02 12:54:38,586 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-02 12:54:38,680 - INFO - Default devices and users inserted.
+2024-12-02 12:54:38,682 - INFO - Server is running on 127.0.0.1:12345
+2024-12-02 12:55:52,575 - INFO - Initializing database...
+2024-12-02 12:55:52,576 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-02 12:55:52,654 - INFO - Default devices and users inserted.
+2024-12-02 12:55:52,655 - INFO - Server is running on 127.0.0.1:12345
+2024-12-02 12:55:58,292 - INFO - New connection from ('127.0.0.1', 61797)
+2024-12-02 12:56:43,294 - INFO - Authentication attempt: AUTH testuser tesetpassword
+2024-12-02 12:56:43,377 - WARNING - User 'testuser' failed authentication.
+2024-12-02 12:56:43,378 - INFO - Connection with ('127.0.0.1', 61797) closed.
+2024-12-02 13:03:49,507 - INFO - Initializing database...
+2024-12-02 13:03:49,509 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-02 13:03:49,595 - INFO - Default devices and users inserted.
+2024-12-02 13:03:49,596 - INFO - Server is running on 127.0.0.1:12345
+2024-12-02 13:03:55,462 - INFO - New connection from ('127.0.0.1', 61925)
+2024-12-02 13:04:03,583 - INFO - Authentication attempt: AUTH testuser testpassword
+2024-12-02 13:04:03,665 - INFO - User 'testuser' authenticated.
+2024-12-02 13:10:11,056 - INFO - Initializing database...
+2024-12-02 13:10:11,058 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-02 13:10:11,148 - INFO - Default devices and users inserted.
+2024-12-02 13:10:11,150 - INFO - Server is running on 127.0.0.1:12345
+2024-12-02 13:10:18,276 - INFO - New connection from ('127.0.0.1', 62039)
+2024-12-02 13:10:28,033 - INFO - Authentication attempt: AUTH testuser testpassword
+2024-12-02 13:10:28,116 - INFO - User 'testuser' authenticated.
+2024-12-02 13:13:14,389 - INFO - Initializing database...
+2024-12-02 13:13:14,390 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-02 13:13:14,475 - INFO - Default devices and users inserted.
+2024-12-02 13:13:14,475 - INFO - Server is running on 127.0.0.1:12345
+2024-12-02 13:13:22,031 - INFO - New connection from ('127.0.0.1', 62079)
+2024-12-02 13:13:31,182 - INFO - Authentication attempt: AUTH testuser testpassword
+2024-12-02 13:13:31,263 - INFO - User 'testuser' authenticated.
+2024-12-02 13:13:34,351 - INFO - Received command: fan on 
+2024-12-02 13:13:34,352 - INFO - Device name: fan, Action: on
+2024-12-02 13:13:37,630 - INFO - Received command: fan off 
+2024-12-02 13:13:37,631 - INFO - Device name: fan, Action: off
+2024-12-02 13:13:41,501 - INFO - Received command: light on
+2024-12-02 13:13:41,502 - INFO - Device name: light, Action: on
+2024-12-02 13:14:15,108 - INFO - Received command: thermostat off
+2024-12-02 13:14:15,110 - INFO - Device name: thermostat, Action: off
+2024-12-02 13:14:31,039 - INFO - Received command: thermostat set 34
+2024-12-02 13:14:31,040 - INFO - Device name: thermostat, Action: set
+2024-12-02 13:14:59,720 - INFO - Initializing database...
+2024-12-02 13:14:59,721 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-02 13:14:59,813 - INFO - Default devices and users inserted.
+2024-12-02 13:14:59,814 - INFO - Server is running on 127.0.0.1:12345
+2024-12-02 13:15:05,634 - INFO - New connection from ('127.0.0.1', 62122)
+2024-12-02 13:15:14,407 - INFO - Authentication attempt: AUTH testuser testpassword
+2024-12-02 13:15:14,490 - INFO - User 'testuser' authenticated.
+2024-12-02 13:15:19,881 - INFO - Received command: fan on 
+2024-12-02 13:15:19,882 - INFO - Device name: fan, Action: on
+2024-12-02 13:15:38,460 - INFO - Received command: thermostat set 45
+2024-12-02 13:15:38,461 - INFO - Device name: thermostat, Action: set
