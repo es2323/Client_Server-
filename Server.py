@@ -90,6 +90,10 @@ async def process_command(command):
 
         print(f"Device name: {device_name}, Action: {action}")  # Debug parsed data
 
+        # **Add Validation Here**
+        if not action or action not in ["on", "off", "set", "locked", "unlocked"]:
+            return "Invalid command. Use 'help' for a list of valid commands."
+
         # Fetch the device state from the database
         device_state = get_device_state(device_name)
         print(f"Device state: {device_state}")
