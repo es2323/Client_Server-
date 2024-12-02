@@ -1,0 +1,41 @@
+2024-12-02 12:20:38,095 - INFO - Initializing database...
+2024-12-02 12:20:38,099 - INFO - Table 'devices' created or verified.
+2024-12-02 12:20:38,099 - INFO - Default devices inserted.
+2024-12-02 12:20:38,100 - INFO - Server is running on 127.0.0.1:12345
+2024-12-02 12:20:48,309 - INFO - New connection from ('127.0.0.1', 61038)
+2024-12-02 12:20:53,208 - INFO - Received encrypted message: CUivN2ucwx/Z0yyFtentxQPx9VfctU9mv5/AUYrqrsE=
+2024-12-02 12:20:53,208 - INFO - Received command: light on 
+2024-12-02 12:20:53,208 - INFO - Parsed device: 'light', action: 'on'
+2024-12-02 12:20:53,210 - INFO - Fetched state for device 'light': ('on', None)
+2024-12-02 12:20:53,211 - INFO - Updated device 'light' to state 'on' with temperature 'None'.
+2024-12-02 12:20:53,215 - INFO - Sent response: light is now on
+2024-12-02 12:20:55,866 - INFO - Received encrypted message: eNnRio6KY5BeqVaInCIOnK1HZbgHpmfSWIPAkexkwV4=
+2024-12-02 12:20:55,866 - INFO - Received command: light off 
+2024-12-02 12:20:55,866 - INFO - Parsed device: 'light', action: 'off'
+2024-12-02 12:20:55,868 - INFO - Fetched state for device 'light': ('on', None)
+2024-12-02 12:20:55,880 - INFO - Updated device 'light' to state 'off' with temperature 'None'.
+2024-12-02 12:20:55,881 - INFO - Sent response: light is now off
+2024-12-02 12:21:00,339 - INFO - Received encrypted message: yF37lS+GTzrqPvCCSyQQIgjYf+Bj5zNormkknbDVN50=
+2024-12-02 12:21:00,340 - INFO - Received command: exit 
+2024-12-02 12:21:00,341 - INFO - Parsed device: 'exit', action: ''
+2024-12-02 12:21:00,341 - WARNING - Invalid action: 
+2024-12-02 12:21:00,341 - INFO - Sent response: Invalid command. Use 'help' for a list of valid commands.
+2024-12-02 12:22:09,374 - INFO - Initializing database...
+2024-12-02 12:22:09,375 - INFO - Table 'devices' created or verified.
+2024-12-02 12:22:09,375 - INFO - Default devices inserted.
+2024-12-02 12:22:22,720 - INFO - Initializing database...
+2024-12-02 12:22:22,721 - INFO - Table 'devices' created or verified.
+2024-12-02 12:22:22,722 - INFO - Default devices inserted.
+2024-12-02 12:22:22,723 - INFO - Server is running on 127.0.0.1:12345
+2024-12-02 12:22:32,191 - INFO - New connection from ('127.0.0.1', 61081)
+2024-12-02 12:22:37,792 - INFO - Received encrypted message: KpDbv/2caw8Jo+oYByms9TJzvrvvR/qMe5bScIW4ut0=
+2024-12-02 12:22:37,793 - INFO - Received command: fan on 
+2024-12-02 12:22:37,793 - INFO - Parsed device: 'fan', action: 'on'
+2024-12-02 12:22:37,795 - INFO - Fetched state for device 'fan': ('off', None)
+2024-12-02 12:22:37,804 - INFO - Updated device 'fan' to state 'on' with temperature 'None'.
+2024-12-02 12:22:37,805 - INFO - Sent response: fan is now on
+2024-12-02 12:22:39,503 - INFO - Received encrypted message: 98khi2P5QPrUK3fZ0PAnmfqWMR/3R+KLOWgym1Xcddk=
+2024-12-02 12:22:39,504 - INFO - Received command: exit 
+2024-12-02 12:22:39,504 - INFO - Parsed device: 'exit', action: ''
+2024-12-02 12:22:39,505 - WARNING - Invalid action: 
+2024-12-02 12:22:39,505 - INFO - Sent response: Invalid command. Use 'help' for a list of valid commands.
