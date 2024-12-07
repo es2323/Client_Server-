@@ -20,12 +20,25 @@ logging.basicConfig(
 raw_key = b'my_secret_key_too_long!'
 SECRET_KEY = raw_key[:16]
 
+# Alter the schema if needed (add missing columns)
+def alter_devices_table():
+    conn = sqlite3.connect("smart_home.db")
+    cursor = conn.cursor()
+    try:
+        cursor.execute("ALTER TABLE devices ADD COLUMN speed TEXT")
+        cursor.execute("ALTER TABLE devices ADD COLUMN lock_time TEXT")
+    except sqlite3.OperationalError as e:
+        logging.info(f"Schema already up-to-date or error: {e}")
+    conn.commit()
+    conn.close()
+
 # Initialize SQLite Database
 def init_database():
     conn = sqlite3.connect("smart_home.db")
     cursor = conn.cursor()
     logging.info("Initializing database...")
 
+    # Create users table
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS users (
             username TEXT PRIMARY KEY,
@@ -33,24 +46,34 @@ def init_database():
         )
     """)
 
+    # Create devices table
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS devices (
             name TEXT PRIMARY KEY,
             state TEXT,
-            temperature INTEGER
+            temperature INTEGER,
+            speed TEXT,
+            lock_time TEXT
         )
     """)
 
+    # Alter schema to match new requirements
+    alter_devices_table()
+
     logging.info("Tables 'users' and 'devices' created or verified.")
 
+    # Insert default devices
     default_devices = [
-        ("light", "off", None),
-        ("thermostat", "off", 20),
-        ("fan", "off", None),
-        ("smart lock", "locked", None),
+        ("light", "off", None, None, None),
+        ("thermostat", "off", 20, None, None),
+        ("fan", "off", None, "low", None),
+        ("smart lock", "locked", None, None, None),
+        ("camera", "off", None, None, None),
+        ("speaker", "off", None, None, None)
     ]
-    cursor.executemany("INSERT OR IGNORE INTO devices VALUES (?, ?, ?)", default_devices)
+    cursor.executemany("INSERT OR IGNORE INTO devices VALUES (?, ?, ?, ?, ?)", default_devices)
 
+    # Insert default user
     default_users = [
         ("testuser", hash_password("testpassword"))
     ]
@@ -60,17 +83,20 @@ def init_database():
     conn.close()
     logging.info("Default devices and users inserted.")
 
+# Hash a password using Argon2
 def hash_password(password):
     ph = PasswordHasher()
     return ph.hash(password)
 
+# Verify a password using Argon2
 def verify_password(stored_password, provided_password):
     ph = PasswordHasher()
     try:
         return ph.verify(stored_password, provided_password)
-    except:
+    except Exception:
         return False
 
+# Authenticate a user
 def authenticate_user(username, password):
     conn = sqlite3.connect("smart_home.db")
     cursor = conn.cursor()
@@ -83,24 +109,27 @@ def authenticate_user(username, password):
         return verify_password(stored_password, password)
     return False
 
+# Fetch device state
 def get_device_state(device_name):
     conn = sqlite3.connect("smart_home.db")
     cursor = conn.cursor()
-    cursor.execute("SELECT state, temperature FROM devices WHERE LOWER(name) = LOWER(?)", (device_name,))
+    cursor.execute("SELECT state, temperature, speed, lock_time FROM devices WHERE LOWER(name) = LOWER(?)", (device_name,))
     result = cursor.fetchone()
     conn.close()
     return result
 
-def update_device_state_db(device_name, state, temperature=None):
+# Update device state
+def update_device_state_db(device_name, state=None, temperature=None, speed=None, lock_time=None):
     conn = sqlite3.connect("smart_home.db")
     cursor = conn.cursor()
     cursor.execute(
-        "UPDATE devices SET state = ?, temperature = ? WHERE name = ?",
-        (state, temperature, device_name),
+        "UPDATE devices SET state = ?, temperature = ?, speed = ?, lock_time = ? WHERE name = ?",
+        (state, temperature, speed, lock_time, device_name)
     )
     conn.commit()
     conn.close()
 
+# Decrypt message
 def decrypt_message(encrypted_message, key):
     raw_data = base64.b64decode(encrypted_message)
     iv = raw_data[:16]
@@ -108,12 +137,14 @@ def decrypt_message(encrypted_message, key):
     cipher = AES.new(key, AES.MODE_CBC, iv)
     return unpad(cipher.decrypt(encrypted), AES.block_size).decode('utf-8')
 
+# Encrypt message
 def encrypt_message(message, key):
     cipher = AES.new(key, AES.MODE_CBC)
     iv = cipher.iv
     encrypted = cipher.encrypt(pad(message.encode('utf-8'), AES.block_size))
     return base64.b64encode(iv + encrypted).decode('utf-8')
 
+# Process client commands
 async def process_command(command):
     try:
         logging.info(f"Received command: {command}")
@@ -131,29 +162,70 @@ async def process_command(command):
 
         logging.info(f"Device name: {device_name}, Action: {action}")
 
-        # Fetch device state from the database
+        # Fetch device state
         device_state = get_device_state(device_name)
         if device_state is None:
             return f"Device '{device_name}' not found"
 
-        # Process actions
-        if action in ["on", "off"]:
+        # Process actions for each device
+        if device_name == "thermostat":
+            if action == "get":
+                return f"Current temperature is {device_state[1]}°C"
+            elif action == "set" and len(parts) == 3:
+                temperature = int(parts[2])
+                update_device_state_db(device_name, "on", temperature)
+                return f"Thermostat set to {temperature}°C"
+            else:
+                return "Invalid thermostat command. Use 'thermostat get' or 'thermostat set <temp>'."
+
+        elif device_name == "fan":
+            if action in ["low", "medium", "high"]:
+                update_device_state_db(device_name, "on", None, action)
+                return f"Fan set to {action} speed."
+            elif action in ["on", "off"]:
+                update_device_state_db(device_name, action)
+                return f"Fan is now {action}."
+            else:
+                return "Invalid fan command. Use 'fan low/medium/high' or 'fan on/off'."
+
+        elif device_name == "smart lock":
+            if action in ["locked", "unlocked"]:
+                update_device_state_db(device_name, action)
+                return f"Smart lock is now {action}."
+            elif action == "lock" and len(parts) == 3:
+                lock_time = parts[2]
+                update_device_state_db(device_name, "locked", None, None, lock_time)
+                return f"Smart lock will lock at {lock_time}."
+            else:
+                return "Invalid smart lock command. Use 'smart lock locked/unlocked' or 'smart lock lock <time>'."
+
+        elif device_name == "camera":
+            if action in ["on", "off"]:
+                update_device_state_db(device_name, action)
+                return f"Camera is now {action}."
+            else:
+                return "Invalid camera command. Use 'camera on/off'."
+
+        elif device_name == "speaker":
+            if action in ["on", "off"]:
+                update_device_state_db(device_name, action)
+                return f"Speaker is now {action}."
+            elif action == "play" and len(parts) > 2:
+                song = " ".join(parts[2:])
+                return f"Playing '{song}' on the speaker."
+            else:
+                return "Invalid speaker command. Use 'speaker on/off' or 'speaker play <song>'."
+
+        elif action in ["on", "off"]:
             update_device_state_db(device_name, action)
-            return f"{device_name} is now {action}"
-        elif device_name == "thermostat" and action == "set" and len(parts) == 3:
-            temperature = int(parts[2])
-            update_device_state_db(device_name, "on", temperature)
-            return f"Thermostat set to {temperature}°C"
-        elif device_name == "smart lock" and action in ["locked", "unlocked"]:
-            update_device_state_db(device_name, action)
-            return f"Smart lock is now {action}"
+            return f"{device_name} is now {action}."
         else:
             return "Invalid command"
     except Exception as e:
         logging.error(f"Error processing command: {e}")
         return f"Error: {str(e)}"
 
-
+# Handle client connections
 async def handle_client(reader, writer):
     client_address = writer.get_extra_info('peername')
     logging.info(f"New connection from {client_address}")
@@ -200,6 +272,7 @@ async def handle_client(reader, writer):
         writer.close()
         logging.info(f"Connection with {client_address} closed.")
 
+# Main server loop
 async def main():
     init_database()
     server = await asyncio.start_server(handle_client, "127.0.0.1", 12345)

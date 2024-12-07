@@ -44,7 +44,7 @@ async def start_client():
         return
 
     while True:
-        message = input("Hi, enter a command ('help' for commands, 'exit' to quit): ")
+        message = input("Hi, please enter a command ('help' for commands, 'exit' to quit): ")
 
         if message.lower() == 'exit':
             print("Exiting...")

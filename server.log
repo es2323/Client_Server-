@@ -94,3 +94,90 @@
 2024-12-02 13:15:19,882 - INFO - Device name: fan, Action: on
 2024-12-02 13:15:38,460 - INFO - Received command: thermostat set 45
 2024-12-02 13:15:38,461 - INFO - Device name: thermostat, Action: set
+2024-12-06 16:55:41,554 - INFO - Initializing database...
+2024-12-06 16:55:41,557 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-06 16:55:41,616 - INFO - Default devices and users inserted.
+2024-12-06 16:55:41,617 - INFO - Server is running on 127.0.0.1:12345
+2024-12-06 16:55:49,678 - INFO - New connection from ('127.0.0.1', 52303)
+2024-12-06 16:56:02,625 - INFO - Authentication attempt: AUTH testuser testpassword
+2024-12-06 16:56:02,680 - INFO - User 'testuser' authenticated.
+2024-12-06 16:56:08,754 - INFO - Received command: light on
+2024-12-06 16:56:08,754 - INFO - Device name: light, Action: on
+2024-12-06 16:56:13,673 - INFO - Received command: light off
+2024-12-06 16:56:13,673 - INFO - Device name: light, Action: off
+2024-12-06 16:56:47,910 - INFO - Received command: light on
+2024-12-06 16:56:47,910 - INFO - Device name: light, Action: on
+2024-12-06 16:57:04,990 - INFO - Received command: thermostat set 224
+2024-12-06 16:57:04,991 - INFO - Device name: thermostat, Action: set
+2024-12-06 16:57:15,262 - INFO - Received command: quit 
+2024-12-06 16:57:15,263 - INFO - Device name: quit, Action: 
+2024-12-06 17:11:04,957 - INFO - Initializing database...
+2024-12-06 17:11:04,958 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 14:42:32,692 - INFO - Initializing database...
+2024-12-07 14:42:32,697 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 14:44:48,495 - INFO - Initializing database...
+2024-12-07 14:44:48,496 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 14:45:47,729 - INFO - Initializing database...
+2024-12-07 14:45:47,731 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 14:46:02,679 - INFO - Initializing database...
+2024-12-07 14:46:02,680 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 14:48:56,789 - INFO - Initializing database...
+2024-12-07 14:48:56,790 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 14:49:08,169 - INFO - Initializing database...
+2024-12-07 14:49:08,170 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 14:49:29,577 - INFO - Devices table altered to include new columns.
+2024-12-07 14:49:29,580 - INFO - Initializing database...
+2024-12-07 14:49:29,581 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 14:49:29,670 - INFO - Default devices and users inserted.
+2024-12-07 14:52:22,350 - INFO - Initializing database...
+2024-12-07 14:52:22,352 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 14:52:22,352 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 14:52:22,438 - INFO - Default devices and users inserted.
+2024-12-07 14:52:22,439 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 14:52:28,272 - INFO - New connection from ('127.0.0.1', 60886)
+2024-12-07 14:52:37,956 - INFO - Authentication attempt: AUTH testuser testpassword
+2024-12-07 14:52:38,044 - INFO - User 'testuser' authenticated.
+2024-12-07 14:52:42,505 - INFO - Received command: light on 
+2024-12-07 14:52:42,506 - INFO - Device name: light, Action: on
+2024-12-07 14:52:46,080 - INFO - Received command: light off
+2024-12-07 14:52:46,082 - INFO - Device name: light, Action: off
+2024-12-07 14:53:28,120 - INFO - Received command: thermostat set 213
+2024-12-07 14:53:28,121 - INFO - Device name: thermostat, Action: set
+2024-12-07 14:53:34,906 - INFO - Received command: thermostat set to 343
+2024-12-07 14:53:34,908 - INFO - Device name: thermostat, Action: set
+2024-12-07 14:53:43,741 - INFO - Received command: thermostat get34
+2024-12-07 14:53:43,741 - INFO - Device name: thermostat, Action: get34
+2024-12-07 14:53:48,999 - INFO - Received command: thermostat get 34
+2024-12-07 14:53:48,999 - INFO - Device name: thermostat, Action: get
+2024-12-07 14:53:57,529 - INFO - Received command: thermostat get
+2024-12-07 14:53:57,529 - INFO - Device name: thermostat, Action: get
+2024-12-07 14:54:08,051 - INFO - Received command: thermostat set 467
+2024-12-07 14:54:08,052 - INFO - Device name: thermostat, Action: set
+2024-12-07 14:54:18,825 - INFO - Received command: fan off
+2024-12-07 14:54:18,826 - INFO - Device name: fan, Action: off
+2024-12-07 14:54:36,711 - INFO - Received command: fan get
+2024-12-07 14:54:36,712 - INFO - Device name: fan, Action: get
+2024-12-07 14:54:44,046 - INFO - Received command: fan medium 
+2024-12-07 14:54:44,047 - INFO - Device name: fan, Action: medium
+2024-12-07 14:54:49,549 - INFO - Received command: fan high
+2024-12-07 14:54:49,549 - INFO - Device name: fan, Action: high
+2024-12-07 14:55:07,293 - INFO - Received command: smart lock lock
+2024-12-07 14:55:07,294 - INFO - Device name: smart lock, Action: lock
+2024-12-07 14:55:14,321 - INFO - Received command: samrt lock 10
+2024-12-07 14:55:14,321 - INFO - Device name: samrt, Action: lock
+2024-12-07 14:55:19,701 - INFO - Received command: smart lock 18
+2024-12-07 14:55:19,702 - INFO - Device name: smart lock, Action: 18
+2024-12-07 14:55:29,746 - INFO - Received command: smart lock lock 13
+2024-12-07 14:55:29,747 - INFO - Device name: smart lock, Action: lock
+2024-12-07 14:55:41,805 - INFO - Received command: smart lock lock 12:22 PM
+2024-12-07 14:55:41,806 - INFO - Device name: smart lock, Action: lock
+2024-12-07 14:55:52,645 - INFO - Received command: smart lock lock 22:44
+2024-12-07 14:55:52,646 - INFO - Device name: smart lock, Action: lock
+2024-12-07 14:56:51,800 - INFO - Received command: speaker on 
+2024-12-07 14:56:51,801 - INFO - Device name: speaker, Action: on
+2024-12-07 14:57:01,884 - INFO - Received command: speaker play Country Roads 
+2024-12-07 14:57:01,884 - INFO - Device name: speaker, Action: play
+2024-12-07 14:57:20,554 - INFO - Received command: Speaker play hotel california
+2024-12-07 14:57:20,554 - INFO - Device name: speaker, Action: play
+2024-12-07 14:57:29,772 - INFO - Received command: exit 
+2024-12-07 14:57:29,772 - INFO - Device name: exit, Action: 
