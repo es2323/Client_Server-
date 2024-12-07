@@ -29,6 +29,12 @@ async def start_client():
     # Prompt for username and password
     username = input("Enter your username: ")
     password = input("Enter your password: ")
+
+
+    # Log the provided credentials for debugging
+    print(f"[DEBUG] Username: {username}")
+    print(f"[DEBUG] Password: {password}")
+    
     auth_message = f"AUTH {username} {password}"
     encrypted_auth_message = encrypt_message(auth_message, SECRET_KEY)
     writer.write(encrypted_auth_message.encode('utf-8'))
@@ -51,7 +57,18 @@ async def start_client():
             break  # Exit the while loop and close the client connection
 
         if message.lower() == 'help':
-            print("Available commands: light on/off, thermostat set <temp>, fan on/off, smart lock locked/unlocked")
+            print("Available commands:\n"
+                "light on/off\n"
+                "fan on/off\n"
+                "fan low/medium/high\n"
+                "thermostat get\n"
+                "thermostat set <temp>\n"
+                "smart lock locked/unlocked\n"
+                "smart lock lock <time in 12-hour format>\n"
+                "camera on/off\n"
+                "speaker on/off\n"
+                "speaker play <song>")
+
             continue
 
         encrypted_message = encrypt_message(message, SECRET_KEY)

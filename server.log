@@ -181,3 +181,210 @@
 2024-12-07 14:57:20,554 - INFO - Device name: speaker, Action: play
 2024-12-07 14:57:29,772 - INFO - Received command: exit 
 2024-12-07 14:57:29,772 - INFO - Device name: exit, Action: 
+2024-12-07 15:00:25,431 - INFO - Initializing database...
+2024-12-07 15:00:25,432 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:00:25,432 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:00:25,520 - INFO - Default devices and users inserted.
+2024-12-07 15:00:25,520 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:00:30,014 - INFO - New connection from ('127.0.0.1', 61199)
+2024-12-07 15:00:38,226 - INFO - Authentication attempt: AUTH testuser testpassword 
+2024-12-07 15:00:38,226 - ERROR - Error handling client ('127.0.0.1', 61199): too many values to unpack (expected 3)
+2024-12-07 15:00:38,227 - INFO - Connection with ('127.0.0.1', 61199) closed.
+2024-12-07 15:01:12,879 - INFO - Initializing database...
+2024-12-07 15:01:12,881 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:01:12,881 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:01:12,987 - INFO - Default devices and users inserted.
+2024-12-07 15:01:12,989 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:01:15,990 - INFO - New connection from ('127.0.0.1', 61226)
+2024-12-07 15:01:23,784 - INFO - Authentication attempt: AUTH testuser testpassword
+2024-12-07 15:01:23,869 - INFO - User 'testuser' authenticated.
+2024-12-07 15:01:27,864 - INFO - Received command: smart lock lock 10:30PM
+2024-12-07 15:01:27,865 - INFO - Device name: smart lock, Action: lock
+2024-12-07 15:03:36,320 - INFO - Initializing database...
+2024-12-07 15:03:36,322 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:03:36,323 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:03:36,411 - INFO - Default devices and users inserted.
+2024-12-07 15:03:36,412 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:03:40,685 - INFO - New connection from ('127.0.0.1', 61318)
+2024-12-07 15:03:55,115 - INFO - Authentication attempt: AUTH testuser testpassword
+2024-12-07 15:03:55,199 - INFO - User 'testuser' authenticated.
+2024-12-07 15:04:04,156 - INFO - Received command: smart lock lock 10:30PM
+2024-12-07 15:04:04,156 - INFO - Device name: smart lock, Action: lock
+2024-12-07 15:04:31,619 - INFO - Received command: smart lock lock 4:30 am
+2024-12-07 15:04:31,619 - INFO - Device name: smart lock, Action: lock
+2024-12-07 15:04:33,520 - INFO - Received command: 
+2024-12-07 15:04:33,520 - INFO - Device name: , Action: None
+2024-12-07 15:05:55,536 - INFO - Received command: fan medium 
+2024-12-07 15:05:55,536 - INFO - Device name: fan, Action: medium
+2024-12-07 15:06:40,690 - INFO - Received command: thermostat set 200
+2024-12-07 15:06:40,690 - INFO - Device name: thermostat, Action: set
+2024-12-07 15:08:12,011 - INFO - Received command: thermostat get
+2024-12-07 15:08:12,013 - INFO - Device name: thermostat, Action: get
+2024-12-07 15:09:20,527 - INFO - Received command: speaker play violet
+2024-12-07 15:09:20,527 - INFO - Device name: speaker, Action: play
+2024-12-07 15:09:39,650 - INFO - Initializing database...
+2024-12-07 15:09:39,652 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:09:39,653 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:09:39,740 - INFO - Default devices and users inserted.
+2024-12-07 15:09:39,741 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:09:45,220 - INFO - New connection from ('127.0.0.1', 61467)
+2024-12-07 15:09:51,249 - INFO - Authentication attempt: AUTH testuser testpassword
+2024-12-07 15:09:51,335 - INFO - User 'testuser' authenticated.
+2024-12-07 15:12:30,240 - INFO - Initializing database...
+2024-12-07 15:12:30,241 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:12:30,241 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:12:30,335 - INFO - Default devices and users inserted.
+2024-12-07 15:12:30,336 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:12:34,780 - INFO - New connection from ('127.0.0.1', 61571)
+2024-12-07 15:12:38,301 - INFO - Authentication attempt: AUTH bob bob
+2024-12-07 15:12:38,386 - INFO - User 'bob' authenticated.
+2024-12-07 15:16:44,731 - INFO - Initializing database...
+2024-12-07 15:16:44,734 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:16:44,735 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:16:44,821 - INFO - Default devices and users inserted.
+2024-12-07 15:16:44,822 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:16:58,114 - INFO - New connection from ('127.0.0.1', 61695)
+2024-12-07 15:17:03,087 - INFO - Authentication attempt: AUTH bob bob
+2024-12-07 15:17:03,172 - INFO - User 'bob' authenticated.
+2024-12-07 15:29:59,092 - INFO - Initializing database...
+2024-12-07 15:29:59,093 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:29:59,094 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:29:59,181 - INFO - Default devices and users inserted.
+2024-12-07 15:29:59,182 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:30:14,839 - INFO - Initializing database...
+2024-12-07 15:30:14,841 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:30:14,842 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:30:14,931 - INFO - Default devices and users inserted.
+2024-12-07 15:30:14,932 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:30:20,199 - INFO - New connection from ('127.0.0.1', 61930)
+2024-12-07 15:30:26,605 - INFO - Authentication attempt: AUTH bob bob
+2024-12-07 15:30:26,689 - INFO - User 'bob' authenticated.
+2024-12-07 15:35:28,285 - INFO - Initializing database...
+2024-12-07 15:35:28,286 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:35:28,287 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:35:28,371 - INFO - Default devices and users inserted.
+2024-12-07 15:35:28,373 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:48:16,991 - INFO - Initializing database...
+2024-12-07 15:48:16,993 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:48:16,994 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:48:16,994 - INFO - Generated password: tfO3p9dsrtarkwsoe5bdRs31
+2024-12-07 15:48:17,085 - INFO - Default devices and users inserted.
+2024-12-07 15:48:17,086 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:48:29,589 - INFO - New connection from ('127.0.0.1', 62304)
+2024-12-07 15:48:34,630 - INFO - Authentication attempt: AUTH bob tfO3p9dsrtarkwsoe5bdRs31
+2024-12-07 15:48:34,714 - WARNING - User 'bob' failed authentication.
+2024-12-07 15:48:34,716 - INFO - Connection with ('127.0.0.1', 62304) closed.
+2024-12-07 15:49:03,764 - INFO - Initializing database...
+2024-12-07 15:49:03,766 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:49:03,766 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:49:03,767 - INFO - Generated password: RhrsitpQ3ssfkdeFusa&Kwto
+2024-12-07 15:49:03,850 - INFO - Default devices and users inserted.
+2024-12-07 15:49:03,851 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:49:26,899 - INFO - New connection from ('127.0.0.1', 62322)
+2024-12-07 15:49:44,469 - INFO - Authentication attempt: AUTH testuser RhrsitpQ3ssfkdeFusa&Kwto
+2024-12-07 15:49:44,599 - WARNING - User 'testuser' failed authentication.
+2024-12-07 15:49:44,600 - INFO - Connection with ('127.0.0.1', 62322) closed.
+2024-12-07 15:51:07,667 - INFO - Initializing database...
+2024-12-07 15:51:07,669 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:51:07,669 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:51:07,670 - INFO - Generated password: wd7tsTrorysbqsp6Eatx4Cze
+2024-12-07 15:51:07,751 - INFO - Default devices and users inserted.
+2024-12-07 15:51:07,753 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:51:17,966 - INFO - New connection from ('127.0.0.1', 62373)
+2024-12-07 15:51:21,930 - INFO - Authentication attempt: AUTH bob wd7tsTrorysbqsp6Eatx4Cze
+2024-12-07 15:51:22,018 - WARNING - User 'bob' failed authentication.
+2024-12-07 15:51:22,019 - INFO - Connection with ('127.0.0.1', 62373) closed.
+2024-12-07 15:51:37,849 - INFO - Initializing database...
+2024-12-07 15:51:37,852 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:51:37,852 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:51:37,853 - INFO - Generated password: BaPposXZrew*@ttaBst$osdx
+2024-12-07 15:51:37,942 - INFO - Default devices and users inserted.
+2024-12-07 15:51:37,944 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:51:49,884 - INFO - New connection from ('127.0.0.1', 62385)
+2024-12-07 15:51:56,791 - INFO - Authentication attempt: AUTH testuser BaPposXZrew*@ttaBst$osdx
+2024-12-07 15:51:56,876 - WARNING - User 'testuser' failed authentication.
+2024-12-07 15:51:56,878 - INFO - Connection with ('127.0.0.1', 62385) closed.
+2024-12-07 15:53:52,385 - INFO - Initializing database...
+2024-12-07 15:53:52,387 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:53:52,387 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:53:52,388 - INFO - Generated password: esatRiQdp&t0W^Awos4YrsRb
+2024-12-07 15:53:52,474 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$ubCE0BQui+MMnA6puZxtlg$CD3ziB0ftqv5HE4P+QKzWeRiF+Zr1MFSmh7g1BG1+/0
+2024-12-07 15:53:52,476 - INFO - Default devices and users inserted.
+2024-12-07 15:53:52,476 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:54:00,625 - INFO - New connection from ('127.0.0.1', 62425)
+2024-12-07 15:54:54,690 - INFO - Authentication attempt: AUTH bob esatRiQdp&t0W^Awos4YrsRb
+2024-12-07 15:54:54,775 - WARNING - User 'bob' failed authentication.
+2024-12-07 15:54:54,776 - INFO - Connection with ('127.0.0.1', 62425) closed.
+2024-12-07 15:55:05,394 - INFO - Initializing database...
+2024-12-07 15:55:05,395 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:55:05,396 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:55:05,396 - INFO - Generated password: 8wZf@aetpRs!gtMs(oBdsprn
+2024-12-07 15:55:05,484 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$fDlMVXJA6QCDecRyGIW3JQ$fmqa8kb7INqaPeMTxRf91mV6cksDN5M/51GIYkiZNwE
+2024-12-07 15:55:05,485 - INFO - Default devices and users inserted.
+2024-12-07 15:55:05,486 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:55:09,637 - INFO - New connection from ('127.0.0.1', 62443)
+2024-12-07 15:55:30,451 - INFO - Authentication attempt: AUTH testuser 8wZf@aetpRs!gtMs(oBdsprn
+2024-12-07 15:55:30,538 - WARNING - User 'testuser' failed authentication.
+2024-12-07 15:55:30,539 - INFO - Connection with ('127.0.0.1', 62443) closed.
+2024-12-07 15:57:51,880 - INFO - Initializing database...
+2024-12-07 15:57:51,882 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:57:51,883 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:57:51,883 - INFO - Generated password: )4ggnsps*ptawt8sAQrXelod
+2024-12-07 15:57:51,975 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$m6GzLAhmtTKKWX4ZYRtmJA$Xs95B9kLNNT3Bpskmg1SVeeE0L0I1olIuFkXxLdMnkY
+2024-12-07 15:57:51,976 - INFO - Default devices and users inserted.
+2024-12-07 15:57:51,977 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:58:12,525 - INFO - Initializing database...
+2024-12-07 15:58:12,528 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 15:58:12,529 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 15:58:12,529 - INFO - Generated password: owwsLIQahrten!7tWJspxsDd
+2024-12-07 15:58:12,616 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$bq0g3VVueQSN9AiHYNeMJA$L/szQTJhvszILygx/qtB+ivCoMDnCaqnD/+10rDoFlQ
+2024-12-07 15:58:12,617 - INFO - Default devices and users inserted.
+2024-12-07 15:58:12,618 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 15:58:19,775 - INFO - New connection from ('127.0.0.1', 62502)
+2024-12-07 15:58:32,018 - INFO - Authentication attempt: AUTH testuser owwsLIQahrten!7tWJspxsDd
+2024-12-07 15:58:32,019 - INFO - Stored password for testuser: $argon2id$v=19$m=65536,t=3,p=4$fub5bIwK0h06xgNLaNnBiQ$Fx3g73ekCELpByX27V7deGxyoZkj1tyqqXqzZ9MiHNU
+2024-12-07 15:58:32,110 - INFO - Password verification failed for testuser.
+2024-12-07 15:58:32,111 - WARNING - User 'testuser' failed authentication.
+2024-12-07 15:58:32,111 - INFO - Connection with ('127.0.0.1', 62502) closed.
+2024-12-07 16:26:38,530 - INFO - Initializing database...
+2024-12-07 16:26:38,531 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 16:26:38,531 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 16:26:38,532 - INFO - Generated password: (thvprdtT@Peasw(swdoaFsM
+2024-12-07 16:26:38,614 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$S0ECncsAFeRVyTByDba9Sw$ERXG4zDD5d748miMEjmIX3NNX9Pyh4L5L4JkPh/QsBY
+2024-12-07 16:26:38,615 - INFO - Default devices and users inserted.
+2024-12-07 16:26:38,617 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 16:26:43,339 - INFO - New connection from ('127.0.0.1', 62835)
+2024-12-07 16:27:03,788 - INFO - Authentication attempt: AUTH testuser (thvprdtT@Peasw(swdoaFsM
+2024-12-07 16:27:03,789 - INFO - [DEBUG] Provided password: (thvprdtT@Peasw(swdoaFsM
+2024-12-07 16:27:03,790 - INFO - [DEBUG] Stored password for testuser: $argon2id$v=19$m=65536,t=3,p=4$fub5bIwK0h06xgNLaNnBiQ$Fx3g73ekCELpByX27V7deGxyoZkj1tyqqXqzZ9MiHNU
+2024-12-07 16:27:03,884 - WARNING - Password verification failed for testuser.
+2024-12-07 16:27:03,884 - WARNING - User 'testuser' failed authentication.
+2024-12-07 16:27:03,885 - INFO - Connection with ('127.0.0.1', 62835) closed.
+2024-12-07 16:27:15,918 - INFO - Initializing database...
+2024-12-07 16:27:15,920 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 16:27:15,920 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 16:27:15,920 - INFO - Generated password: skrd7dstE!W(awestCo^bo)p
+2024-12-07 16:27:16,009 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$2rvJsP4UKsjU7oCAnIq7VQ$KEF2hYNfjm7NhGO2oPt0ToGtd/cuH0mr27a6O2N4RgI
+2024-12-07 16:27:16,010 - INFO - Default devices and users inserted.
+2024-12-07 16:27:16,011 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 16:27:32,721 - INFO - New connection from ('127.0.0.1', 62851)
+2024-12-07 16:27:39,495 - INFO - Authentication attempt: AUTH testuser  skrd7dstE!W(awestCo^bo)p
+2024-12-07 16:27:39,496 - ERROR - Error handling client ('127.0.0.1', 62851): too many values to unpack (expected 3)
+2024-12-07 16:27:39,496 - INFO - Connection with ('127.0.0.1', 62851) closed.
+2024-12-07 16:27:51,138 - INFO - Initializing database...
+2024-12-07 16:27:51,141 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-07 16:27:51,141 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-07 16:27:51,141 - INFO - Generated password: atqdss@rowUtkoOAcaptise7
+2024-12-07 16:27:51,241 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$FpgRZARhkVlw9GZeVvMedA$4GqA7/DQO1fUfmA6FXf4hnxSWxUmjbFp3ukWZBRecwk
+2024-12-07 16:27:51,242 - INFO - Default devices and users inserted.
+2024-12-07 16:27:51,243 - INFO - Server is running on 127.0.0.1:12345
+2024-12-07 16:27:59,558 - INFO - New connection from ('127.0.0.1', 62860)
+2024-12-07 16:28:07,385 - ERROR - Error handling client ('127.0.0.1', 62860): [WinError 64] The specified network name is no longer available
+2024-12-07 16:28:07,385 - INFO - Connection with ('127.0.0.1', 62860) closed.
+2024-12-07 16:28:10,344 - INFO - New connection from ('127.0.0.1', 62864)
+2024-12-07 16:28:16,294 - INFO - Authentication attempt: AUTH bob atqdss@rowUtkoOAcaptise7
+2024-12-07 16:28:16,295 - INFO - [DEBUG] Provided password: atqdss@rowUtkoOAcaptise7
+2024-12-07 16:28:16,296 - INFO - [DEBUG] Stored password for bob: $argon2id$v=19$m=65536,t=3,p=4$/BSrhYQcXJgvT7twW3Zd7A$9T4EavbTI49hbXQfHli2yIIDNpk+vz1L0nyrm1DDf5g
+2024-12-07 16:28:16,388 - WARNING - Password verification failed for bob.
+2024-12-07 16:28:16,389 - WARNING - User 'bob' failed authentication.
+2024-12-07 16:28:16,390 - INFO - Connection with ('127.0.0.1', 62864) closed.

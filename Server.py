@@ -5,6 +5,8 @@ from Crypto.Util.Padding import pad, unpad
 import base64
 from argon2 import PasswordHasher
 import logging
+import random
+import string
 
 # Set up logging
 logging.basicConfig(
@@ -19,6 +21,16 @@ logging.basicConfig(
 # Shared secret key (must be 16, 24, or 32 bytes long)
 raw_key = b'my_secret_key_too_long!'
 SECRET_KEY = raw_key[:16]
+
+# Function to generate a random strong password
+def generate_random_password(existing_password, length=12):
+    # Generate a random string password of specified length
+    chars = string.ascii_letters + string.digits + "!@#$%^&*()"
+    random_password = ''.join(random.choice(chars) for _ in range(length))
+
+    # Combine existing password with random characters
+    combined_password = existing_password + random_password
+    return ''.join(random.sample(combined_password, len(combined_password)))
 
 # Alter the schema if needed (add missing columns)
 def alter_devices_table():
@@ -36,6 +48,7 @@ def alter_devices_table():
 def init_database():
     conn = sqlite3.connect("smart_home.db")
     cursor = conn.cursor()
+
     logging.info("Initializing database...")
 
     # Create users table
@@ -49,8 +62,8 @@ def init_database():
     # Create devices table
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS devices (
-            name TEXT PRIMARY KEY,
-            state TEXT,
+            device_name TEXT PRIMARY KEY,
+            device_state TEXT,
             temperature INTEGER,
             speed TEXT,
             lock_time TEXT
@@ -61,6 +74,14 @@ def init_database():
     alter_devices_table()
 
     logging.info("Tables 'users' and 'devices' created or verified.")
+
+    # Generate a random password based on an existing one
+    existing_password = "testpassword"
+    generated_password = generate_random_password(existing_password)
+    logging.info(f"Generated password: {generated_password}")
+    print(f"Generated Password: {generated_password}")
+
+    hashed_password = hash_password(generated_password)
 
     # Insert default devices
     default_devices = [
@@ -73,20 +94,24 @@ def init_database():
     ]
     cursor.executemany("INSERT OR IGNORE INTO devices VALUES (?, ?, ?, ?, ?)", default_devices)
 
-    # Insert default user
+    # Insert default user with hashed password
     default_users = [
-        ("testuser", hash_password("testpassword"))
+        ("bob", hashed_password)
     ]
     cursor.executemany("INSERT OR IGNORE INTO users VALUES (?, ?)", default_users)
 
     conn.commit()
     conn.close()
+
     logging.info("Default devices and users inserted.")
+
 
 # Hash a password using Argon2
 def hash_password(password):
     ph = PasswordHasher()
-    return ph.hash(password)
+    hashed_password = ph.hash(password)
+    logging.info(f"Hashed password: {hashed_password}")  # Log the hashed password
+    return hashed_password
 
 # Verify a password using Argon2
 def verify_password(stored_password, provided_password):
@@ -98,36 +123,42 @@ def verify_password(stored_password, provided_password):
 
 # Authenticate a user
 def authenticate_user(username, password):
-    conn = sqlite3.connect("smart_home.db")
-    cursor = conn.cursor()
-    cursor.execute("SELECT password FROM users WHERE username = ?", (username,))
-    result = cursor.fetchone()
-    conn.close()
+    with sqlite3.connect("smart_home.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT password FROM users WHERE username = ?", (username,))
+        result = cursor.fetchone()
 
-    if result:
-        stored_password = result[0]
-        return verify_password(stored_password, password)
-    return False
+        if result:
+            stored_password = result[0]
+            logging.info(f"[DEBUG] Provided password: {password}")
+            logging.info(f"[DEBUG] Stored password for {username}: {stored_password}")
+
+            if verify_password(stored_password, password):
+                logging.info(f"User {username} authenticated successfully.")
+                return True
+            else:
+                logging.warning(f"Password verification failed for {username}.")
+        return False
+
 
 # Fetch device state
 def get_device_state(device_name):
-    conn = sqlite3.connect("smart_home.db")
-    cursor = conn.cursor()
-    cursor.execute("SELECT state, temperature, speed, lock_time FROM devices WHERE LOWER(name) = LOWER(?)", (device_name,))
-    result = cursor.fetchone()
-    conn.close()
-    return result
+    with sqlite3.connect("smart_home.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT state, temperature, speed, lock_time FROM devices WHERE LOWER(name) = LOWER(?)", (device_name,))
+        result = cursor.fetchone()
+        return result
 
 # Update device state
 def update_device_state_db(device_name, state=None, temperature=None, speed=None, lock_time=None):
-    conn = sqlite3.connect("smart_home.db")
-    cursor = conn.cursor()
-    cursor.execute(
-        "UPDATE devices SET state = ?, temperature = ?, speed = ?, lock_time = ? WHERE name = ?",
-        (state, temperature, speed, lock_time, device_name)
-    )
-    conn.commit()
-    conn.close()
+    with sqlite3.connect("smart_home.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            "UPDATE devices SET state = ?, temperature = ?, speed = ?, lock_time = ? WHERE name = ?",
+            (state, temperature, speed, lock_time, device_name)
+        )
+        conn.commit()
+        conn.close()
 
 # Decrypt message
 def decrypt_message(encrypted_message, key):
@@ -192,8 +223,8 @@ async def process_command(command):
             if action in ["locked", "unlocked"]:
                 update_device_state_db(device_name, action)
                 return f"Smart lock is now {action}."
-            elif action == "lock" and len(parts) == 3:
-                lock_time = parts[2]
+            elif action == "lock" and len(parts) >= 3:
+                lock_time = " ".join(parts[2:])
                 update_device_state_db(device_name, "locked", None, None, lock_time)
                 return f"Smart lock will lock at {lock_time}."
             else:
