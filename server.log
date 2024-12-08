@@ -472,3 +472,112 @@
 2024-12-08 16:19:14,147 - INFO - Received command: light on
 2024-12-08 16:19:14,148 - INFO - Device name: light, Action: on
 2024-12-08 16:19:14,161 - ERROR - Error processing command: Cannot operate on a closed database.
+2024-12-08 16:33:39,961 - INFO - Initializing database...
+2024-12-08 16:33:39,962 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-08 16:33:39,963 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 16:33:39,963 - INFO - Generated password: %GrerApidstJ0HsY6ota3wzs
+2024-12-08 16:33:40,033 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$+Ae2Uj5cpJGHAWJyvuxaKQ$gMiL91SVwk1KG+Rd0ktPBqZjJqYuxHvhj5FcdqWQkMA
+2024-12-08 16:33:40,047 - INFO - Default devices and users inserted.
+2024-12-08 16:33:40,048 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 16:33:46,097 - INFO - New connection from ('127.0.0.1', 57524)
+2024-12-08 16:37:07,143 - INFO - Authentication attempt: AUTH testuser %GrerApidstJ0HsY6ota3wzs
+2024-12-08 16:37:07,144 - INFO - [DEBUG] Provided password: %GrerApidstJ0HsY6ota3wzs
+2024-12-08 16:37:07,144 - INFO - [DEBUG] Stored password for testuser: $argon2id$v=19$m=65536,t=3,p=4$+Ae2Uj5cpJGHAWJyvuxaKQ$gMiL91SVwk1KG+Rd0ktPBqZjJqYuxHvhj5FcdqWQkMA
+2024-12-08 16:37:07,209 - INFO - User testuser authenticated successfully.
+2024-12-08 16:37:07,209 - INFO - User 'testuser' authenticated.
+2024-12-08 16:37:10,929 - ERROR - Error handling client ('127.0.0.1', 57524): process_command() missing 1 required positional argument: 'command'
+2024-12-08 16:37:10,929 - INFO - Connection with ('127.0.0.1', 57524) closed.
+2024-12-08 16:37:37,225 - INFO - New connection from ('127.0.0.1', 57948)
+2024-12-08 16:50:18,654 - INFO - Initializing database...
+2024-12-08 16:52:32,683 - INFO - Initializing database...
+2024-12-08 16:52:32,689 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 16:52:32,689 - INFO - Generated password: 6SwtroyaP6ssF1pjPsodzte1
+2024-12-08 16:52:32,747 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$3YoIgvu0U3R51tCznPOALQ$q/rzIRAy+LlN2TCa5hds4wlIMRdn1vwXgQtNHSsTqhI
+2024-12-08 16:52:32,748 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$3YoIgvu0U3R51tCznPOALQ$q/rzIRAy+LlN2TCa5hds4wlIMRdn1vwXgQtNHSsTqhI
+2024-12-08 16:52:32,758 - INFO - Default devices and users inserted.
+2024-12-08 16:52:32,758 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 16:52:37,180 - INFO - New connection from ('127.0.0.1', 59593)
+2024-12-08 16:52:57,769 - INFO - Authentication attempt: AUTH testuser 6SwtroyaP6ssF1pjPsodzte1
+2024-12-08 16:52:57,770 - INFO - [DEBUG] Stored password: $argon2id$v=19$m=65536,t=3,p=4$3YoIgvu0U3R51tCznPOALQ$q/rzIRAy+LlN2TCa5hds4wlIMRdn1vwXgQtNHSsTqhI
+2024-12-08 16:52:57,770 - INFO - [DEBUG] Provided password: 6SwtroyaP6ssF1pjPsodzte1
+2024-12-08 16:52:57,830 - INFO - User testuser authenticated successfully.
+2024-12-08 16:52:57,831 - INFO - User 'testuser' authenticated.
+2024-12-08 16:53:01,489 - ERROR - Error handling client ('127.0.0.1', 59593): process_command() missing 1 required positional argument: 'command'
+2024-12-08 16:53:01,489 - INFO - Connection with ('127.0.0.1', 59593) closed.
+2024-12-08 16:56:19,905 - INFO - Initializing database...
+2024-12-08 16:56:19,905 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 16:56:19,906 - INFO - Generated password: ssrn3tssco4dtawsoK&e)!9p
+2024-12-08 16:56:19,975 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$E1JUfmn5Vq7n5PB1suu61w$WMI6ejUR5KLiNnXpO6OdPkQ8cN/e/loWcHRXc5F+hUs
+2024-12-08 16:56:19,975 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$E1JUfmn5Vq7n5PB1suu61w$WMI6ejUR5KLiNnXpO6OdPkQ8cN/e/loWcHRXc5F+hUs
+2024-12-08 16:56:19,984 - INFO - Default devices and users inserted.
+2024-12-08 16:56:19,985 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 16:56:25,160 - INFO - New connection from ('127.0.0.1', 59684)
+2024-12-08 16:56:40,884 - INFO - Authentication attempt: AUTH testuser ssrn3tssco4dtawsoK&e)!9p
+2024-12-08 16:56:40,885 - INFO - [DEBUG] Stored password: $argon2id$v=19$m=65536,t=3,p=4$E1JUfmn5Vq7n5PB1suu61w$WMI6ejUR5KLiNnXpO6OdPkQ8cN/e/loWcHRXc5F+hUs
+2024-12-08 16:56:40,885 - INFO - [DEBUG] Provided password: ssrn3tssco4dtawsoK&e)!9p
+2024-12-08 16:56:40,945 - INFO - User testuser authenticated successfully.
+2024-12-08 16:56:40,945 - INFO - User 'testuser' authenticated.
+2024-12-08 16:56:40,965 - INFO - Connection with ('127.0.0.1', 59684) closed.
+2024-12-08 19:48:02,998 - INFO - Initializing database...
+2024-12-08 19:48:02,999 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 19:48:03,000 - INFO - Generated password: ftswgHsKCtKpaesdoJrN3vr5
+2024-12-08 19:48:03,062 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$6prohDKmsCTsz/bGIgfu1Q$b2B5rt4Nnz2uGzR+TQwGAJwArQS9uMe359SGsst8UIg
+2024-12-08 19:48:03,062 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$6prohDKmsCTsz/bGIgfu1Q$b2B5rt4Nnz2uGzR+TQwGAJwArQS9uMe359SGsst8UIg
+2024-12-08 19:48:03,073 - INFO - Default devices and users inserted.
+2024-12-08 19:48:03,074 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 19:48:15,939 - INFO - New connection from ('127.0.0.1', 61494)
+2024-12-08 19:48:20,157 - INFO - Authentication attempt: AUTH testuser ftswgHsKCtKpaesdoJrN3vr5
+2024-12-08 19:48:20,158 - INFO - [DEBUG] Stored password: $argon2id$v=19$m=65536,t=3,p=4$6prohDKmsCTsz/bGIgfu1Q$b2B5rt4Nnz2uGzR+TQwGAJwArQS9uMe359SGsst8UIg
+2024-12-08 19:48:20,159 - INFO - [DEBUG] Provided password: ftswgHsKCtKpaesdoJrN3vr5
+2024-12-08 19:48:20,224 - INFO - User testuser authenticated successfully.
+2024-12-08 19:48:20,224 - INFO - User 'testuser' authenticated.
+2024-12-08 19:48:20,229 - INFO - Connection with ('127.0.0.1', 61494) closed.
+2024-12-08 19:48:35,955 - INFO - Initializing database...
+2024-12-08 19:48:35,955 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 19:48:35,957 - INFO - Generated password: eor9K5ashs%dspCdjwttTTUK
+2024-12-08 19:48:36,014 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$0MnH7PsNM8z3G8R7E5SMeg$JZxxGVRkTJbmAP3J2l6bqg8qVMDfjs3AAcRSy73AJOY
+2024-12-08 19:48:36,014 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$0MnH7PsNM8z3G8R7E5SMeg$JZxxGVRkTJbmAP3J2l6bqg8qVMDfjs3AAcRSy73AJOY
+2024-12-08 19:48:36,027 - INFO - Default devices and users inserted.
+2024-12-08 19:48:36,028 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 19:48:43,791 - INFO - Initializing database...
+2024-12-08 19:48:43,792 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 19:48:43,792 - INFO - Generated password: #taoawpk4&sytdtceJsrcs3(
+2024-12-08 19:48:43,848 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$QBaJkC9+6KFsNwbiYbz6Yg$6HkZJH6v2QTsw3MOAhX5ls5zCu1brO/ndWX4XFUt+fs
+2024-12-08 19:48:43,849 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$QBaJkC9+6KFsNwbiYbz6Yg$6HkZJH6v2QTsw3MOAhX5ls5zCu1brO/ndWX4XFUt+fs
+2024-12-08 19:48:43,862 - INFO - Default devices and users inserted.
+2024-12-08 19:48:43,862 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 19:48:53,473 - INFO - New connection from ('127.0.0.1', 61510)
+2024-12-08 19:48:59,580 - INFO - Authentication attempt: AUTH testuser #taoawpk4&sytdtceJsrcs3(
+2024-12-08 19:48:59,581 - INFO - [DEBUG] Stored password: $argon2id$v=19$m=65536,t=3,p=4$QBaJkC9+6KFsNwbiYbz6Yg$6HkZJH6v2QTsw3MOAhX5ls5zCu1brO/ndWX4XFUt+fs
+2024-12-08 19:48:59,581 - INFO - [DEBUG] Provided password: #taoawpk4&sytdtceJsrcs3(
+2024-12-08 19:48:59,647 - INFO - User testuser authenticated successfully.
+2024-12-08 19:48:59,647 - INFO - User 'testuser' authenticated.
+2024-12-08 19:48:59,649 - INFO - Connection with ('127.0.0.1', 61510) closed.
+2024-12-08 19:53:14,473 - INFO - Initializing database...
+2024-12-08 19:53:14,474 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 19:53:14,474 - INFO - Generated password: tRr^5psSy8trjdCwaexsAojs
+2024-12-08 19:53:14,530 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$Mx6Okb9dSapBI6kRZrtaZw$WU1QooM7QCKQUJ/ZKqklME/SfQpEW+NqcdyfRDoPnyM
+2024-12-08 19:53:14,530 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$Mx6Okb9dSapBI6kRZrtaZw$WU1QooM7QCKQUJ/ZKqklME/SfQpEW+NqcdyfRDoPnyM
+2024-12-08 19:53:14,541 - INFO - Default devices and users inserted.
+2024-12-08 19:53:14,542 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 19:53:51,798 - INFO - New connection from ('127.0.0.1', 61650)
+2024-12-08 19:53:56,941 - INFO - Authentication attempt: AUTH testuser tRr^5psSy8trjdCwaexsAojs
+2024-12-08 19:53:56,942 - INFO - [DEBUG] Stored password: $argon2id$v=19$m=65536,t=3,p=4$Mx6Okb9dSapBI6kRZrtaZw$WU1QooM7QCKQUJ/ZKqklME/SfQpEW+NqcdyfRDoPnyM
+2024-12-08 19:53:56,942 - INFO - [DEBUG] Provided password: tRr^5psSy8trjdCwaexsAojs
+2024-12-08 19:53:57,003 - INFO - User testuser authenticated successfully.
+2024-12-08 19:53:57,003 - INFO - User 'testuser' authenticated.
+2024-12-08 19:53:57,006 - INFO - Connection with ('127.0.0.1', 61650) closed.
+2024-12-08 19:57:30,935 - INFO - Initializing database...
+2024-12-08 19:57:30,936 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 19:57:30,936 - INFO - Generated password: fs53Otodetasr@bo)tIppwhs
+2024-12-08 19:57:30,996 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$6VEE+VBkhT6GMFOKeG79EQ$JZckDjjT1WRpdkHEXwRIW7kF3Fie+VeamOfcI76OKN8
+2024-12-08 19:57:30,997 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$6VEE+VBkhT6GMFOKeG79EQ$JZckDjjT1WRpdkHEXwRIW7kF3Fie+VeamOfcI76OKN8
+2024-12-08 19:57:31,009 - INFO - Default devices and users inserted.
+2024-12-08 19:57:31,010 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 19:57:38,949 - INFO - New connection from ('127.0.0.1', 61744)
+2024-12-08 19:57:42,670 - INFO - Authentication attempt: AUTH testuser fs53Otodetasr@bo)tIppwhs
+2024-12-08 19:57:42,671 - INFO - [DEBUG] Stored password: $argon2id$v=19$m=65536,t=3,p=4$6VEE+VBkhT6GMFOKeG79EQ$JZckDjjT1WRpdkHEXwRIW7kF3Fie+VeamOfcI76OKN8
+2024-12-08 19:57:42,671 - INFO - [DEBUG] Provided password: fs53Otodetasr@bo)tIppwhs
+2024-12-08 19:57:42,730 - INFO - User testuser authenticated successfully.
+2024-12-08 19:57:42,731 - INFO - User 'testuser' authenticated.
+2024-12-08 19:57:42,732 - INFO - Connection with ('127.0.0.1', 61744) closed.

@@ -11,14 +11,25 @@ def encrypt_message(message, key):
     cipher = AES.new(key, AES.MODE_CBC)
     iv = cipher.iv
     encrypted = cipher.encrypt(pad(message.encode('utf-8'), AES.block_size))
-    return base64.b64encode(iv + encrypted).decode('utf-8')
+    encrypted_message = base64.b64encode(iv + encrypted).decode('utf-8')
+    print(f"[DEBUG] Encrypted Message: {encrypted_message}")
+    return encrypted_message
 
 def decrypt_message(encrypted_message, key):
-    raw_data = base64.b64decode(encrypted_message)
-    iv = raw_data[:16]
-    encrypted = raw_data[16:]
-    cipher = AES.new(key, AES.MODE_CBC, iv)
-    return unpad(cipher.decrypt(encrypted), AES.block_size).decode('utf-8')
+    """
+    Decrypt the given base64-encoded message using AES-CBC.
+    """
+    try:
+        raw_data = base64.b64decode(encrypted_message)
+        iv = raw_data[:16]  # Extract the first 16 bytes as IV
+        encrypted = raw_data[16:]  # Remaining bytes are the ciphertext
+        cipher = AES.new(key, AES.MODE_CBC, iv)
+        decrypted_data = unpad(cipher.decrypt(encrypted), AES.block_size)
+        return decrypted_data.decode('utf-8')  # Decode to UTF-8
+    except (ValueError, UnicodeDecodeError) as e:
+        print(f"[ERROR] Decryption failed: {e}")  # Log decryption errors
+        return "Invalid message received or decryption error"
+
 
 async def start_client():
     HOST = '127.0.0.1'
@@ -80,7 +91,8 @@ async def start_client():
         print(f"[SERVER RESPONSE] {response}")
 
     writer.close()
-
+    await writer.wait_closed()
+    print("[DISCONNECTED] Client connection closed.")
 
 if __name__ == "__main__":
     asyncio.run(start_client())

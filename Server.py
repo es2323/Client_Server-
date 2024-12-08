@@ -7,6 +7,7 @@ from argon2 import PasswordHasher
 import logging
 import random
 import string
+import os 
 
 # Set up logging
 logging.basicConfig(
@@ -33,22 +34,20 @@ def generate_random_password(existing_password, length=12):
     return ''.join(random.sample(combined_password, len(combined_password)))
 
 # Alter the schema if needed (add missing columns)
-def alter_devices_table():
-    conn = sqlite3.connect("smart_home.db")
+def alter_devices_table(conn):
     cursor = conn.cursor()
-    try:
+    cursor.execute("PRAGMA table_info(devices)")
+    columns = [row[1] for row in cursor.fetchall()]  # Extract column names
+    if "speed" not in columns:
         cursor.execute("ALTER TABLE devices ADD COLUMN speed TEXT")
+    if "lock_time" not in columns:
         cursor.execute("ALTER TABLE devices ADD COLUMN lock_time TEXT")
-    except sqlite3.OperationalError as e:
-        logging.info(f"Schema already up-to-date or error: {e}")
     conn.commit()
-    conn.close()
+
 
 # Initialize SQLite Database
-def init_database():
-    conn = sqlite3.connect("smart_home.db")
+def init_database(conn):
     cursor = conn.cursor()
-
     logging.info("Initializing database...")
 
     # Create users table
@@ -71,8 +70,7 @@ def init_database():
     """)
 
     # Alter schema to match new requirements
-    alter_devices_table()
-
+    alter_devices_table(conn)
     logging.info("Tables 'users' and 'devices' created or verified.")
 
     # Generate a random password based on an existing one
@@ -82,6 +80,8 @@ def init_database():
     print(f"Generated Password: {generated_password}")
 
     hashed_password = hash_password(generated_password)
+    logging.info(f"Hashed password stored: {hashed_password}")
+
 
     # Insert default devices
     default_devices = [
@@ -101,7 +101,6 @@ def init_database():
         VALUES (?, ?)
         ON CONFLICT(username) DO UPDATE SET password = excluded.password
     """, ("testuser", hashed_password))
-
 
     conn.commit()
     conn.close()
@@ -132,8 +131,8 @@ def authenticate_user(username, password):
 
         if result:
             stored_password = result[0]
+            logging.info(f"[DEBUG] Stored password: {stored_password}")
             logging.info(f"[DEBUG] Provided password: {password}")
-            logging.info(f"[DEBUG] Stored password for {username}: {stored_password}")
 
             if verify_password(stored_password, password):
                 logging.info(f"User {username} authenticated successfully.")
@@ -144,23 +143,19 @@ def authenticate_user(username, password):
 
 
 # Fetch device state
-def get_device_state(device_name):
-    with sqlite3.connect("smart_home.db") as conn:
-        cursor = conn.cursor()
-        cursor.execute("SELECT state, temperature, speed, lock_time FROM devices WHERE LOWER(name) = LOWER(?)", (device_name,))
-        result = cursor.fetchone()
-        return result
+def get_device_state(conn, device_name):
+    cursor = conn.cursor()
+    cursor.execute("SELECT state, temperature, speed, lock_time FROM devices WHERE LOWER(name) = LOWER(?)", (device_name,))
+    return cursor.fetchone()
 
 # Update device state
-def update_device_state_db(device_name, state=None, temperature=None, speed=None, lock_time=None):
-    with sqlite3.connect("smart_home.db") as conn:
-        cursor = conn.cursor()
-        cursor.execute(
+def update_device_state_db(conn,  device_name, state=None, temperature=None, speed=None, lock_time=None):
+    cursor = conn.cursor()
+    cursor.execute(
             "UPDATE devices SET state = ?, temperature = ?, speed = ?, lock_time = ? WHERE name = ?",
             (state, temperature, speed, lock_time, device_name)
         )
-        conn.commit()
-        conn.close()
+    conn.commit()
 
 # Decrypt message
 def decrypt_message(encrypted_message, key):
@@ -172,13 +167,13 @@ def decrypt_message(encrypted_message, key):
 
 # Encrypt message
 def encrypt_message(message, key):
+    iv = os.urandom(16)
     cipher = AES.new(key, AES.MODE_CBC)
-    iv = cipher.iv
     encrypted = cipher.encrypt(pad(message.encode('utf-8'), AES.block_size))
     return base64.b64encode(iv + encrypted).decode('utf-8')
 
 # Process client commands
-async def process_command(command):
+async def process_command(conn, command):
     try:
         logging.info(f"Received command: {command}")
 
@@ -259,7 +254,7 @@ async def process_command(command):
         return f"Error: {str(e)}"
 
 # Handle client connections
-async def handle_client(reader, writer):
+async def handle_client(reader, writer, conn):
     client_address = writer.get_extra_info('peername')
     logging.info(f"New connection from {client_address}")
 
@@ -307,11 +302,18 @@ async def handle_client(reader, writer):
 
 # Main server loop
 async def main():
-    init_database()
-    server = await asyncio.start_server(handle_client, "127.0.0.1", 12345)
+    conn = sqlite3.connect("smart_home.db")  # Shared connection
+    init_database(conn)  # Pass connection to initialization function
+
+    server = await asyncio.start_server(lambda r, w: handle_client(r, w, conn), "127.0.0.1", 12345)
     logging.info("Server is running on 127.0.0.1:12345")
-    async with server:
-        await server.serve_forever()
+
+    try:
+        async with server:
+            await server.serve_forever()
+    finally:
+        conn.close()  # Ensure connection is closed when server shuts down
+        logging.info("Database connection closed.")
 
 if __name__ == "__main__":
     asyncio.run(main())
