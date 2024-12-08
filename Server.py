@@ -95,14 +95,16 @@ def init_database():
     cursor.executemany("INSERT OR IGNORE INTO devices VALUES (?, ?, ?, ?, ?)", default_devices)
 
     # Insert default user with hashed password
-    default_users = [
-        ("bob", hashed_password)
-    ]
-    cursor.executemany("INSERT OR IGNORE INTO users VALUES (?, ?)", default_users)
+# Insert or Update the default user
+    cursor.execute("""
+        INSERT INTO users (username, password)
+        VALUES (?, ?)
+        ON CONFLICT(username) DO UPDATE SET password = excluded.password
+    """, ("testuser", hashed_password))
+
 
     conn.commit()
     conn.close()
-
     logging.info("Default devices and users inserted.")
 
 

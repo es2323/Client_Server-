@@ -388,3 +388,87 @@
 2024-12-07 16:28:16,388 - WARNING - Password verification failed for bob.
 2024-12-07 16:28:16,389 - WARNING - User 'bob' failed authentication.
 2024-12-07 16:28:16,390 - INFO - Connection with ('127.0.0.1', 62864) closed.
+2024-12-08 16:08:20,560 - INFO - Initializing database...
+2024-12-08 16:08:20,562 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-08 16:08:20,562 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 16:08:20,562 - INFO - Generated password: stLitmoRrdas5ZctsLwT(epc
+2024-12-08 16:08:20,647 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$u1cH/YDEZ9FM4WTP06W/5w$BzYBdZgywJIaWt4b7IUOcLHbQuGl4HMVv06v+eeNIuQ
+2024-12-08 16:08:20,648 - INFO - Default devices and users inserted.
+2024-12-08 16:08:20,649 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 16:08:56,897 - INFO - Initializing database...
+2024-12-08 16:08:56,898 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-08 16:08:56,898 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 16:08:56,898 - INFO - Generated password: MSrtspAQdLsZtse!owEt(1da
+2024-12-08 16:08:56,986 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$aih2BgVqb7Ih6vsMlAkhtg$fRZYQzory7CAsLeAkunB1Fxr+6vensHVvPaI8ENAptY
+2024-12-08 16:08:56,987 - INFO - Default devices and users inserted.
+2024-12-08 16:08:56,989 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 16:09:02,192 - INFO - New connection from ('127.0.0.1', 57034)
+2024-12-08 16:09:19,083 - INFO - Authentication attempt: AUTH testuser MSrtspAQdLsZtse!owEt(1da
+2024-12-08 16:09:19,088 - INFO - [DEBUG] Provided password: MSrtspAQdLsZtse!owEt(1da
+2024-12-08 16:09:19,089 - INFO - [DEBUG] Stored password for testuser: $argon2id$v=19$m=65536,t=3,p=4$fub5bIwK0h06xgNLaNnBiQ$Fx3g73ekCELpByX27V7deGxyoZkj1tyqqXqzZ9MiHNU
+2024-12-08 16:09:19,178 - WARNING - Password verification failed for testuser.
+2024-12-08 16:09:19,178 - WARNING - User 'testuser' failed authentication.
+2024-12-08 16:09:19,179 - INFO - Connection with ('127.0.0.1', 57034) closed.
+2024-12-08 16:09:28,422 - INFO - New connection from ('127.0.0.1', 57042)
+2024-12-08 16:09:36,968 - INFO - Authentication attempt: AUTH testuser testpassword
+2024-12-08 16:09:36,969 - INFO - [DEBUG] Provided password: testpassword
+2024-12-08 16:09:36,970 - INFO - [DEBUG] Stored password for testuser: $argon2id$v=19$m=65536,t=3,p=4$fub5bIwK0h06xgNLaNnBiQ$Fx3g73ekCELpByX27V7deGxyoZkj1tyqqXqzZ9MiHNU
+2024-12-08 16:09:37,058 - INFO - User testuser authenticated successfully.
+2024-12-08 16:09:37,058 - INFO - User 'testuser' authenticated.
+2024-12-08 16:15:12,338 - INFO - Initializing database...
+2024-12-08 16:15:12,340 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-08 16:15:12,340 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 16:15:12,340 - INFO - Generated password: #Vsswsopa!reZp3dXwZktYQt
+2024-12-08 16:15:12,429 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$YDZJ6NYuFvfehdyGKvLeHg$R2w+b34pvEE5nPaoF7gdDI0Bvyu6Ol8IE+HhoUZeLjQ
+2024-12-08 16:17:08,209 - INFO - Initializing database...
+2024-12-08 16:17:08,211 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-08 16:17:08,211 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 16:17:08,211 - INFO - Generated password: %srt)rWod5etkssDGha$twpp
+2024-12-08 16:17:08,302 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$1TMFQhLf2ZzxtxrI0pJQhw$1xCiWwC1r9I5iZdycvvCNv3Zf1YcyzIbXtuzSN4HAlE
+2024-12-08 16:17:08,316 - INFO - Default devices and users inserted.
+2024-12-08 16:17:08,317 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 16:17:17,123 - INFO - New connection from ('127.0.0.1', 57161)
+2024-12-08 16:17:22,377 - INFO - Authentication attempt: AUTH testuser %srt)rWod5etkssDGha$twpp
+2024-12-08 16:17:22,379 - INFO - [DEBUG] Provided password: %srt)rWod5etkssDGha$twpp
+2024-12-08 16:17:22,379 - INFO - [DEBUG] Stored password for testuser: $argon2id$v=19$m=65536,t=3,p=4$1TMFQhLf2ZzxtxrI0pJQhw$1xCiWwC1r9I5iZdycvvCNv3Zf1YcyzIbXtuzSN4HAlE
+2024-12-08 16:17:22,471 - INFO - User testuser authenticated successfully.
+2024-12-08 16:17:22,472 - INFO - User 'testuser' authenticated.
+2024-12-08 16:17:31,273 - INFO - Received command: light on
+2024-12-08 16:17:31,274 - INFO - Device name: light, Action: on
+2024-12-08 16:17:31,292 - ERROR - Error processing command: Cannot operate on a closed database.
+2024-12-08 16:17:42,106 - INFO - Received command: light off
+2024-12-08 16:17:42,107 - INFO - Device name: light, Action: off
+2024-12-08 16:17:42,120 - ERROR - Error processing command: Cannot operate on a closed database.
+2024-12-08 16:18:11,369 - INFO - Initializing database...
+2024-12-08 16:18:11,371 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-08 16:18:11,371 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 16:18:11,372 - INFO - Generated password: rp*JaAtseasmCwdt(tsJa#do
+2024-12-08 16:18:11,472 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$98/0IDHl6OWgLg6VBpddSA$x2epZ7gZ6mZh9SIgwpWEGMBlAhpxQlJ0h5yrF8AMGNU
+2024-12-08 16:18:11,483 - INFO - Default devices and users inserted.
+2024-12-08 16:18:11,484 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 16:18:17,667 - INFO - New connection from ('127.0.0.1', 57193)
+2024-12-08 16:18:25,047 - INFO - Authentication attempt: AUTH testuser testpassword
+2024-12-08 16:18:25,049 - INFO - [DEBUG] Provided password: testpassword
+2024-12-08 16:18:25,049 - INFO - [DEBUG] Stored password for testuser: $argon2id$v=19$m=65536,t=3,p=4$98/0IDHl6OWgLg6VBpddSA$x2epZ7gZ6mZh9SIgwpWEGMBlAhpxQlJ0h5yrF8AMGNU
+2024-12-08 16:18:25,144 - WARNING - Password verification failed for testuser.
+2024-12-08 16:18:25,145 - WARNING - User 'testuser' failed authentication.
+2024-12-08 16:18:25,145 - INFO - Connection with ('127.0.0.1', 57193) closed.
+2024-12-08 16:18:30,350 - INFO - New connection from ('127.0.0.1', 57197)
+2024-12-08 16:18:52,651 - INFO - Initializing database...
+2024-12-08 16:18:52,654 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-08 16:18:52,654 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 16:18:52,654 - INFO - Generated password: K0doJ^tssps@t9uCCeawn&rC
+2024-12-08 16:18:52,753 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$o81qGmV7Xo+LdwUhCa83kg$3iDE+BW8r40NpdgPoI5Y8G020Niq9tLu7wr2GaQ12To
+2024-12-08 16:18:52,766 - INFO - Default devices and users inserted.
+2024-12-08 16:18:52,767 - INFO - Server is running on 127.0.0.1:12345
+2024-12-08 16:19:02,123 - INFO - New connection from ('127.0.0.1', 57213)
+2024-12-08 16:19:06,950 - INFO - Authentication attempt: AUTH testuser K0doJ^tssps@t9uCCeawn&rC
+2024-12-08 16:19:06,951 - INFO - [DEBUG] Provided password: K0doJ^tssps@t9uCCeawn&rC
+2024-12-08 16:19:06,952 - INFO - [DEBUG] Stored password for testuser: $argon2id$v=19$m=65536,t=3,p=4$o81qGmV7Xo+LdwUhCa83kg$3iDE+BW8r40NpdgPoI5Y8G020Niq9tLu7wr2GaQ12To
+2024-12-08 16:19:07,050 - INFO - User testuser authenticated successfully.
+2024-12-08 16:19:07,050 - INFO - User 'testuser' authenticated.
+2024-12-08 16:19:10,437 - INFO - Received command: light o
+2024-12-08 16:19:10,438 - INFO - Device name: light, Action: o
+2024-12-08 16:19:14,147 - INFO - Received command: light on
+2024-12-08 16:19:14,148 - INFO - Device name: light, Action: on
+2024-12-08 16:19:14,161 - ERROR - Error processing command: Cannot operate on a closed database.
