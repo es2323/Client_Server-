@@ -581,3 +581,66 @@
 2024-12-08 19:57:42,730 - INFO - User testuser authenticated successfully.
 2024-12-08 19:57:42,731 - INFO - User 'testuser' authenticated.
 2024-12-08 19:57:42,732 - INFO - Connection with ('127.0.0.1', 61744) closed.
+2024-12-08 22:51:37,121 - INFO - Initializing database...
+2024-12-08 22:51:37,122 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 22:52:51,797 - INFO - Initializing database...
+2024-12-08 22:52:51,798 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 22:53:00,535 - INFO - Initializing database...
+2024-12-08 22:53:00,536 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 22:54:07,045 - INFO - Initializing database...
+2024-12-08 22:54:07,047 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 22:54:07,047 - INFO - Generated password: rsosSd92se7bwGCsatseVPtp
+2024-12-08 22:54:07,105 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$CBbh9RvW5ekHGQjPMS3QMA$4JRj2wRRWupcTJxapSWdWRSxdq2YxagEwxkWofE/R5Y
+2024-12-08 22:54:07,118 - INFO - Default devices and users inserted.
+2024-12-08 22:54:07,190 - INFO - Assigned credentials: Username: user2332, Password: togycsAdeFwodPepaFstrsAR
+2024-12-08 22:54:07,191 - INFO - Server running on 127.0.0.1:12345
+2024-12-08 22:56:12,280 - INFO - Connection from ('127.0.0.1', 50690)
+2024-12-08 22:56:38,211 - ERROR - Error handling client ('127.0.0.1', 50690): Cannot operate on a closed database.
+2024-12-08 23:00:22,305 - INFO - Initializing database...
+2024-12-08 23:00:22,306 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 23:00:22,306 - INFO - Generated password: eodsQRWxws@DsmattJrxpsdf
+2024-12-08 23:00:22,366 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$jzmu3Db61v5NhjKdde/m/g$eUE50gdFKCocWRL6CDoYYzaw5K8nJ6wQwN7+4bpvtiI
+2024-12-08 23:00:22,374 - INFO - Default devices and users inserted.
+2024-12-08 23:00:22,437 - INFO - Assigned credentials: Username: user4319, Password: EejgTatYosXsw0tBdsrS6p3T
+2024-12-08 23:00:22,438 - INFO - Server running on 127.0.0.1:12345
+2024-12-08 23:00:30,554 - INFO - Connection from ('127.0.0.1', 50876)
+2024-12-08 23:01:06,065 - ERROR - Error handling client ('127.0.0.1', 50876): Cannot operate on a closed database.
+2024-12-08 23:03:40,728 - INFO - Initializing database...
+2024-12-08 23:03:40,729 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 23:03:40,729 - INFO - Generated password: UudcjrssTJp2etoo3tsawcwL
+2024-12-08 23:03:40,790 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$xJZL2fSRCGnOpBoAfIB1gQ$IwaPhruQY8JpkfqUPwVnCGYsck5V56h7u9zc2zCHi/o
+2024-12-08 23:03:40,801 - INFO - Default devices and users inserted.
+2024-12-08 23:03:40,867 - INFO - Assigned credentials: Username: user5102, Password: gLpjeG%aGss%rtFwptsoZdKM
+2024-12-08 23:03:40,868 - INFO - Server running on 127.0.0.1:12345
+2024-12-08 23:03:46,110 - INFO - Connection from ('127.0.0.1', 50934)
+2024-12-08 23:04:03,087 - ERROR - Error handling client ('127.0.0.1', 50934): Cannot operate on a closed database.
+2024-12-08 23:05:16,179 - INFO - Initializing database...
+2024-12-08 23:05:16,180 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 23:05:16,180 - INFO - Generated password: f2W6c1@dteuwatTors1Jssp%
+2024-12-08 23:05:16,239 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$Kz+UbKdgFfO7XeVO1jklZQ$NvdtQivYze9q8FRnkoir1MMapu/Sr1h2C71dKZm8sqQ
+2024-12-08 23:05:16,253 - INFO - Default devices and users inserted.
+2024-12-08 23:05:16,328 - INFO - Assigned credentials: Username: user1185, Password: orsefxl@6#2jtspRtKasHtdw
+2024-12-08 23:05:16,329 - INFO - Server running on 127.0.0.1:12345
+2024-12-08 23:05:22,693 - INFO - Connection from ('127.0.0.1', 50966)
+2024-12-08 23:05:32,273 - ERROR - Error handling client ('127.0.0.1', 50966): Cannot operate on a closed database.
+2024-12-08 23:06:02,814 - INFO - Initializing database...
+2024-12-08 23:06:02,816 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 23:06:02,816 - INFO - Generated password: 7Sucasspw5otxRbetFrkdHQs
+2024-12-08 23:06:02,873 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$+thZS99/mHEdXhVL7EJ/5Q$zpzjvtJk8z+cnAvtLDtJBGga1clPv7/X0eT1WAIlWus
+2024-12-08 23:06:02,890 - INFO - Default devices and users inserted.
+2024-12-08 23:06:02,963 - INFO - Assigned credentials: Username: user7965, Password: efYtt)rsdcWts7sm%sap*wox
+2024-12-08 23:06:02,964 - INFO - Server running on 127.0.0.1:12345
+2024-12-08 23:06:08,822 - INFO - Connection from ('127.0.0.1', 50985)
+2024-12-08 23:06:20,356 - ERROR - Error handling client ('127.0.0.1', 50985): Cannot operate on a closed database.
+2024-12-08 23:09:08,006 - INFO - Initializing database...
+2024-12-08 23:09:08,006 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-08 23:09:08,006 - INFO - Generated password: wdostLeN4pwdHMassPtwrsm%
+2024-12-08 23:09:08,067 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$unwkCsubQhBKpQoh2j7lfQ$ZOBb4W19BHAwIEKIjBxTzPBhIm0rN8naQRyUcXkE7fw
+2024-12-08 23:09:08,080 - INFO - Default devices and users inserted.
+2024-12-08 23:09:08,146 - INFO - Assigned credentials: Username: user5401, Password: teoVP(rwest@pGmC3mspsTda
+2024-12-08 23:09:08,147 - INFO - Server running on 127.0.0.1:12345
+2024-12-08 23:09:16,710 - INFO - New connection from ('127.0.0.1', 51051)
+2024-12-08 23:09:37,401 - INFO - Received raw encrypted authentication message: b'rRRWbwRUYVIMH5QO3auqEA7RPUCjqeSHXnXlNgYBdDLADM8xOGtAALYaZ9VwFH5Oa6+DGYHR55GQLRhhbosFMQ=='
+2024-12-08 23:09:37,404 - INFO - Decrypted authentication message: AUTH user5401 teoVP(rwest@pGmC3mspsTda
+2024-12-08 23:09:37,464 - ERROR - Client handling error: Cannot operate on a closed database.
+2024-12-08 23:09:37,465 - INFO - Connection with ('127.0.0.1', 51051) closed.

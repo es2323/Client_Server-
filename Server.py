@@ -23,15 +23,35 @@ logging.basicConfig(
 raw_key = b'my_secret_key_too_long!'
 SECRET_KEY = raw_key[:16]
 
-# Function to generate a random strong password
-def generate_random_password(existing_password, length=12):
-    # Generate a random string password of specified length
+# Helper Functions
+def generate_random_username():
+    """Generate a random username."""
+    return f"user{random.randint(1000, 9999)}"
+
+def generate_random_password(existing_password="testpassword", length=12):
+    """Generate a strong random password with a specified length."""
+    if not isinstance(length, int):  
+        logging.info(f"Invalid length provided: {length}. Using default length of 12.")
+        length = 12  # Fallback to 12 if an incorrect value is provided
+
     chars = string.ascii_letters + string.digits + "!@#$%^&*()"
     random_password = ''.join(random.choice(chars) for _ in range(length))
 
-    # Combine existing password with random characters
     combined_password = existing_password + random_password
     return ''.join(random.sample(combined_password, len(combined_password)))
+
+def hash_password(password):
+    """Hash the password using Argon2."""
+    ph = PasswordHasher()
+    return ph.hash(password)
+
+def verify_password(stored_password, provided_password):
+    """Verify the password."""
+    ph = PasswordHasher()
+    try:
+        return ph.verify(stored_password, provided_password)
+    except Exception:
+        return False
 
 # Alter the schema if needed (add missing columns)
 def alter_devices_table(conn):
@@ -106,21 +126,19 @@ def init_database(conn):
     conn.close()
     logging.info("Default devices and users inserted.")
 
+# Assign Temporary Credentials
+def assign_temporary_credentials():
+    username = generate_random_username()
+    password = generate_random_password()
+    hashed_password = hash_password(password)
 
-# Hash a password using Argon2
-def hash_password(password):
-    ph = PasswordHasher()
-    hashed_password = ph.hash(password)
-    logging.info(f"Hashed password: {hashed_password}")  # Log the hashed password
-    return hashed_password
+    conn = sqlite3.connect("smart_home.db")
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password))
+    conn.commit()
+    conn.close()
 
-# Verify a password using Argon2
-def verify_password(stored_password, provided_password):
-    ph = PasswordHasher()
-    try:
-        return ph.verify(stored_password, provided_password)
-    except Exception:
-        return False
+    return username, password
 
 # Authenticate a user
 def authenticate_user(username, password):
@@ -128,18 +146,19 @@ def authenticate_user(username, password):
         cursor = conn.cursor()
         cursor.execute("SELECT password FROM users WHERE username = ?", (username,))
         result = cursor.fetchone()
+        conn.close()
 
         if result:
-            stored_password = result[0]
-            logging.info(f"[DEBUG] Stored password: {stored_password}")
-            logging.info(f"[DEBUG] Provided password: {password}")
-
-            if verify_password(stored_password, password):
-                logging.info(f"User {username} authenticated successfully.")
-                return True
-            else:
-                logging.warning(f"Password verification failed for {username}.")
+            return verify_password(result[0], password)
         return False
+
+def update_password(username, new_password):
+    hashed_password = hash_password(new_password)
+    conn = sqlite3.connect("smart_home.db")
+    cursor = conn.cursor()
+    cursor.execute("UPDATE users SET password = ? WHERE username = ?", (hashed_password, username))
+    conn.commit()
+    conn.close()
 
 
 # Fetch device state
@@ -159,16 +178,29 @@ def update_device_state_db(conn,  device_name, state=None, temperature=None, spe
 
 # Decrypt message
 def decrypt_message(encrypted_message, key):
-    raw_data = base64.b64decode(encrypted_message)
-    iv = raw_data[:16]
-    encrypted = raw_data[16:]
-    cipher = AES.new(key, AES.MODE_CBC, iv)
-    return unpad(cipher.decrypt(encrypted), AES.block_size).decode('utf-8')
+    try:
+        raw_data = base64.b64decode(encrypted_message)
+        
+        # Ensure message contains at least 16 bytes (IV length)
+        if len(raw_data) < 16:
+            raise ValueError("Received message is too short to contain a valid IV.")
+
+        iv = raw_data[:16]  # Extract IV
+        encrypted = raw_data[16:]  # Extract encrypted message content
+
+        cipher = AES.new(key, AES.MODE_CBC, iv)
+        decrypted_data = unpad(cipher.decrypt(encrypted), AES.block_size)
+
+        return decrypted_data.decode('utf-8')  # Convert decrypted data back to string
+    except (ValueError, UnicodeDecodeError, base64.binascii.Error) as e:
+        logging.error(f"Server decryption error: {e}")
+        return "Invalid message received or decryption error"
+
 
 # Encrypt message
 def encrypt_message(message, key):
     iv = os.urandom(16)
-    cipher = AES.new(key, AES.MODE_CBC)
+    cipher = AES.new(key, AES.MODE_CBC, iv)
     encrypted = cipher.encrypt(pad(message.encode('utf-8'), AES.block_size))
     return base64.b64encode(iv + encrypted).decode('utf-8')
 
@@ -253,29 +285,24 @@ async def process_command(conn, command):
         logging.error(f"Error processing command: {e}")
         return f"Error: {str(e)}"
 
-# Handle client connections
-async def handle_client(reader, writer, conn):
+async def handle_client(reader, writer):
     client_address = writer.get_extra_info('peername')
     logging.info(f"New connection from {client_address}")
 
     try:
         encrypted_auth_message = await reader.read(1024)
+        logging.info(f"Received raw encrypted authentication message: {encrypted_auth_message}")
+
         auth_message = decrypt_message(encrypted_auth_message.decode('utf-8'), SECRET_KEY)
-        logging.info(f"Authentication attempt: {auth_message}")
+        logging.info(f"Decrypted authentication message: {auth_message}")
 
         if auth_message.startswith("AUTH"):
             _, username, password = auth_message.split(' ')
             if authenticate_user(username, password):
                 response = "Authentication successful"
-                logging.info(f"User '{username}' authenticated.")
+                logging.info(f"User '{username}' authenticated successfully.")
             else:
                 response = "Authentication failed"
-                logging.warning(f"User '{username}' failed authentication.")
-                encrypted_response = encrypt_message(response, SECRET_KEY)
-                writer.write(encrypted_response.encode('utf-8'))
-                await writer.drain()
-                writer.close()
-                return
 
             encrypted_response = encrypt_message(response, SECRET_KEY)
             writer.write(encrypted_response.encode('utf-8'))
@@ -287,7 +314,11 @@ async def handle_client(reader, writer, conn):
                 break
 
             encrypted_message = data.decode('utf-8')
+            logging.info(f"Received encrypted client command: {encrypted_message}")
+
             command = decrypt_message(encrypted_message, SECRET_KEY)
+            logging.info(f"Decrypted client command: {command}")
+
             response = await process_command(command)
             encrypted_response = encrypt_message(response, SECRET_KEY)
 
@@ -295,25 +326,24 @@ async def handle_client(reader, writer, conn):
             await writer.drain()
 
     except Exception as e:
-        logging.error(f"Error handling client {client_address}: {e}")
+        logging.error(f"Client handling error: {e}")
     finally:
         writer.close()
         logging.info(f"Connection with {client_address} closed.")
 
+
 # Main server loop
 async def main():
-    conn = sqlite3.connect("smart_home.db")  # Shared connection
-    init_database(conn)  # Pass connection to initialization function
+    conn = sqlite3.connect("smart_home.db")
+    init_database(conn)
+    username, temp_password = assign_temporary_credentials()
+    logging.info(f"Assigned credentials: Username: {username}, Password: {temp_password}")
+    print(f"Temporary Credentials - Username: {username}, Password: {temp_password}")
 
-    server = await asyncio.start_server(lambda r, w: handle_client(r, w, conn), "127.0.0.1", 12345)
-    logging.info("Server is running on 127.0.0.1:12345")
-
-    try:
-        async with server:
-            await server.serve_forever()
-    finally:
-        conn.close()  # Ensure connection is closed when server shuts down
-        logging.info("Database connection closed.")
+    server = await asyncio.start_server(handle_client, "127.0.0.1", 12345)
+    logging.info("Server running on 127.0.0.1:12345")
+    async with server:
+        await server.serve_forever()
 
 if __name__ == "__main__":
     asyncio.run(main())
