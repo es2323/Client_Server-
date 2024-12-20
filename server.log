@@ -644,3 +644,531 @@
 2024-12-08 23:09:37,404 - INFO - Decrypted authentication message: AUTH user5401 teoVP(rwest@pGmC3mspsTda
 2024-12-08 23:09:37,464 - ERROR - Client handling error: Cannot operate on a closed database.
 2024-12-08 23:09:37,465 - INFO - Connection with ('127.0.0.1', 51051) closed.
+2024-12-17 16:03:27,930 - INFO - Initializing database...
+2024-12-17 16:03:27,937 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-17 16:03:27,938 - INFO - Generated password: t@shc6YgxdVpoaesrX%Uxwst
+2024-12-17 16:03:28,024 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$M4syqQdTRkHM1kjiom/fmQ$d7iX92XNr327nmqjIn6O+MQidik07GBf7w2cU0PZIzc
+2024-12-17 16:03:28,036 - INFO - Default devices and users inserted.
+2024-12-17 16:03:28,124 - INFO - Assigned credentials: Username: user2135, Password: Y@wa4rUie1dKssHoKPtst9pR
+2024-12-17 16:03:28,125 - INFO - Server running on 127.0.0.1:12345
+2024-12-17 16:03:48,017 - INFO - New connection from ('127.0.0.1', 58749)
+2024-12-17 16:04:07,685 - INFO - Received raw encrypted authentication message: b'5XYnhnvtVZgF83W095VyesFXNi2YdKtg6eMZN79Uzx8/P203HOcV/RkE0xyeTl5UJViH5ZUbGNKdzEk5NLmhIA=='
+2024-12-17 16:04:07,688 - INFO - Decrypted authentication message: AUTH user2135 Y@wa4rUie1dKssHoKPtst9pR
+2024-12-17 16:04:07,784 - ERROR - Client handling error: Cannot operate on a closed database.
+2024-12-17 16:04:07,785 - INFO - Connection with ('127.0.0.1', 58749) closed.
+2024-12-17 16:29:49,896 - INFO - Initializing database...
+2024-12-17 16:29:49,898 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-17 16:29:49,898 - INFO - Default devices and users inserted.
+2024-12-17 16:29:50,013 - INFO - Assigned credentials: Username: user7875, Password: 6pzjs81fznc5
+2024-12-17 16:29:50,016 - INFO - Server running on 127.0.0.1:12345
+2024-12-17 16:29:57,478 - INFO - New connection from ('127.0.0.1', 59711)
+2024-12-17 16:30:18,387 - INFO - Received raw encrypted authentication message: b''
+2024-12-17 16:30:18,387 - ERROR - Server decryption error: Received message is too short to contain a valid IV.
+2024-12-17 16:30:18,388 - INFO - Decrypted authentication message: Invalid message received or decryption error
+2024-12-17 16:30:18,388 - INFO - Connection with ('127.0.0.1', 59711) closed.
+2024-12-17 16:30:50,720 - INFO - Initializing database...
+2024-12-17 16:30:50,721 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-17 16:30:50,722 - INFO - Default devices and users inserted.
+2024-12-17 16:30:50,851 - INFO - Assigned credentials: Username: user6181, Password: fvyuq7kvpico
+2024-12-17 16:30:50,853 - INFO - Server running on 127.0.0.1:12345
+2024-12-17 16:30:59,092 - INFO - New connection from ('127.0.0.1', 59732)
+2024-12-17 16:31:08,235 - INFO - Received raw encrypted authentication message: b'zEzuAm6yi5vBmYG06Fuqxq7x1VeCxRMCix5q6lyzk/KpGmSgYXUjkTPkheAafkJD'
+2024-12-17 16:31:08,237 - INFO - Decrypted authentication message: AUTH user6181 fvyuq7kvpico
+2024-12-17 16:31:08,328 - INFO - User 'user6181' authenticated successfully.
+2024-12-17 16:31:19,399 - INFO - Received encrypted client command: tmIvI8XWJz+zM1Q5vqymSZSuQzUVvYypX7LuT9wIQAulry9wXyxv+wOflh2bFsYmidR6+iJH0DOr8nqibNRVnv2YfvaTYDxheSx5xWS9LeM=
+2024-12-17 16:31:19,399 - INFO - Decrypted client command: CHANGE_PASSWORD user6181 fvyuq7kvpico blackpoint101
+2024-12-17 16:31:19,400 - ERROR - Client handling error: process_command() missing 1 required positional argument: 'command'
+2024-12-17 16:31:19,400 - INFO - Connection with ('127.0.0.1', 59732) closed.
+2024-12-17 16:42:08,476 - INFO - Server running on 127.0.0.1:12345
+2024-12-17 16:42:31,530 - INFO - Server running on 127.0.0.1:12345
+2024-12-17 16:42:37,713 - INFO - New connection from ('127.0.0.1', 59953)
+2024-12-17 16:42:37,822 - INFO - [INFO] Sent temporary credentials to user8095
+2024-12-17 16:42:47,684 - INFO - Received command from user8095: user8059
+2024-12-17 16:42:55,775 - INFO - Received command from user8095: light on
+2024-12-17 16:43:00,629 - INFO - Received command from user8095: light off
+2024-12-17 16:43:02,924 - INFO - Received command from user8095: help
+2024-12-17 16:43:32,034 - INFO - Initializing database...
+2024-12-17 16:43:32,035 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-17 16:43:32,036 - INFO - Default devices and users inserted.
+2024-12-17 16:43:32,132 - INFO - Assigned credentials: Username: user3397, Password: 9xpe5ddovvzp
+2024-12-17 16:43:32,133 - INFO - Server running on 127.0.0.1:12345
+2024-12-17 16:43:52,582 - INFO - New connection from ('127.0.0.1', 59999)
+2024-12-17 16:44:09,763 - INFO - Received raw encrypted authentication message: b'5aMlKVINcRtX9yhTvdBLxMGf9nredr4zaqylwwNqYWbqFnZo2Wupu+E0KTLSfI8R'
+2024-12-17 16:44:09,766 - INFO - Decrypted authentication message: AUTH user3397 9xpe5ddovvzp
+2024-12-17 16:44:09,868 - INFO - User 'user3397' authenticated successfully.
+2024-12-17 16:44:21,695 - INFO - Received encrypted client command: E3OytzyMQPnH12BF1Ctu1VQtKqzc+fkOtjDUXiuHpYbbtH1o5iBjLdjVxjP8EBnfjUuLfGUlj3YGdwZkSVlIrtCxKHEX/iz2yKj9PAHCXgI=
+2024-12-17 16:44:21,696 - INFO - Decrypted client command: CHANGE_PASSWORD user3397 9xpe5ddovvzp blankpoint101
+2024-12-17 16:44:21,696 - ERROR - Client handling error: process_command() missing 1 required positional argument: 'command'
+2024-12-17 16:44:21,696 - INFO - Connection with ('127.0.0.1', 59999) closed.
+2024-12-17 16:55:14,826 - INFO - Initializing database...
+2024-12-17 16:55:14,828 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-17 16:55:14,828 - INFO - Default devices and users inserted.
+2024-12-17 16:56:03,759 - INFO - Initializing database...
+2024-12-17 16:56:03,761 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-17 16:56:03,761 - INFO - Default devices and users inserted.
+2024-12-17 16:56:03,870 - INFO - Assigned credentials: Username: user5374, Password: grpqf69nacmk
+2024-12-17 16:56:03,871 - INFO - Server running on 127.0.0.1:12345
+2024-12-17 16:56:08,764 - INFO - New connection from ('127.0.0.1', 61764)
+2024-12-17 16:56:23,394 - INFO - Received command: AUTH user5374 grpqf69nacmk
+2024-12-17 16:56:35,663 - INFO - Received command: light on
+2024-12-17 16:56:40,857 - INFO - Received command: light off
+2024-12-17 16:56:47,298 - INFO - Received command: fan on
+2024-12-17 16:56:51,148 - INFO - Received command: fan off
+2024-12-17 17:03:31,732 - INFO - Initializing database...
+2024-12-17 17:03:31,734 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-17 17:03:31,735 - INFO - Default devices and users inserted.
+2024-12-17 17:03:31,854 - INFO - Assigned credentials: Username: user4283, Password: u2bcf3t46yw3
+2024-12-17 17:03:31,856 - INFO - Server running on 127.0.0.1:12345
+2024-12-17 17:03:40,649 - INFO - New connection from ('127.0.0.1', 62251)
+2024-12-17 17:03:58,260 - INFO - Received decrypted client command: CHANGE_PASSWORD user4283 u2bcf3t46yw3 lightbulb
+2024-12-17 17:04:04,912 - INFO - Received decrypted client command: light on
+2024-12-17 17:04:08,688 - INFO - Received decrypted client command: light off
+2024-12-17 17:04:13,606 - INFO - Received decrypted client command: fan on
+2024-12-17 17:19:47,991 - INFO - Initializing database...
+2024-12-17 17:19:47,992 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-17 17:19:47,993 - INFO - Default devices and users inserted.
+2024-12-17 17:19:48,100 - INFO - Assigned credentials: Username: user8587, Password: r5j6rltn6n9f
+2024-12-17 17:19:48,101 - INFO - Server running on 127.0.0.1:12345
+2024-12-17 17:19:52,993 - INFO - New connection from ('127.0.0.1', 62695)
+2024-12-17 17:20:15,782 - INFO - Received decrypted client command: CHANGE_PASSWORD user8587 r5j6rltn6n9f uhduwhdiwu
+2024-12-17 17:20:20,421 - INFO - Received decrypted client command: light on
+2024-12-17 17:20:23,380 - INFO - Received decrypted client command: fan on
+2024-12-17 17:20:30,764 - INFO - Received decrypted client command: thermostat set 234
+2024-12-18 19:01:23,117 - INFO - Initializing database...
+2024-12-18 19:01:23,118 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-18 19:01:23,118 - INFO - Default devices and users inserted.
+2024-12-18 19:01:23,217 - INFO - Assigned credentials: Username: user4877, Password: kgoqwck59ze9
+2024-12-18 19:01:23,219 - INFO - Server running on 127.0.0.1:12345
+2024-12-18 19:01:32,123 - INFO - New connection from ('127.0.0.1', 54788)
+2024-12-18 19:01:52,433 - INFO - Received decrypted client command: CHANGE_PASSWORD user4877 kgoqwck59ze9 treoere4343$
+2024-12-18 19:01:57,274 - INFO - Received decrypted client command: light on
+2024-12-18 19:10:24,592 - INFO - Initializing database...
+2024-12-18 19:10:24,593 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-18 19:10:24,593 - INFO - Default devices and users inserted.
+2024-12-18 19:10:24,703 - INFO - Assigned credentials: Username: user5379, Password: rpl7v89he6ly
+2024-12-18 19:10:24,705 - INFO - Server running on 127.0.0.1:12345
+2024-12-18 19:10:30,592 - INFO - New connection from ('127.0.0.1', 54999)
+2024-12-18 19:10:45,031 - INFO - Received decrypted client command: CHANGE_PASSWORD user5379 rpl7v89he6ly lfedfji455
+2024-12-18 19:10:47,393 - INFO - Received decrypted client command: light on
+2024-12-18 19:10:52,250 - INFO - Received decrypted client command: light off 
+2024-12-18 19:11:25,326 - INFO - Initializing database...
+2024-12-18 19:11:25,328 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-18 19:11:25,329 - INFO - Default devices and users inserted.
+2024-12-18 19:11:25,432 - INFO - Assigned credentials: Username: user5965, Password: 3ge6dkjqwvu4
+2024-12-18 19:11:25,433 - INFO - Server running on 127.0.0.1:12345
+2024-12-18 19:11:31,587 - ERROR - Exception in callback StreamReaderProtocol.connection_made(<_ProactorSoc...nsport fd=388>)
+handle: <Handle StreamReaderProtocol.connection_made(<_ProactorSoc...nsport fd=388>)>
+Traceback (most recent call last):
+  File "C:\msys64\ucrt64\lib\python3.11\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\msys64\ucrt64\lib\python3.11\asyncio\streams.py", line 245, in connection_made
+    res = self._client_connected_cb(reader,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: handle_client() missing 1 required positional argument: 'writer'
+2024-12-18 19:12:33,940 - INFO - Initializing database...
+2024-12-18 19:12:33,941 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-18 19:12:33,942 - INFO - Default devices and users inserted.
+2024-12-18 19:12:34,022 - INFO - Assigned credentials: Username: user9544, Password: vakp1vmfjj3v
+2024-12-18 19:12:34,023 - INFO - Server running on 127.0.0.1:12345
+2024-12-18 19:12:39,717 - ERROR - Exception in callback StreamReaderProtocol.connection_made(<_ProactorSoc...nsport fd=500>)
+handle: <Handle StreamReaderProtocol.connection_made(<_ProactorSoc...nsport fd=500>)>
+Traceback (most recent call last):
+  File "C:\msys64\ucrt64\lib\python3.11\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\msys64\ucrt64\lib\python3.11\asyncio\streams.py", line 245, in connection_made
+    res = self._client_connected_cb(reader,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: handle_client() missing 1 required positional argument: 'writer'
+2024-12-18 19:13:59,773 - INFO - Initializing database...
+2024-12-18 19:13:59,774 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-18 19:13:59,774 - INFO - Default devices and users inserted.
+2024-12-18 19:13:59,858 - INFO - Assigned credentials: Username: user2229, Password: neac8unyqiat
+2024-12-18 19:13:59,859 - INFO - Server running on 127.0.0.1:12345
+2024-12-18 19:17:42,582 - INFO - Initializing database...
+2024-12-18 19:17:42,583 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-18 19:17:42,585 - INFO - Default devices and users inserted.
+2024-12-18 19:17:42,659 - INFO - Assigned credentials: Username: user3898, Password: auj8wlvhlog3
+2024-12-18 19:17:42,660 - INFO - Server running on 127.0.0.1:12345
+2024-12-18 19:17:48,393 - ERROR - Exception in callback StreamReaderProtocol.connection_made(<_ProactorSoc...nsport fd=584>)
+handle: <Handle StreamReaderProtocol.connection_made(<_ProactorSoc...nsport fd=584>)>
+Traceback (most recent call last):
+  File "C:\msys64\ucrt64\lib\python3.11\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\msys64\ucrt64\lib\python3.11\asyncio\streams.py", line 245, in connection_made
+    res = self._client_connected_cb(reader,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: handle_client() missing 1 required positional argument: 'conn'
+2024-12-18 19:20:56,701 - INFO - Initializing database...
+2024-12-18 19:20:56,701 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-18 19:20:56,702 - INFO - Default devices and users inserted.
+2024-12-18 19:20:56,782 - INFO - Assigned credentials: Username: user3843, Password: dyqetwg8mgoe
+2024-12-18 19:20:56,783 - INFO - Server running on 127.0.0.1:12345
+2024-12-18 19:21:01,919 - ERROR - Exception in callback StreamReaderProtocol.connection_made(<_ProactorSoc...nsport fd=360>)
+handle: <Handle StreamReaderProtocol.connection_made(<_ProactorSoc...nsport fd=360>)>
+Traceback (most recent call last):
+  File "C:\msys64\ucrt64\lib\python3.11\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\msys64\ucrt64\lib\python3.11\asyncio\streams.py", line 245, in connection_made
+    res = self._client_connected_cb(reader,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: handle_client() missing 1 required positional argument: 'conn'
+2024-12-18 20:23:32,098 - INFO - Initializing database...
+2024-12-18 20:23:32,100 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-18 20:23:32,100 - INFO - Default devices and users inserted.
+2024-12-18 20:23:32,177 - INFO - Assigned credentials - Username: user4584, Password: 8hdm7iej8oc1
+2024-12-18 20:23:32,178 - INFO - Server running on 127.0.0.1:12345
+2024-12-18 20:23:38,592 - INFO - New connection from ('127.0.0.1', 56152)
+2024-12-18 20:23:54,121 - INFO - Received command: CHANGE_PASSWORD user4584 8hdm7iej8oc1 lanterns545&**
+2024-12-18 20:23:58,881 - INFO - Received command: COMMAND light on
+2024-12-18 20:24:02,828 - INFO - Received command: COMMAND command light on
+2024-12-18 20:24:08,351 - INFO - Received command: COMMAND COMMAND LIGHT ON
+2024-12-18 20:24:16,515 - INFO - Received command: COMMAND Command light on
+2024-12-18 20:26:10,596 - INFO - Initializing database...
+2024-12-18 20:26:10,597 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-18 20:26:10,597 - INFO - Default devices and users inserted.
+2024-12-18 20:26:10,664 - INFO - Assigned credentials - Username: user5375, Password: eft16onhlqxn
+2024-12-18 20:26:10,666 - INFO - Server running on 127.0.0.1:12345
+2024-12-18 20:26:15,607 - INFO - New connection from ('127.0.0.1', 56241)
+2024-12-18 20:26:29,376 - INFO - Received command: CHANGE_PASSWORD user5375 eft16onhlqxn wjej^*&^76876hg
+2024-12-18 20:26:34,652 - INFO - Received command: COMMAND COMMAND light on
+2024-12-18 20:26:34,652 - INFO - Device name: command, Action: light
+2024-12-18 20:26:34,654 - ERROR - Error processing command: Cannot operate on a closed database.
+2024-12-18 20:26:39,344 - INFO - Received command: COMMAND COMMAND LIGHT ON
+2024-12-18 20:26:39,344 - INFO - Device name: command, Action: light
+2024-12-18 20:26:39,344 - ERROR - Error processing command: Cannot operate on a closed database.
+2024-12-18 20:29:09,677 - INFO - Initializing database...
+2024-12-18 20:29:09,678 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-18 20:29:09,678 - INFO - Default devices and users inserted.
+2024-12-18 20:29:09,745 - INFO - Assigned credentials - Username: user7880, Password: vsru41i5swso
+2024-12-18 20:29:09,747 - INFO - Server running on 127.0.0.1:12345
+2024-12-18 20:29:17,376 - INFO - New connection from ('127.0.0.1', 56308)
+2024-12-18 20:29:38,208 - INFO - Received command: COMMAND COMMAND LIGHT ON
+2024-12-18 20:29:38,208 - INFO - Device name: command, Action: light
+2024-12-18 20:29:38,208 - ERROR - Error processing command: Cannot operate on a closed database.
+2024-12-18 20:29:41,931 - INFO - Received command: COMMAND Light on
+2024-12-18 20:29:41,932 - INFO - Device name: light, Action: on
+2024-12-18 20:29:41,932 - ERROR - Error processing command: Cannot operate on a closed database.
+2024-12-18 20:40:42,691 - INFO - Initializing database...
+2024-12-18 20:40:42,692 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-18 20:40:42,692 - INFO - Default devices and users inserted.
+2024-12-18 20:40:42,767 - INFO - Assigned credentials - Username: user8852, Password: ca8ruyf7c3ba
+2024-12-18 20:40:42,768 - INFO - Server running on 127.0.0.1:12345
+2024-12-18 20:40:56,654 - ERROR - Error handling client: authenticate_user() takes 2 positional arguments but 3 were given
+2024-12-19 14:22:58,447 - INFO - Initializing database...
+2024-12-19 14:22:58,449 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 14:22:58,450 - INFO - Default devices and users inserted.
+2024-12-19 14:22:58,534 - INFO - Assigned credentials - Username: user2736, Password: 4arysqsx8wp1
+2024-12-19 14:22:58,535 - INFO - Server running on 127.0.0.1:12345
+2024-12-19 14:24:57,255 - INFO - Initializing database...
+2024-12-19 14:24:57,256 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 14:24:57,257 - INFO - Default devices and users inserted.
+2024-12-19 14:24:57,359 - INFO - Assigned credentials - Username: user1143, Password: nlhim3qliyjw
+2024-12-19 14:24:57,360 - INFO - Server running on 127.0.0.1:12345
+2024-12-19 14:25:11,204 - ERROR - Error handling client: authenticate_user() takes 2 positional arguments but 3 were given
+2024-12-19 14:28:24,127 - INFO - Initializing database...
+2024-12-19 14:28:24,129 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 14:28:24,130 - INFO - Default devices and users inserted.
+2024-12-19 14:28:24,226 - INFO - Assigned credentials - Username: user4728, Password: k5tfg43q7b66
+2024-12-19 14:28:24,227 - INFO - Server running on 127.0.0.1:12345
+2024-12-19 14:28:44,160 - INFO - Initializing database...
+2024-12-19 14:28:44,161 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 14:28:44,162 - INFO - Default devices and users inserted.
+2024-12-19 14:28:44,257 - INFO - Assigned credentials - Username: user4488, Password: zej74n6ilkm7
+2024-12-19 14:28:44,258 - INFO - Server running on 127.0.0.1:12345
+2024-12-19 14:28:50,260 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=604 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:/Users/enosh/Desktop/Coursework 25'/Network Systems Development/Server.py", line 248, in client_handler
+    await handle_client(reader, writer, conn)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: handle_client() takes 2 positional arguments but 3 were given
+2024-12-19 14:31:40,915 - INFO - Initializing database...
+2024-12-19 14:31:40,917 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 14:31:40,917 - INFO - Default devices and users inserted.
+2024-12-19 14:31:41,012 - INFO - Assigned credentials - Username: user8638, Password: gtf76newsi8q
+2024-12-19 14:31:41,013 - INFO - Server running on 127.0.0.1:12345
+2024-12-19 14:32:01,785 - ERROR - Error handling client: process_command() missing 1 required positional argument: 'command'
+2024-12-19 14:36:31,514 - INFO - Initializing database...
+2024-12-19 14:36:31,515 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 14:36:31,516 - INFO - Default devices and users inserted.
+2024-12-19 14:36:31,613 - INFO - Assigned credentials - Username: user5237, Password: grk49nmt4qug
+2024-12-19 14:36:31,615 - INFO - Server running on 127.0.0.1:12345
+2024-12-19 14:36:51,058 - ERROR - Error handling client: process_command() missing 1 required positional argument: 'command'
+2024-12-19 14:40:22,219 - INFO - Initializing database...
+2024-12-19 14:40:22,220 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 14:40:22,221 - INFO - Default devices and users inserted.
+2024-12-19 14:40:22,318 - INFO - Assigned credentials - Username: user6770, Password: jdir48vd3ina
+2024-12-19 14:40:22,320 - INFO - Server running on 127.0.0.1:12345
+2024-12-19 14:40:41,394 - ERROR - Error handling client: Cannot operate on a closed database.
+2024-12-19 14:56:50,001 - INFO - Initializing database...
+2024-12-19 14:56:50,002 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 14:56:50,003 - INFO - Default devices and users inserted.
+2024-12-19 14:56:50,098 - INFO - Assigned credentials - Username: user3467, Password: 1e5eb5ap8r39
+2024-12-19 14:56:50,099 - INFO - Server running on 127.0.0.1:12345
+2024-12-19 14:57:20,664 - ERROR - Error handling client: Cannot operate on a closed database.
+2024-12-19 15:01:22,380 - INFO - Initializing database...
+2024-12-19 15:01:22,382 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 15:01:22,382 - INFO - Default devices and users inserted.
+2024-12-19 15:01:22,487 - INFO - Assigned credentials - Username: user3350, Password: 6metjnfr3mxq
+2024-12-19 15:01:22,488 - INFO - Server running on 127.0.0.1:12345
+2024-12-19 15:01:27,657 - INFO - New connection from ('127.0.0.1', 51691)
+2024-12-19 15:01:37,729 - ERROR - Error handling client: Cannot operate on a closed database.
+2024-12-19 15:11:16,512 - INFO - Initializing database...
+2024-12-19 15:11:16,515 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-19 15:11:16,515 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 15:11:16,515 - INFO - Generated password: Jstdrps6asCOe1pQeX8wotsw
+2024-12-19 15:11:16,600 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$+ZuMOs9Ob1q3OaNVRkf87A$DAGLqjGUmHF9j2eVUhv0nF6lJr8Zl1YWzM87xw/7m8g
+2024-12-19 15:11:16,608 - INFO - Default devices and users inserted.
+2024-12-19 15:11:16,609 - INFO - Server is running on 127.0.0.1:12345
+2024-12-19 15:11:36,179 - INFO - New connection from ('127.0.0.1', 51857)
+2024-12-19 15:11:41,080 - INFO - Authentication attempt: AUTH testuser Jstdrps6asCOe1pQeX8wotsw
+2024-12-19 15:11:41,081 - INFO - [DEBUG] Provided password: Jstdrps6asCOe1pQeX8wotsw
+2024-12-19 15:11:41,082 - INFO - [DEBUG] Stored password for testuser: $argon2id$v=19$m=65536,t=3,p=4$+ZuMOs9Ob1q3OaNVRkf87A$DAGLqjGUmHF9j2eVUhv0nF6lJr8Zl1YWzM87xw/7m8g
+2024-12-19 15:11:41,171 - INFO - User testuser authenticated successfully.
+2024-12-19 15:11:41,172 - INFO - User 'testuser' authenticated.
+2024-12-19 15:11:46,110 - INFO - Received command: CHANGE_PASSWORD testuser hiuhd76*&^&*^*&
+2024-12-19 15:11:46,111 - INFO - Device name: change_password, Action: testuser
+2024-12-19 15:11:49,050 - INFO - Received command: light on
+2024-12-19 15:11:49,052 - INFO - Device name: light, Action: on
+2024-12-19 15:11:49,053 - ERROR - Error processing command: Cannot operate on a closed database.
+2024-12-19 15:13:41,344 - INFO - Initializing database...
+2024-12-19 15:13:41,345 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 15:13:41,346 - INFO - Generated password: yDzt#torpeq3wdsNsAaJes0b
+2024-12-19 15:13:41,431 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$BvFeLFfVnydKEBOQLjlP7w$F1XYKL9gI0NvMSfeLWBdPu1DB6qFpDV1stELzyQuEso
+2024-12-19 15:13:41,443 - INFO - Default devices and users inserted.
+2024-12-19 15:13:41,534 - INFO - Assigned credentials: Username: user9166, Password: psgR)&)Y@ao#sKsEGdresttw
+2024-12-19 15:13:41,536 - INFO - Server running on 127.0.0.1:12345
+2024-12-19 15:13:51,581 - INFO - New connection from ('127.0.0.1', 51889)
+2024-12-19 15:14:03,759 - INFO - Received raw encrypted authentication message: b'VZ7hHkV3z49I57Mp5g1lVY7neEQCOTOWEWGXrZ2lSWY/9GZldJ1B9XNzizIIqzMqm7PpzfPy+XA0A1uFZSZtRw=='
+2024-12-19 15:14:03,763 - INFO - Decrypted authentication message: AUTH user9166 psgR)&)Y@ao#sKsEGdresttw
+2024-12-19 15:14:03,851 - ERROR - Client handling error: Cannot operate on a closed database.
+2024-12-19 15:14:03,852 - INFO - Connection with ('127.0.0.1', 51889) closed.
+2024-12-19 15:14:48,297 - INFO - Initializing database...
+2024-12-19 15:14:48,298 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 15:14:48,298 - INFO - Generated password: wB9dxtaerTsh8sd5wptsdHoo
+2024-12-19 15:14:48,387 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$Naq10BHdfXTKQo1yGkogFA$nxgAwwbmwXu7b2rq00f1NJkLXG9G+iOQjZ5HCChBoxA
+2024-12-19 15:14:48,387 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$Naq10BHdfXTKQo1yGkogFA$nxgAwwbmwXu7b2rq00f1NJkLXG9G+iOQjZ5HCChBoxA
+2024-12-19 15:14:48,397 - INFO - Default devices and users inserted.
+2024-12-19 15:14:48,399 - INFO - Server is running on 127.0.0.1:12345
+2024-12-19 15:14:58,374 - INFO - New connection from ('127.0.0.1', 51914)
+2024-12-19 15:15:04,696 - INFO - Authentication attempt: AUTH testuser ijdi&*&(
+2024-12-19 15:15:04,699 - INFO - [DEBUG] Stored password: $argon2id$v=19$m=65536,t=3,p=4$Naq10BHdfXTKQo1yGkogFA$nxgAwwbmwXu7b2rq00f1NJkLXG9G+iOQjZ5HCChBoxA
+2024-12-19 15:15:04,699 - INFO - [DEBUG] Provided password: ijdi&*&(
+2024-12-19 15:15:04,790 - WARNING - Password verification failed for testuser.
+2024-12-19 15:15:04,790 - WARNING - User 'testuser' failed authentication.
+2024-12-19 15:15:04,791 - INFO - Connection with ('127.0.0.1', 51914) closed.
+2024-12-19 15:15:13,938 - INFO - Initializing database...
+2024-12-19 15:15:13,939 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 15:15:13,939 - INFO - Generated password: ze7et%EK8a6$utBsxrpdowss
+2024-12-19 15:15:14,020 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$fGABJUdJ7S4il2iFjjbOgw$lUGpjwzbfof7rnlr++xKtTxpk0sm5QAOELEo4F5DVqs
+2024-12-19 15:15:14,021 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$fGABJUdJ7S4il2iFjjbOgw$lUGpjwzbfof7rnlr++xKtTxpk0sm5QAOELEo4F5DVqs
+2024-12-19 15:15:14,032 - INFO - Default devices and users inserted.
+2024-12-19 15:15:14,033 - INFO - Server is running on 127.0.0.1:12345
+2024-12-19 15:15:20,641 - INFO - New connection from ('127.0.0.1', 51922)
+2024-12-19 15:15:24,493 - INFO - Authentication attempt: AUTH testuser ze7et%EK8a6$utBsxrpdowss
+2024-12-19 15:15:24,494 - INFO - [DEBUG] Stored password: $argon2id$v=19$m=65536,t=3,p=4$fGABJUdJ7S4il2iFjjbOgw$lUGpjwzbfof7rnlr++xKtTxpk0sm5QAOELEo4F5DVqs
+2024-12-19 15:15:24,495 - INFO - [DEBUG] Provided password: ze7et%EK8a6$utBsxrpdowss
+2024-12-19 15:15:24,587 - INFO - User testuser authenticated successfully.
+2024-12-19 15:15:24,588 - INFO - User 'testuser' authenticated.
+2024-12-19 15:15:24,590 - INFO - Connection with ('127.0.0.1', 51922) closed.
+2024-12-19 15:31:17,978 - INFO - Initializing database...
+2024-12-19 15:31:17,980 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-19 15:31:17,980 - INFO - Generated password: Toa^d!TrstWwpZetzws1sos#
+2024-12-19 15:31:18,063 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$82DAwD0gH2yHlRwLacd0OA$cM5O6rQwwJARJZgxChc1KUIFSCqmg49PNQsu4QTrOPM
+2024-12-19 15:31:18,064 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$82DAwD0gH2yHlRwLacd0OA$cM5O6rQwwJARJZgxChc1KUIFSCqmg49PNQsu4QTrOPM
+2024-12-19 15:31:18,076 - INFO - Default devices and users inserted.
+2024-12-19 15:31:18,077 - INFO - Server is running on 127.0.0.1:12345
+2024-12-19 15:31:22,243 - INFO - Database connection closed.
+2024-12-20 19:51:36,313 - INFO - Initializing database...
+2024-12-20 19:51:36,316 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 19:51:36,316 - INFO - Generated password: 5a3sEstprrmsMw5esuydwo*t
+2024-12-20 19:51:36,378 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$WnNvfVEmKyh/mwouKUUC7A$hkujGBz/1zAa+wJ7BT6iqTymgIomVKFM3Y+wWV7QG/Q
+2024-12-20 19:51:36,378 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$WnNvfVEmKyh/mwouKUUC7A$hkujGBz/1zAa+wJ7BT6iqTymgIomVKFM3Y+wWV7QG/Q
+2024-12-20 19:51:36,384 - INFO - Default devices and users inserted.
+2024-12-20 19:51:36,385 - INFO - Server is running on 127.0.0.1:12345
+2024-12-20 20:03:04,265 - INFO - Initializing database...
+2024-12-20 20:03:04,286 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 20:03:04,286 - INFO - Generated password: V6toN5rpdsTbw&TUteKsa^ds
+2024-12-20 20:03:04,344 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$yxC+F/hAwbvgjWoz0ylZww$QsF/dE4ZykoqyiTXuuL5qzecSqrnc/qrtQiT1kqyle0
+2024-12-20 20:03:04,350 - INFO - Default devices and users inserted.
+2024-12-20 20:03:04,422 - INFO - Assigned credentials: Username: user2256, Password: aw^WCedjs4clsgrUssAosttp
+2024-12-20 20:03:04,422 - INFO - Server running on 127.0.0.1:12345
+2024-12-20 20:03:10,323 - INFO - New connection from ('127.0.0.1', 61000)
+2024-12-20 20:03:19,470 - INFO - Received raw encrypted authentication message: b'BqoQub7z9eXBOymCFeFpChom2vh9ODvpwWcvk6AWrAYnPq30sDbFS3M+/LQEigDLpA9jd093ydHQmX0fSklWeg=='
+2024-12-20 20:03:19,472 - INFO - Decrypted authentication message: AUTH user2256 aw^WCedjs4clsgrUssAosttp
+2024-12-20 20:03:19,528 - ERROR - Client handling error: Cannot operate on a closed database.
+2024-12-20 20:03:19,529 - INFO - Connection with ('127.0.0.1', 61000) closed.
+2024-12-20 20:06:10,625 - INFO - Initializing database...
+2024-12-20 20:06:10,626 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 20:06:10,626 - INFO - Generated password: tKsaerdaMswsoioQYprp71tQ
+2024-12-20 20:06:10,681 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$CsNn6IO2aWJGbbedYEY32w$efuPH9Isv2IID3Y9xmiMUg9VAkwUCD5PCRsA3zmiA5Y
+2024-12-20 20:06:10,688 - INFO - Default devices and users inserted.
+2024-12-20 20:06:10,749 - INFO - Assigned credentials: Username: user7162, Password: aeCNd$rfssnso!7NtwKeCpt2
+2024-12-20 20:06:10,750 - INFO - Server running on 127.0.0.1:12345
+2024-12-20 20:06:15,998 - INFO - New connection from ('127.0.0.1', 61079)
+2024-12-20 20:06:25,389 - INFO - Received raw encrypted authentication message: b'+gDgu5egfVFNbuaklPAANGl4/JXaqqe8IvRU7DxggWh1gj2t9IXmVLK5YJGSFw5YHXN2x3sp3KXRaE64T8/Mhw=='
+2024-12-20 20:06:25,391 - INFO - Decrypted authentication message: AUTH user7162 aeCNd$rfssnso!7NtwKeCpt2
+2024-12-20 20:06:25,451 - ERROR - Client handling error: Cannot operate on a closed database.
+2024-12-20 20:06:25,452 - INFO - Connection with ('127.0.0.1', 61079) closed.
+2024-12-20 20:11:16,746 - INFO - Initializing database...
+2024-12-20 20:11:16,747 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 20:11:16,747 - INFO - Generated password: F(oswstacEdnve*rS)tQyPsp
+2024-12-20 20:11:16,802 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$sgPZ7yABNEFQ00h90UGU6g$JL4hsvcvSt/gd+4jvJI5za4JwP7pViBZDGusBQxXGJs
+2024-12-20 20:11:16,813 - INFO - Default devices and users inserted.
+2024-12-20 20:11:16,875 - INFO - Assigned credentials: Username: user8612, Password: esnoptd8$rasdfHwm3etCasP
+2024-12-20 20:11:16,875 - INFO - Server running on 127.0.0.1:12345
+2024-12-20 20:11:21,730 - INFO - New connection from ('127.0.0.1', 61184)
+2024-12-20 20:11:30,079 - INFO - Received raw encrypted authentication message: b'fD2PZjFfYU/+uJ6QUY1pAsAkUIvpvq5A+PL9UczlfHjyyOx2b7Zq8LU5Bmrx8eWkOhlcsXkMXgxb8rWvaqd+1g=='
+2024-12-20 20:11:30,081 - INFO - Decrypted authentication message: AUTH user8612 esnoptd8$rasdfHwm3etCasP
+2024-12-20 20:11:30,138 - ERROR - Client handling error: Cannot operate on a closed database.
+2024-12-20 20:11:30,138 - INFO - Connection with ('127.0.0.1', 61184) closed.
+2024-12-20 20:22:21,084 - INFO - Initializing database...
+2024-12-20 20:22:21,085 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 20:22:21,086 - INFO - Generated password: Bedr8t*Sc9t5s$sahb9wps*o
+2024-12-20 20:22:21,148 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$E4lQSxjqRNUvqHEYGDl4SQ$gz72jbVKz3PyJf3mf+Bw/ZiewPkmDCkUJYgQBA6nVn8
+2024-12-20 20:22:21,163 - INFO - Default devices and users inserted.
+2024-12-20 20:22:21,235 - INFO - Assigned credentials: Username: user9567, Password: pCptXwqL1tosrJfpuad2sesN
+2024-12-20 20:22:21,237 - INFO - Server running on 127.0.0.1:12345
+2024-12-20 20:22:27,640 - INFO - New connection from ('127.0.0.1', 61501)
+2024-12-20 20:22:36,259 - INFO - Received raw encrypted authentication message: b'mgQWAuAH1r0GihNEaePBBY+cEMP+brNopxHoZsbCoDZrGfwdsDg/YRm5bKn0nSH5Y9r4CTTZLAKwrsd4oqEuvQ=='
+2024-12-20 20:22:36,261 - INFO - Decrypted authentication message: AUTH user9567 pCptXwqL1tosrJfpuad2sesN
+2024-12-20 20:22:36,320 - ERROR - Client handling error: Cannot operate on a closed database.
+2024-12-20 20:22:36,321 - INFO - Connection with ('127.0.0.1', 61501) closed.
+2024-12-20 20:26:12,831 - INFO - Initializing database...
+2024-12-20 20:26:12,832 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 20:26:12,832 - INFO - Generated password: DpdsAekKavrs5BzrwZCttosO
+2024-12-20 20:26:12,891 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$nTB90btj14Zt15kEhsLLcQ$m8dsoeoVpvGc9xd0mhrZiLhuqKbYKA4Dh6zOL5BLOo4
+2024-12-20 20:26:12,901 - INFO - Default devices and users inserted.
+2024-12-20 20:26:12,965 - INFO - Assigned credentials: Username: user8271, Password: wtPMsc2rbAusepet8d*an)so
+2024-12-20 20:26:12,966 - INFO - Server running on 127.0.0.1:12345
+2024-12-20 20:26:18,325 - INFO - New connection from ('127.0.0.1', 61567)
+2024-12-20 20:26:38,611 - INFO - Received raw encrypted authentication message: b'dqpX0oXb1s83rE2Z1C6/V954PRUe7xZBukvMkmnpA4jwKxHwGxY/KkUYM0ZbHARmIGGPRmBx/WG869BlCEnUCA=='
+2024-12-20 20:26:38,613 - INFO - Decrypted authentication message: AUTH user8271 wtPMsc2rbAusepet8d*an)so
+2024-12-20 20:26:38,675 - ERROR - Client handling error: Cannot operate on a closed database.
+2024-12-20 20:26:38,676 - INFO - Connection with ('127.0.0.1', 61567) closed.
+2024-12-20 20:27:13,855 - INFO - Initializing database...
+2024-12-20 20:27:13,856 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 20:27:13,856 - INFO - Generated password: wsdOJxtas(6oertsp
+2024-12-20 20:27:13,910 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$tGH148ZE0FJ//U9ResJIlA$j3hp+pje+g8c1s/We/pG3Rk5P4LnIo8WLJuBsWBinZQ
+2024-12-20 20:27:13,921 - INFO - Default devices and users inserted.
+2024-12-20 20:27:13,982 - INFO - Assigned credentials: Username: user6701, Password: pwe7as9ptrtdsdosH
+2024-12-20 20:27:13,983 - INFO - Server running on 127.0.0.1:12345
+2024-12-20 20:28:06,794 - INFO - Initializing database...
+2024-12-20 20:28:06,795 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 20:28:06,795 - INFO - Generated password: dep(tesaoewtRsmsr
+2024-12-20 20:28:06,852 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$2Z1rCyEBz2K7PzMziOgZZA$wQXFPw/3pTorMKWvYVjeWnQFofwAeGk7uMo7qdpGUws
+2024-12-20 20:28:06,862 - INFO - Default devices and users inserted.
+2024-12-20 20:28:06,923 - INFO - Assigned credentials: Username: user4187, Password: Qesswd)o2trtaptAs
+2024-12-20 20:28:06,925 - INFO - Server running on 127.0.0.1:12345
+2024-12-20 21:32:26,649 - INFO - Initializing database...
+2024-12-20 21:32:26,650 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 21:32:26,650 - INFO - Generated password: erwdVssJpaSsoht*t
+2024-12-20 21:32:26,712 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$GSYbhaqOC6kvGL2tJbmj4Q$WIxY04nDP4F6zG4F5oO+Kl3D43Hi5HyqRvX9jHyjtnc
+2024-12-20 21:32:26,720 - INFO - Default devices and users inserted.
+2024-12-20 21:32:26,791 - INFO - Assigned credentials: Username: user9201, Password: cptrowdtasae#assY
+2024-12-20 21:32:26,792 - INFO - Server running on 127.0.0.1:12345
+2024-12-20 21:32:32,574 - INFO - New connection from ('127.0.0.1', 51995)
+2024-12-20 21:32:40,450 - INFO - Received raw encrypted authentication message: b'Grwuq9Nle4l4SHO3Wbg8z64pA+As0fmBIYRIzvzi1ouyiMbSpLoHv2c/8pZiYTLu'
+2024-12-20 21:32:40,452 - INFO - Decrypted authentication message: AUTH user9201 cptrowdtasae#assY
+2024-12-20 21:32:40,507 - ERROR - Client handling error: Cannot operate on a closed database.
+2024-12-20 21:32:40,507 - INFO - Connection with ('127.0.0.1', 51995) closed.
+2024-12-20 21:51:16,585 - INFO - Initializing database...
+2024-12-20 21:51:16,586 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 21:51:16,586 - INFO - Generated password: wobdssYprmtsetaDo
+2024-12-20 21:51:16,641 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$ld6+/8zphFz5ihX+zmLtvA$iel4wlrJLfsT9peaFnyd63GDeL4m0AHvB8MMSW8o/Cs
+2024-12-20 21:51:16,650 - INFO - Default devices and users inserted.
+2024-12-20 21:59:27,136 - INFO - Initializing database...
+2024-12-20 21:59:27,136 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 21:59:27,137 - INFO - Generated password: <function generate_random_password at 0x000001f9c7fbed40>
+2024-12-20 22:00:08,562 - INFO - Initializing database...
+2024-12-20 22:00:08,563 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 22:00:08,564 - INFO - Generated password: <function generate_random_password at 0x000001b2eb4ded40>
+2024-12-20 22:00:15,005 - INFO - Initializing database...
+2024-12-20 22:00:15,006 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 22:00:15,006 - INFO - Generated password: <function generate_random_password at 0x000002326c9fed40>
+2024-12-20 22:01:37,035 - INFO - Initializing database...
+2024-12-20 22:01:37,036 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 22:01:37,036 - INFO - Generated password: <function generate_random_password at 0x000001cba66ded40>
+2024-12-20 22:03:03,228 - INFO - Initializing database...
+2024-12-20 22:03:03,229 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 22:03:03,229 - INFO - Generated password: <function generate_random_password at 0x00000191f4b82d40>
+2024-12-20 22:03:35,380 - INFO - Initializing database...
+2024-12-20 22:03:35,381 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 22:03:35,382 - INFO - Generated password: e)xqZA%gwciB
+2024-12-20 22:03:35,439 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$ocm+45gcwZxtp8nFbU0H/w$g+lqTdk85bqDiwdVyrqjFAf29PrgKVIK+0//46ELUIo
+2024-12-20 22:03:35,500 - INFO - Default devices and users inserted.
+2024-12-20 22:03:35,558 - INFO - Temporary credentials - Username: user4020, Password: qfXbS(Dw6YW2
+2024-12-20 22:03:56,014 - ERROR - Error handling client: Cannot operate on a closed database.
+2024-12-20 22:18:18,160 - INFO - Initializing database...
+2024-12-20 22:18:18,163 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-20 22:18:18,164 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 22:18:18,164 - INFO - Generated password: wr0ao2sdwsXgUp7e9yttHzsU
+2024-12-20 22:18:18,218 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$QXWf5R3DQLk6JaeOmRJJjA$KseFeMnifQlpKK1VAKRxQ1UsYW/qDtcrelg9wZxyh6o
+2024-12-20 22:18:18,226 - INFO - Default devices and users inserted.
+2024-12-20 22:18:18,227 - INFO - Server is running on 127.0.0.1:12345
+2024-12-20 22:18:34,225 - INFO - New connection from ('127.0.0.1', 53631)
+2024-12-20 22:18:39,159 - INFO - Authentication attempt: AUTH testuser wr0ao2sdwsXgUp7e9yttHzsU
+2024-12-20 22:18:39,160 - INFO - [DEBUG] Provided password: wr0ao2sdwsXgUp7e9yttHzsU
+2024-12-20 22:18:39,161 - INFO - [DEBUG] Stored password for testuser: $argon2id$v=19$m=65536,t=3,p=4$ld6+/8zphFz5ihX+zmLtvA$iel4wlrJLfsT9peaFnyd63GDeL4m0AHvB8MMSW8o/Cs
+2024-12-20 22:18:39,218 - WARNING - Password verification failed for testuser.
+2024-12-20 22:18:39,218 - WARNING - User 'testuser' failed authentication.
+2024-12-20 22:18:39,219 - INFO - Connection with ('127.0.0.1', 53631) closed.
+2024-12-20 22:19:24,477 - INFO - Initializing database...
+2024-12-20 22:19:24,478 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-20 22:19:24,479 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 22:19:24,479 - INFO - Generated password: RtppaskrYQs*SsVJwJoYdet3
+2024-12-20 22:19:24,536 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$McQ6ya1nmSzCw1I6cFJzBg$+s3kj50FlpMtCvaFemiN1XGKt1P/Mu7xlBgHM5fQyXs
+2024-12-20 22:19:24,537 - INFO - Default devices and users inserted.
+2024-12-20 22:19:24,538 - INFO - Server is running on 127.0.0.1:12345
+2024-12-20 22:19:30,602 - INFO - New connection from ('127.0.0.1', 53655)
+2024-12-20 22:19:35,110 - INFO - Authentication attempt: AUTH bob RtppaskrYQs*SsVJwJoYdet3
+2024-12-20 22:19:35,111 - INFO - [DEBUG] Provided password: RtppaskrYQs*SsVJwJoYdet3
+2024-12-20 22:19:35,112 - INFO - [DEBUG] Stored password for bob: $argon2id$v=19$m=65536,t=3,p=4$QXWf5R3DQLk6JaeOmRJJjA$KseFeMnifQlpKK1VAKRxQ1UsYW/qDtcrelg9wZxyh6o
+2024-12-20 22:19:35,168 - WARNING - Password verification failed for bob.
+2024-12-20 22:19:35,169 - WARNING - User 'bob' failed authentication.
+2024-12-20 22:19:35,169 - INFO - Connection with ('127.0.0.1', 53655) closed.
+2024-12-20 22:20:21,998 - INFO - Initializing database...
+2024-12-20 22:20:22,000 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-20 22:20:22,000 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 22:20:22,000 - INFO - Generated password: adp78Qosw9as1ttwrdepPg(s
+2024-12-20 22:20:22,057 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$3ZYlNQJemtZoQMb3jhaLfQ$P/JPFuaVd6u/YRZdw5/R66nSnBfROvr/UORILOK6PTk
+2024-12-20 22:20:22,058 - INFO - Default devices and users inserted.
+2024-12-20 22:20:22,059 - INFO - Server is running on 127.0.0.1:12345
+2024-12-20 22:20:37,085 - INFO - New connection from ('127.0.0.1', 53675)
+2024-12-20 22:20:45,779 - INFO - Authentication attempt: AUTH adp78Qosw9as1ttwrdepPg(s adp78Qosw9as1ttwrdepPg(s
+2024-12-20 22:20:45,780 - WARNING - User 'adp78Qosw9as1ttwrdepPg(s' failed authentication.
+2024-12-20 22:20:45,781 - INFO - Connection with ('127.0.0.1', 53675) closed.
+2024-12-20 22:20:52,029 - INFO - Initializing database...
+2024-12-20 22:20:52,029 - INFO - Schema already up-to-date or error: duplicate column name: speed
+2024-12-20 22:20:52,030 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 22:20:52,030 - INFO - Generated password: tsaVwdeB%sVtmF!Esp4FpQor
+2024-12-20 22:20:52,084 - INFO - Hashed password: $argon2id$v=19$m=65536,t=3,p=4$huIsw09/Pv22YLZUBX1ylA$8XxLsKBRJtnlcMAgIdCG9ll3V++ZrwCeYY7hT84v+no
+2024-12-20 22:20:52,085 - INFO - Default devices and users inserted.
+2024-12-20 22:20:52,085 - INFO - Server is running on 127.0.0.1:12345
+2024-12-20 22:21:01,379 - INFO - New connection from ('127.0.0.1', 53688)
+2024-12-20 22:21:05,959 - INFO - Authentication attempt: AUTH testuser tsaVwdeB%sVtmF!Esp4FpQor
+2024-12-20 22:21:05,960 - INFO - [DEBUG] Provided password: tsaVwdeB%sVtmF!Esp4FpQor
+2024-12-20 22:21:05,960 - INFO - [DEBUG] Stored password for testuser: $argon2id$v=19$m=65536,t=3,p=4$ld6+/8zphFz5ihX+zmLtvA$iel4wlrJLfsT9peaFnyd63GDeL4m0AHvB8MMSW8o/Cs
+2024-12-20 22:21:06,018 - WARNING - Password verification failed for testuser.
+2024-12-20 22:21:06,019 - WARNING - User 'testuser' failed authentication.
+2024-12-20 22:21:06,019 - INFO - Connection with ('127.0.0.1', 53688) closed.
+2024-12-20 22:34:55,276 - INFO - Initializing database...
+2024-12-20 22:34:55,277 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 22:34:55,278 - INFO - Generated password: qatosAsRtQsWdedp%ZrVGwtC
+2024-12-20 22:34:55,342 - INFO - Default devices and users inserted.
+2024-12-20 22:34:55,342 - INFO - Server is running on 127.0.0.1:12345
+2024-12-20 22:35:54,966 - INFO - Initializing database...
+2024-12-20 22:35:54,967 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 22:35:54,967 - INFO - Generated password: 7pJ)l@(&28fa
+2024-12-20 22:35:55,024 - INFO - Hashed password stored: $argon2id$v=19$m=65536,t=3,p=4$ldvsiBvXLZbbNYOe30CHlQ$zk7+8r9gz1fjOhsyfdrGXLHWvJGjp8MrNkEYeLDtxwc
+2024-12-20 22:35:55,084 - INFO - Default devices and users inserted.
+2024-12-20 22:35:55,149 - INFO - Temporary credentials - Username: user3371, Password: 5i9vv0F80zNb
+2024-12-20 22:36:07,095 - INFO - Initializing database...
+2024-12-20 22:36:07,096 - INFO - Tables 'users' and 'devices' created or verified.
+2024-12-20 22:36:07,096 - INFO - Generated password: psCosXW@vjsir)tasDUw)tde
+2024-12-20 22:36:07,166 - INFO - Default devices and users inserted.
+2024-12-20 22:36:07,166 - INFO - Server is running on 127.0.0.1:12345
+2024-12-20 22:36:19,875 - INFO - New connection from ('127.0.0.1', 54134)
+2024-12-20 22:36:26,612 - INFO - Authentication attempt: AUTH testuser psCosXW@vjsir)tasDUw)tde
+2024-12-20 22:36:26,668 - ERROR - Error handling client ('127.0.0.1', 54134): Cannot operate on a closed database.
+2024-12-20 22:36:26,669 - INFO - Connection with ('127.0.0.1', 54134) closed.
