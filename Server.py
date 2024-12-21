@@ -78,8 +78,127 @@ def initialize_database():
             lock_time TEXT
         )
     """)
+    default_devices = [
+        ("light", "off", None, None, None),
+        ("thermostat", "off", 20, None, None),
+        ("fan", "off", None, "low", None),
+        ("smart lock", "locked", None, None, None),
+        ("camera", "off", None, None, None),
+        ("speaker", "off", None, None, None)
+    ]
+    cursor.executemany("INSERT OR IGNORE INTO devices VALUES (?, ?, ?, ?, ?)", default_devices)
     conn.commit()
     return conn
+
+# Fetch device state
+def get_device_state(conn, device_name):
+    cursor = conn.cursor()
+    cursor.execute("SELECT device_state, temperature, speed, lock_time FROM devices WHERE LOWER(device_name) = LOWER(?)", (device_name,))
+    return cursor.fetchone()
+
+# Update device state
+def update_device_state_db(conn, device_name, state=None, temperature=None, speed=None, lock_time=None):
+    cursor = conn.cursor()
+    cursor.execute(
+        "UPDATE devices SET device_state = ?, temperature = ?, speed = ?, lock_time = ? WHERE device_name = ?",
+        (state, temperature, speed, lock_time, device_name)
+    )
+    conn.commit()
+
+
+# Process client commands
+async def process_command(conn, command):
+    try:
+        logging.info(f"Processing command: {command}")
+
+        command = command.lower().strip()
+        parts = command.split()
+
+        if len(parts) < 2:
+            return "Invalid command format."
+
+        device_name, action = parts[0], parts[1]
+
+        # Multi-word devices like "smart lock"
+        if len(parts) > 2 and parts[0] == "smart" and parts[1] == "lock":
+            device_name = "smart lock"
+            action = parts[2] if len(parts) > 2 else None
+
+        device_state = get_device_state(conn, device_name)
+        if device_state is None:
+            return f"Device '{device_name}' not found."
+
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM devices WHERE device_name = ?", (device_name,))
+        device = cursor.fetchone()
+
+        if not device:
+            return f"Device '{device_name}' not found."
+
+        # Process actions for each device
+        if device_name == "light":
+            if action in ["on", "off"]:
+                update_device_state_db(conn, device_name, state=action)
+                return f"Light turned {action}."
+            else:
+                return "Invalid light command. Use 'light on' or 'light off'."
+            
+        if device_name == "thermostat":
+            if action == "get":
+                return f"Current temperature is {device_state[1]}°C"
+            elif action == "set" and len(parts) == 3:
+                temperature = int(parts[2])
+                update_device_state_db(device_name, "on", temperature)
+                return f"Thermostat set to {temperature}°C"
+            else:
+                return "Invalid thermostat command. Use 'thermostat get' or 'thermostat set <temp>'."
+
+        elif device_name == "fan":
+            if action in ["low", "medium", "high"]:
+                update_device_state_db(device_name, "on", None, action)
+                return f"Fan set to {action} speed."
+            elif action in ["on", "off"]:
+                update_device_state_db(device_name, action)
+                return f"Fan is now {action}."
+            else:
+                return "Invalid fan command. Use 'fan low/medium/high' or 'fan on/off'."
+
+        elif device_name == "smart lock":
+            if action in ["locked", "unlocked"]:
+                update_device_state_db(device_name, action)
+                return f"Smart lock is now {action}."
+            elif action == "lock" and len(parts) >= 3:
+                lock_time = " ".join(parts[2:])
+                update_device_state_db(device_name, "locked", None, None, lock_time)
+                return f"Smart lock will lock at {lock_time}."
+            else:
+                return "Invalid smart lock command. Use 'smart lock locked/unlocked' or 'smart lock lock <time>'."
+
+        elif device_name == "camera":
+            if action in ["on", "off"]:
+                update_device_state_db(device_name, action)
+                return f"Camera is now {action}."
+            else:
+                return "Invalid camera command. Use 'camera on/off'."
+
+        elif device_name == "speaker":
+            if action in ["on", "off"]:
+                update_device_state_db(device_name, action)
+                return f"Speaker is now {action}."
+            elif action == "play" and len(parts) > 2:
+                song = " ".join(parts[2:])
+                return f"Playing '{song}' on the speaker."
+            else:
+                return "Invalid speaker command. Use 'speaker on/off' or 'speaker play <song>'."
+
+        elif action in ["on", "off"]:
+            update_device_state_db(device_name, action)
+            return f"{device_name} is now {action}."
+        else:
+            return "Invalid command"
+    except Exception as e:
+        logging.error(f"Error processing command: {e}")
+        return f"Error: {str(e)}"
 
 async def handle_client(reader, writer):
     conn = sqlite3.connect("smart_home.db")
@@ -124,8 +243,13 @@ async def handle_client(reader, writer):
                 break
 
             command = decrypt_message(encrypted_command.decode("utf-8"), SECRET_KEY)
-            response = f"Command '{command}' executed."
-            writer.write(encrypt_message(response, SECRET_KEY).encode("utf-8"))
+            logging.debug(f"[SERVER] Received command: {command}")
+
+            # Call `process_command` to handle the command
+            response = await process_command(conn, command)
+            encrypted_response = encrypt_message(response, SECRET_KEY)
+
+            writer.write(encrypted_response.encode("utf-8"))
             await writer.drain()
 
     except Exception as e:

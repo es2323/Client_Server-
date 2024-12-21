@@ -83,14 +83,36 @@ async def start_client():
 
         # If authenticated successfully, interact with the server
         while True:
-            command = input("Enter a command ('help' for commands, 'exit' to quit): ").strip()
+            command = input("Hi, please enter a command ('help' for commands, 'exit' to quit): ").strip()
+
             if command.lower() == "exit":
+                print("Exiting...")
                 break
 
-            encrypted_command = encrypt_message(command, SECRET_KEY)
-            writer.write(encrypted_command.encode("utf-8"))
+            if command.lower() == "help":
+                print("Available commands:\n"
+                      "light on/off\n"
+                      "fan on/off\n"
+                      "fan low/medium/high\n"
+                      "thermostat get\n"
+                      "thermostat set <temp>\n"
+                      "smart lock locked/unlocked\n"
+                      "smart lock lock <time in 12-hour format>\n"
+                      "camera on/off\n"
+                      "speaker on/off\n"
+                      "speaker play <song>")
+                continue  # Restart the loop after showing help
+
+            # Encrypt and send the command to the server
+            encrypted_message = encrypt_message(command, SECRET_KEY)
+            if not encrypted_message:
+                print("[CLIENT ERROR] Failed to encrypt command message.")
+                continue  # Restart loop if encryption fails
+
+            writer.write(encrypted_message.encode("utf-8"))
             await writer.drain()
 
+            # Receive and decrypt the server's response
             encrypted_response = await reader.read(1024)
             response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY)
             print(f"[SERVER RESPONSE] {response}")
