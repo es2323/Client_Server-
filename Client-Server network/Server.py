@@ -146,19 +146,22 @@ async def process_command(conn, command):
                     return "Invalid light command. Use 'light on' or 'light off'."
 
         if device_name == "thermostat":
-                if action == "get":
-                    cursor.execute("SELECT device_state FROM devices WHERE device_name = ?", (device_name,))
-                    device_state = cursor.fetchone()
-                    conn.commit()
-                    return f"Current temperature is {device_state[1]}°C"
-                elif action == "set" and len(parts) == 3:
-                    temperature = int(parts[2])
-                    update_device_state_db(conn, device_name, state="on", temperature=temperature)
-                    cursor.execute("UPDATE devices SET device_state = 'on' WHERE device_name = ?", (device_name,))
-                    conn.commit()
-                    return f"Thermostat set to {temperature}°C"
+            if action == "get":
+                cursor.execute("SELECT device_state FROM devices WHERE device_name = ?", (device_name,))
+                device_state = cursor.fetchone()
+                if device_state:  # Check if the result is not None
+                    return f"Current temperature is {device_state[0]}°C"  # Adjust index based on fetched columns
                 else:
-                    return "Invalid thermostat command. Use 'thermostat get' or 'thermostat set <temp>'."
+                    return "Error: Device state not found for the thermostat."
+            elif action == "set" and len(parts) == 3:
+                temperature = int(parts[2])
+                update_device_state_db(conn, device_name, state="on", temperature=temperature)
+                cursor.execute("UPDATE devices SET device_state = 'on' WHERE device_name = ?", (device_name,))
+                conn.commit()
+                return f"Thermostat set to {temperature}°C"
+            else:
+                return "Invalid thermostat command. Use 'thermostat get' or 'thermostat set <temp>'."
+
 
         if device_name == "fan":
                 if action in ["low", "medium", "high"]:
