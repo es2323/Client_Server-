@@ -74,55 +74,71 @@ async def start_client():
         encrypted_response = await reader.read(1024)
         response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY)
         print(f"[SERVER RESPONSE] {response}")
-
-        if "failed" in response:
-            print("Authentication failed. Disconnecting...")
-            writer.close()
-            await writer.wait_closed()
-            return
-
+        
         # If authenticated successfully, interact with the server
-        while True:
-            command = input("Hi, please enter a command ('help' for commands, 'exit' to quit): ").strip()
+        if "Authentication successful" in response: 
+            while True:
+                command = input("Hi, please enter a command ('help' for commands, 'exit' to quit): ").strip()
 
-            if command.lower() == "exit":
-                print("Exiting...")
-                break
+                if command.lower() == "exit":
+                    print("Closing connection...")
+                    writer.close()
+                    await writer.wait_closed()
+                    print("[DISCONNECTED] Client connection closed.")
+                    break
 
-            if command.lower() == "help":
-                print("Available commands:\n"
-                      "light on/off\n"
-                      "fan on/off\n"
-                      "fan low/medium/high\n"
-                      "thermostat get\n"
-                      "thermostat set <temp>\n"
-                      "smart lock locked/unlocked\n"
-                      "smart lock lock <time in 12-hour format>\n"
-                      "camera on/off\n"
-                      "speaker on/off\n"
-                      "speaker play <song>")
-                continue  # Restart the loop after showing help
+                if command.lower() == "help":
+                    print("Available commands:\n"
+                        "light on/off\n"
+                        "fan on/off\n"
+                        "fan low/medium/high\n"
+                        "thermostat get\n"
+                        "thermostat set <temp>\n"
+                        "smart lock locked/unlocked\n"
+                        "smart lock lock <time in 12-hour format>\n"
+                        "camera on/off\n"
+                        "speaker on/off\n"
+                        "speaker play <song>")
+                    continue  # Restart the loop after showing help
 
-            # Encrypt and send the command to the server
-            encrypted_message = encrypt_message(command, SECRET_KEY)
-            if not encrypted_message:
-                print("[CLIENT ERROR] Failed to encrypt command message.")
-                continue  # Restart loop if encryption fails
+                # Encrypt and send the command to the server
+                encrypted_message = encrypt_message(command, SECRET_KEY)
+                if not encrypted_message:
+                    print("[CLIENT ERROR] Failed to encrypt command message.")
+                    continue  # Restart loop if encryption fails
 
-            writer.write(encrypted_message.encode("utf-8"))
-            await writer.drain()
+                writer.write(encrypted_message.encode("utf-8"))
+                await writer.drain()
 
-            # Receive and decrypt the server's response
-            encrypted_response = await reader.read(1024)
-            response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY)
-            print(f"[SERVER RESPONSE] {response}")
+                # Receive and decrypt the server's response
+                try:
+                    encrypted_response = await asyncio.wait_for(reader.read(1024), timeout=30.0)
+                    if not encrypted_response:  # Server disconnected
+                        print("[SERVER] Disconnected unexpectedly.")
+                        break
 
-        # Close the connection
-        writer.close()
-        await writer.wait_closed()
-        print("[DISCONNECTED] Client connection closed.")
+                    response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY)
+                    print(f"[SERVER RESPONSE] {response}")
+                    
+                    if "[ERROR]" in response:
+                        print(f"\033[91m{response}\033[0m")  # Red color for errors
+                    else:
+                        print(f"[SERVER RESPONSE] {response}")
+                except asyncio.TimeoutError:
+                    print("[CLIENT ERROR] Server not responding. Closing connection.")
+                    break
+
     except Exception as e:
         print(f"[ERROR] {e}")
+    finally:
+        try:
+            writer.close()
+            await writer.wait_closed()
+        except:
+            pass
+        print("[DISCONNECTED] Client connection closed.")
+
+        
 
 if __name__ == "__main__":
     asyncio.run(start_client())
