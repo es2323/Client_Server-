@@ -157,9 +157,12 @@ async def start_client():
                         print(f"\033[91m{response}\033[0m")  # Red color for errors
                     else:
                         print(f"[SERVER RESPONSE] {response}")
-                except asyncio.TimeoutError:
+                except (asyncio.TimeoutError, ConnectionResetError):
                     print("[CLIENT ERROR] Server not responding. Closing connection.")
                     break
+                except ConnectionResetError:
+                    print("[CLIENT ERROR] Connection lost unexpectedly. Exiting...")
+
 
     except Exception as e:
         print(f"[ERROR] {e}")

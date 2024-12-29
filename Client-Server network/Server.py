@@ -127,7 +127,7 @@ async def process_command(conn, command):
         parts = command.split()
 
         if len(parts) < 2:
-            return "Invalid command format."
+            return "Invalid command format. Must include a device and action (e.g., 'light on')."
 
         device_name, action = parts[0], parts[1]
 
@@ -288,20 +288,22 @@ async def handle_client(reader, writer):
             return
 
         while True:
-            encrypted_command = await reader.read(1024)
-            if not encrypted_command:
+            try:
+                encrypted_command = await reader.read(1024)
+                if not encrypted_command:
+                    break
+                command = decrypt_message(encrypted_command.decode("utf-8"), SECRET_KEY)
+                logging.debug(f"[SERVER] Received command: {command}")
+
+                # Call `process_command` to handle the command
+                response = await process_command(conn, command)
+                encrypted_response = encrypt_message(response, SECRET_KEY)
+
+                writer.write(encrypted_response.encode("utf-8"))
+                await writer.drain()
+            except ConnectionResetError:
+                logging.warning(f"[SERVER] Client {client_address} disconnected abruptly.")
                 break
-
-            command = decrypt_message(encrypted_command.decode("utf-8"), SECRET_KEY)
-            logging.debug(f"[SERVER] Received command: {command}")
-
-            # Call `process_command` to handle the command
-            response = await process_command(conn, command)
-            encrypted_response = encrypt_message(response, SECRET_KEY)
-
-            writer.write(encrypted_response.encode("utf-8"))
-            await writer.drain()
-
     except Exception as e:
         logging.error(f"[SERVER ERROR] {e}")
     finally:
