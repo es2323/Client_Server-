@@ -2,6 +2,7 @@ import asyncio
 import sqlite3
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
+from Crypto.Random.random import getrandbits
 import base64
 import logging
 import random
@@ -45,6 +46,17 @@ def decrypt_message(encrypted_message, key):
     except Exception as e:
         logging.error(f"[DECRYPTION ERROR] {e}")
         return "Invalid message received or decryption error"
+
+# Diffie-Hellman key exchange functions
+def generate_dh_keypair():
+    private_key = getrandbits(2048)
+    public_key = pow(2, private_key, 2**2048 - 1)
+    return private_key, public_key
+
+def derive_shared_key(private_key, received_public_key):
+    shared_key = pow(received_public_key, private_key, 2**2048 - 1)
+    byte_length = (shared_key.bit_length() + 7) // 8
+    return shared_key.to_bytes(byte_length, 'big')[:16]
 
 # Helper functions
 def hash_password(password):
@@ -218,6 +230,29 @@ async def process_command(conn, command):
 async def handle_client(reader, writer):
     conn = sqlite3.connect("smart_home.db")
     try:
+        client_address = writer.get_extra_info('peername')
+        logging.info(f"New connection from {client_address}")
+
+        # Receive the client's public key
+        client_key_bytes = await reader.read(1024)
+        client_public_key = int.from_bytes(client_key_bytes, 'big')
+
+        # Generate the Diffie-Hellman keypair
+        private_key, public_key = generate_dh_keypair()
+
+        # Send the server's public key to the client
+        public_key_bytes = public_key.to_bytes((public_key.bit_length() + 7) // 8, 'big')
+        writer.write(public_key_bytes)
+        await writer.drain()
+
+        # Derive the shared key
+        shared_key = derive_shared_key(private_key, client_public_key)
+        logging.info(f"[INFO] Shared key established with {client_address}: {shared_key.hex()}")
+
+        # Use the shared key for encryption/decryption
+        global SECRET_KEY
+        SECRET_KEY = shared_key
+        
         encrypted_auth_message = await reader.read(1024)
         auth_message = decrypt_message(encrypted_auth_message.decode("utf-8"), SECRET_KEY)
 

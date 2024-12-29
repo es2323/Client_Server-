@@ -1,6 +1,7 @@
 import asyncio
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
+from Crypto.Random.random import getrandbits
 import base64
 import os
 import random
@@ -36,6 +37,17 @@ def decrypt_message(encrypted_message, key):
         print(f"[ERROR] Decryption failed: {e}")
         return "Invalid message received or decryption error"
 
+# Diffie-Hellman key exchange functions
+def generate_dh_keypair():
+    private_key = getrandbits(2048)
+    public_key = pow(2, private_key, 2**2048 - 1)
+    return private_key, public_key
+
+def derive_shared_key(private_key, received_public_key):
+    shared_key = pow(received_public_key, private_key, 2**2048 - 1)
+    byte_length = (shared_key.bit_length() + 7) // 8
+    return shared_key.to_bytes(byte_length, 'big')[:16]
+
 # Helper function to generate random username
 def generate_random_username(length=8):
     return ''.join(random.choices(string.ascii_lowercase + string.digits, k=length))
@@ -51,6 +63,27 @@ async def start_client():
     try:
         reader, writer = await asyncio.open_connection(HOST, PORT)
         print(f"[CONNECTED] Connected to the server at {HOST}:{PORT}")
+
+                # Key negotiation phase
+        # Generate the Diffie-Hellman keypair
+        private_key, public_key = generate_dh_keypair()
+
+        # Send the public key to the server
+        public_key_bytes = public_key.to_bytes((public_key.bit_length() + 7) // 8, 'big')
+        writer.write(public_key_bytes)
+        await writer.drain()
+
+        # Receive the server's public key
+        server_key_bytes = await reader.read(1024)
+        server_public_key = int.from_bytes(server_key_bytes, 'big')
+
+        # Derive the shared key
+        shared_key = derive_shared_key(private_key, server_public_key)
+        print(f"[INFO] Shared key established: {shared_key.hex()}")
+
+        # Use the shared key for encryption/decryption
+        global SECRET_KEY
+        SECRET_KEY = shared_key
 
         # Generate random username and password
         username = generate_random_username()
@@ -74,7 +107,7 @@ async def start_client():
         encrypted_response = await reader.read(1024)
         response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY)
         print(f"[SERVER RESPONSE] {response}")
-        
+
         # If authenticated successfully, interact with the server
         if "Authentication successful" in response: 
             while True:
