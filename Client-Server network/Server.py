@@ -12,10 +12,13 @@ from argon2 import PasswordHasher
 
 # Logging setup
 logging.basicConfig(
+    filename="server.log",
     level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[logging.StreamHandler()]
 )
+logging.debug("This is a debug message.")
+logging.info("This is an info message.")
+logging.error("This is an error message.")
 
 # Shared secret key (must be 16, 24, or 32 bytes long)
 raw_key = b'my_secret_key_too_long!'
