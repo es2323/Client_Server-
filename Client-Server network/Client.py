@@ -35,7 +35,7 @@ def decrypt_message(encrypted_message, key):
         return decrypted_data.decode("utf-8")
     except Exception as e:
         print(f"[ERROR] Decryption failed: {e}")
-        return "Invalid message received or decryption error"
+        return "[ERROR] Unable to decrypt the server's response."
 
 # Diffie-Hellman key exchange functions
 def generate_dh_keypair():
@@ -151,17 +151,13 @@ async def start_client():
                         break
 
                     response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY)
-                    print(f"[SERVER RESPONSE] {response}")
-                    
                     if "[ERROR]" in response:
-                        print(f"\033[91m{response}\033[0m")  # Red color for errors
+                        print(f"\033[91m[SERVER RESPONSE] {response}\033[0m")  # Red color for errors
                     else:
                         print(f"[SERVER RESPONSE] {response}")
                 except (asyncio.TimeoutError, ConnectionResetError):
                     print("[CLIENT ERROR] Server not responding. Closing connection.")
                     break
-                except ConnectionResetError:
-                    print("[CLIENT ERROR] Connection lost unexpectedly. Exiting...")
 
 
     except Exception as e:
