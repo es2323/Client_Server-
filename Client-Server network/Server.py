@@ -284,10 +284,6 @@ async def handle_client(reader, writer):
         # Derive the shared key
         shared_key = derive_shared_key(private_key, client_public_key)
         logging.info(f"[INFO] Shared key established with {client_address}: {shared_key.hex()}")
-
-        # Use the shared key for encryption/decryption
-        global SECRET_KEY
-        SECRET_KEY = shared_key
         
         encrypted_auth_message = await reader.read(1024)
         auth_message = decrypt_message(encrypted_auth_message.decode("utf-8"), shared_key)
@@ -308,14 +304,14 @@ async def handle_client(reader, writer):
         if result:
             # Verify password
             if verify_password(result[0], password):
-                response = encrypt_message("Authentication successful", SECRET_KEY)
+                response = encrypt_message("Authentication successful", shared_key)
             else:
-                response = encrypt_message("Authentication failed", SECRET_KEY)
+                response = encrypt_message("Authentication failed", shared_key)
         else:
             # Insert the generated username and password
             cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hash_password(password)))
             conn.commit()
-            response = encrypt_message("Authentication successful (user added)", SECRET_KEY)
+            response = encrypt_message("Authentication successful (user added)", shared_key)
 
         writer.write(response.encode("utf-8"))
         await writer.drain()
@@ -336,12 +332,12 @@ async def handle_client(reader, writer):
                 else:
                     response = await process_command(conn, command)
 
-                encrypted_response = encrypt_message(response, SECRET_KEY)
+                encrypted_response = encrypt_message(response, shared_key)
                 writer.write(encrypted_response.encode("utf-8"))
                 await writer.drain()
 
             except asyncio.TimeoutError:
-                response = create_error_response("Session timed out due to inactivity.")
+                response = encrypt_message("Session timed out due to inactivity.", shared_key)
                 writer.write(response.encode("utf-8"))
                 await writer.drain()
                 break

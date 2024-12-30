@@ -50,3 +50,38 @@
 2024-12-30 13:11:45,573 - INFO - Processing command: dhhdijd
 2024-12-30 13:11:45,573 - ERROR - [ERROR RESPONSE] Invalid command format. Must include a device and action (e.g., 'light on').
 2024-12-30 13:11:45,573 - INFO - Validation error: UQxdyNtvXv8dP54F7sNbJck8dVcfgJ3lpU361gRtdrsDGXacNacqQQLy/JxDyMC4kC53YdMiRhwNDsqJleOKDgy/pthV28BmRQ+AgzudyiwdmfOZ1KeVEHDynvaEqAFmDnwezWvtWsmN8j5ufhVaDQ==
+2024-12-30 13:13:31,823 - DEBUG - This is a debug message.
+2024-12-30 13:13:31,824 - INFO - This is an info message.
+2024-12-30 13:13:31,824 - ERROR - This is an error message.
+2024-12-30 13:13:31,825 - DEBUG - Using proactor: IocpProactor
+2024-12-30 13:13:31,829 - INFO - Server is running on 127.0.0.1:12345
+2024-12-30 13:13:42,611 - INFO - New connection from ('127.0.0.1', 56472)
+2024-12-30 13:13:42,660 - INFO - [INFO] Shared key established with ('127.0.0.1', 56472): 10000000000000000000000000000000
+2024-12-30 13:13:46,817 - INFO - New connection from ('127.0.0.1', 56477)
+2024-12-30 13:13:46,839 - INFO - [INFO] Shared key established with ('127.0.0.1', 56477): 01000000000000000000000000000000
+2024-12-30 13:13:50,026 - INFO - New connection from ('127.0.0.1', 56480)
+2024-12-30 13:13:50,058 - INFO - [INFO] Shared key established with ('127.0.0.1', 56480): 40000000000000000000000000000000
+2024-12-30 13:13:58,456 - INFO - Processing command: light on
+2024-12-30 13:14:04,267 - INFO - Processing command: light off
+2024-12-30 13:22:07,734 - DEBUG - This is a debug message.
+2024-12-30 13:22:07,734 - INFO - This is an info message.
+2024-12-30 13:22:07,734 - ERROR - This is an error message.
+2024-12-30 13:22:07,734 - DEBUG - Using proactor: IocpProactor
+2024-12-30 13:22:07,736 - INFO - Server is running on 127.0.0.1:12345
+2024-12-30 13:22:18,146 - INFO - New connection from ('127.0.0.1', 56886)
+2024-12-30 13:22:18,163 - INFO - [INFO] Shared key established with ('127.0.0.1', 56886): 40000000000000000000000000000000
+2024-12-30 13:22:22,410 - INFO - New connection from ('127.0.0.1', 56889)
+2024-12-30 13:22:22,428 - INFO - [INFO] Shared key established with ('127.0.0.1', 56889): 10000000000000000000000000000000
+2024-12-30 13:22:25,414 - INFO - New connection from ('127.0.0.1', 56892)
+2024-12-30 13:22:25,429 - INFO - [INFO] Shared key established with ('127.0.0.1', 56892): 04000000000000000000000000000000
+2024-12-30 13:22:28,707 - INFO - Processing command: light on
+2024-12-30 13:22:34,598 - INFO - Processing command: light off
+2024-12-30 13:22:41,047 - INFO - Processing command: thermostat get
+2024-12-30 13:23:02,367 - INFO - Processing command: thermostat set 56
+2024-12-30 13:23:02,376 - ERROR - [ERROR RESPONSE] Thermostat set to 56�C
+2024-12-30 13:23:17,889 - INFO - Processing command: thermostat set 56
+2024-12-30 13:23:17,889 - ERROR - [ERROR RESPONSE] Thermostat set to 56�C
+2024-12-30 13:23:20,930 - INFO - Processing command: light on
+2024-12-30 13:23:40,051 - INFO - Processing command: fan off
+2024-12-30 13:23:55,754 - INFO - Processing command: fan high
+2024-12-30 13:24:07,238 - INFO - [SERVER] Client ('127.0.0.1', 56892) disconnected.
