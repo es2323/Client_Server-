@@ -85,3 +85,63 @@
 2024-12-30 13:23:40,051 - INFO - Processing command: fan off
 2024-12-30 13:23:55,754 - INFO - Processing command: fan high
 2024-12-30 13:24:07,238 - INFO - [SERVER] Client ('127.0.0.1', 56892) disconnected.
+2024-12-30 14:56:19,488 - DEBUG - Using proactor: IocpProactor
+2024-12-30 14:56:19,491 - INFO - Server is running on 127.0.0.1:12345
+2024-12-30 14:56:38,302 - INFO - New connection from ('127.0.0.1', 60313)
+2024-12-30 14:56:38,321 - INFO - [INFO] Shared key established with ('127.0.0.1', 60313): 10000000000000000000000000000000
+2024-12-30 14:56:42,647 - INFO - New connection from ('127.0.0.1', 60322)
+2024-12-30 14:56:42,663 - INFO - [INFO] Shared key established with ('127.0.0.1', 60322): 01000000000000000000
+2024-12-30 14:56:42,663 - ERROR - [DECRYPTION ERROR] Message too short for valid IV.
+2024-12-30 14:56:42,663 - ERROR - [ENCRYPTION ERROR] Incorrect AES key length (10 bytes)
+2024-12-30 14:56:42,663 - ERROR - [SERVER ERROR] Unexpected error: 'NoneType' object has no attribute 'encode'
+2024-12-30 14:56:52,268 - INFO - New connection from ('127.0.0.1', 60327)
+2024-12-30 14:56:52,286 - INFO - [INFO] Shared key established with ('127.0.0.1', 60327): 20000000000000000000000000000000
+2024-12-30 14:56:58,793 - INFO - New connection from ('127.0.0.1', 60330)
+2024-12-30 14:56:58,811 - INFO - [INFO] Shared key established with ('127.0.0.1', 60330): 04000000000000000000000000000000
+2024-12-30 14:57:02,743 - INFO - Processing command: python client.py
+2024-12-30 14:57:02,743 - ERROR - [ERROR RESPONSE] Unknown device 'python'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2024-12-30 14:57:02,743 - INFO - Validation error: ApBJ3nSV/3Gk6jAf3PCy84XszzAmi2KeIJxgYwaRMoo8Fo9oRSZf303TC/PL1uEYZ4mfSdT1HMdTN13ANZLRJxoSXnD66V8B9Xf9Pk0NoNh2vwaVBE7wRFT+sIdOV0ULj5g4S4OOSv+WE0rXVeqJtqF9CrcwsoEXx94y6EcwjSM=
+2024-12-30 14:57:05,992 - INFO - Processing command: 
+2024-12-30 14:57:05,992 - ERROR - [ERROR RESPONSE] Invalid command format. Must include a device and action (e.g., 'light on').
+2024-12-30 14:57:05,992 - INFO - Validation error: 8XsBJTlOurOT9p6HlKwLIn+C/wElX8QfdaG/ih+53W5hYHsXGMv/GOIRrLKPZUPfpzvgZsiedfbLH55wQrjmtlzRT38stxUaML7+yUVibWcW2wzmn+rtgemHYYPRXHAObBw2AjZt/CW0ZvpmWef19w==
+2024-12-30 14:57:13,692 - INFO - Processing command: python client.py
+2024-12-30 14:57:13,692 - ERROR - [ERROR RESPONSE] Unknown device 'python'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2024-12-30 14:57:13,692 - INFO - Validation error: JSHibVYlT/Ob50ATdsbW1ploKAwEmuDvCr9uOrSOZrqSmUmaerywkk4YutmbnM1sgNIulUGewOYi/835v6ztkPaqRuYy2/IUV7CyDHlSGHeqEhvO2W3ezi9vOHD77ud0lFeKWSOaCiysd6jzSI8m2x3JX9qgCRACKeq2g/q74xU=
+2024-12-30 14:57:15,856 - INFO - Processing command: python client.py
+2024-12-30 14:57:15,856 - ERROR - [ERROR RESPONSE] Unknown device 'python'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2024-12-30 14:57:15,856 - INFO - Validation error: oF3PvWShX8iIlTWLepmg5jVN9aKy0tP924YPuW/e+itgtU3TnGouUgqWF7D2/stG0YlKS5xVtE0WK11Maj2aAk+Fi840ATQTKwElliXFoKtiLSlwnhC+l4kdfwBSMWakJpuBPYyIS0B34YhHklVnr7vO8yQhXI/wxoZw1nJqReY=
+2024-12-30 14:57:19,421 - INFO - Processing command: light on
+2024-12-30 14:57:22,450 - INFO - Processing command: light off
+2024-12-30 14:57:50,753 - INFO - Processing command: light on
+2024-12-30 14:58:06,850 - INFO - Processing command: light off
+2024-12-30 14:58:17,289 - DEBUG - Using proactor: IocpProactor
+2024-12-30 14:58:17,291 - INFO - Server is running on 127.0.0.1:12345
+2024-12-30 14:58:27,054 - INFO - New connection from ('127.0.0.1', 60363)
+2024-12-30 14:58:27,073 - INFO - [INFO] Shared key established with ('127.0.0.1', 60363): 04000000000000000000000000000000
+2024-12-30 14:58:44,381 - INFO - New connection from ('127.0.0.1', 60366)
+2024-12-30 14:58:44,397 - INFO - [INFO] Shared key established with ('127.0.0.1', 60366): 02000000000000000000000000000000
+2024-12-30 14:58:48,236 - INFO - Processing command: light on
+2024-12-30 14:59:01,877 - INFO - Processing command: light off
+2024-12-30 14:59:04,728 - INFO - [SERVER] Client ('127.0.0.1', 60363) disconnected.
+2024-12-30 14:59:09,843 - INFO - [SERVER] Client ('127.0.0.1', 60366) disconnected.
+2024-12-30 14:59:38,532 - DEBUG - Using proactor: IocpProactor
+2024-12-30 14:59:38,534 - INFO - Server is running on 127.0.0.1:12345
+2024-12-30 14:59:50,616 - INFO - New connection from ('127.0.0.1', 60386)
+2024-12-30 14:59:50,632 - INFO - [INFO] Shared key established with ('127.0.0.1', 60386): 02000000000000000000000000000000
+2024-12-30 14:59:57,223 - INFO - New connection from ('127.0.0.1', 60389)
+2024-12-30 14:59:57,239 - INFO - [INFO] Shared key established with ('127.0.0.1', 60389): 20000000000000000000000000000000
+2024-12-30 15:00:09,486 - INFO - Processing command: light on
+2024-12-30 15:06:26,968 - DEBUG - Using proactor: IocpProactor
+2024-12-30 15:06:26,970 - INFO - Server is running on 127.0.0.1:12345
+2024-12-30 15:06:43,614 - INFO - New connection from ('127.0.0.1', 60510)
+2024-12-30 15:06:43,631 - INFO - [INFO] Shared key established with ('127.0.0.1', 60510): 01000000000000000000000000000000
+2024-12-30 15:06:47,970 - INFO - Processing command: light on
+2024-12-30 15:06:47,971 - INFO - [SERVER] Client ('127.0.0.1', 60510) disconnected.
+2024-12-30 15:07:07,955 - INFO - New connection from ('127.0.0.1', 60519)
+2024-12-30 15:07:07,971 - INFO - [INFO] Shared key established with ('127.0.0.1', 60519): 02000000000000000000000000000000
+2024-12-30 15:07:23,106 - INFO - New connection from ('127.0.0.1', 60533)
+2024-12-30 15:07:23,122 - INFO - [INFO] Shared key established with ('127.0.0.1', 60533): 02000000000000000000000000000000
+2024-12-30 15:07:25,766 - INFO - Processing command: light on
+2024-12-30 15:07:25,767 - INFO - [SERVER] Client ('127.0.0.1', 60533) disconnected.
+2024-12-30 15:07:34,677 - INFO - Processing command: light off
+2024-12-30 15:07:34,683 - INFO - [SERVER] Client ('127.0.0.1', 60519) disconnected.
