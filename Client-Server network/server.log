@@ -145,3 +145,115 @@
 2024-12-30 15:07:25,767 - INFO - [SERVER] Client ('127.0.0.1', 60533) disconnected.
 2024-12-30 15:07:34,677 - INFO - Processing command: light off
 2024-12-30 15:07:34,683 - INFO - [SERVER] Client ('127.0.0.1', 60519) disconnected.
+2024-12-30 15:22:46,998 - DEBUG - Using proactor: IocpProactor
+2024-12-30 15:22:47,003 - INFO - Server is running on 127.0.0.1:12345
+2024-12-30 15:22:54,928 - INFO - New connection from ('127.0.0.1', 61011)
+2024-12-30 15:22:54,942 - INFO - [INFO] Shared key established with ('127.0.0.1', 61011): 02000000000000000000000000000000
+2024-12-30 15:23:03,335 - INFO - New connection from ('127.0.0.1', 61019)
+2024-12-30 15:23:03,354 - INFO - [INFO] Shared key established with ('127.0.0.1', 61019): 04000000000000000000000000000000
+2024-12-30 15:23:06,953 - INFO - Processing command: light on
+2024-12-30 15:23:06,962 - INFO - [SERVER] Client ('127.0.0.1', 61019) disconnected.
+2024-12-30 15:27:40,298 - DEBUG - Using proactor: IocpProactor
+2024-12-30 15:27:40,300 - INFO - Server is running on 127.0.0.1:12345
+2024-12-30 15:27:48,916 - INFO - New connection from ('127.0.0.1', 61136)
+2024-12-30 15:27:48,932 - INFO - [INFO] Shared key established with ('127.0.0.1', 61136): 20000000000000000000000000000000
+2024-12-30 15:27:56,221 - INFO - New connection from ('127.0.0.1', 61139)
+2024-12-30 15:27:56,238 - INFO - [INFO] Shared key established with ('127.0.0.1', 61139): 04000000000000000000000000000000
+2024-12-30 15:27:58,695 - INFO - Processing command: light on
+2024-12-30 15:27:58,697 - INFO - [SERVER] Client ('127.0.0.1', 61139) disconnected.
+2024-12-30 15:28:14,871 - INFO - Processing command: light on
+2024-12-30 15:28:14,873 - INFO - [SERVER] Client ('127.0.0.1', 61136) disconnected.
+2024-12-30 15:52:01,284 - DEBUG - Using proactor: IocpProactor
+2024-12-30 15:52:01,286 - INFO - Server is running on 127.0.0.1:12345
+2024-12-30 15:53:21,103 - INFO - New connection from ('127.0.0.1', 62242)
+2024-12-30 15:53:21,119 - INFO - [INFO] Shared key established with ('127.0.0.1', 62242): 08000000000000000000000000000000
+2024-12-30 15:53:30,830 - INFO - New connection from ('127.0.0.1', 62248)
+2024-12-30 15:53:30,845 - INFO - [INFO] Shared key established with ('127.0.0.1', 62248): 04000000000000000000000000000000
+2024-12-30 15:53:35,157 - INFO - Processing command: light on
+2024-12-30 15:53:35,160 - INFO - [SERVER] Client ('127.0.0.1', 62248) disconnected.
+2024-12-31 12:17:13,049 - DEBUG - Using proactor: IocpProactor
+2024-12-31 12:17:13,052 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 12:17:13,434 - INFO - New connection from ('127.0.0.1', 61209)
+2024-12-31 12:17:13,454 - INFO - [INFO] Shared key established with ('127.0.0.1', 61209): 04000000000000000000000000000000
+2024-12-31 12:17:29,356 - INFO - Processing command: light on
+2024-12-31 12:17:29,361 - INFO - [SERVER] Client ('127.0.0.1', 61209) disconnected.
+2024-12-31 12:24:24,069 - DEBUG - Using proactor: IocpProactor
+2024-12-31 12:24:24,071 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 12:24:27,301 - INFO - New connection from ('127.0.0.1', 62734)
+2024-12-31 12:24:27,317 - INFO - [INFO] Shared key established with ('127.0.0.1', 62734): 01000000000000000000000000000000
+2024-12-31 12:24:30,688 - INFO - Processing command: light on
+2024-12-31 12:24:30,690 - INFO - [SERVER] Client ('127.0.0.1', 62734) disconnected.
+2024-12-31 12:31:48,126 - DEBUG - Using proactor: IocpProactor
+2024-12-31 12:31:48,128 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 12:31:50,380 - INFO - New connection from ('127.0.0.1', 62958)
+2024-12-31 12:31:50,398 - INFO - [INFO] Shared key established with ('127.0.0.1', 62958): 80000000000000000000000000000000
+2024-12-31 12:31:53,736 - INFO - Processing command: light on
+2024-12-31 12:32:06,970 - WARNING - [SERVER] Client ('127.0.0.1', 62958) disconnected abruptly.
+2024-12-31 12:32:15,147 - INFO - New connection from ('127.0.0.1', 62966)
+2024-12-31 12:32:15,164 - INFO - [INFO] Shared key established with ('127.0.0.1', 62966): 80000000000000000000000000000000
+2024-12-31 12:32:18,054 - INFO - Processing command: light on
+2024-12-31 12:34:20,618 - WARNING - [SERVER] Client ('127.0.0.1', 62966) disconnected abruptly.
+2024-12-31 12:34:22,483 - INFO - New connection from ('127.0.0.1', 63010)
+2024-12-31 12:34:22,500 - INFO - [INFO] Shared key established with ('127.0.0.1', 63010): 01000000000000000000000000000000
+2024-12-31 12:34:26,806 - INFO - Processing command: light on
+2024-12-31 12:34:26,807 - INFO - [SERVER] Client ('127.0.0.1', 63010) disconnected.
+2024-12-31 12:38:53,430 - DEBUG - Using proactor: IocpProactor
+2024-12-31 12:38:53,432 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 12:38:57,243 - INFO - New connection from ('127.0.0.1', 63240)
+2024-12-31 12:38:57,260 - INFO - [INFO] Shared key established with ('127.0.0.1', 63240): 01000000000000000000000000000000
+2024-12-31 12:39:00,571 - INFO - Processing command: light on
+2024-12-31 12:39:00,573 - INFO - [SERVER] Client ('127.0.0.1', 63240) disconnected.
+2024-12-31 12:39:11,964 - INFO - New connection from ('127.0.0.1', 63244)
+2024-12-31 12:39:11,981 - INFO - [INFO] Shared key established with ('127.0.0.1', 63244): 01000000000000000000000000000000
+2024-12-31 12:39:15,169 - WARNING - [SERVER] Client ('127.0.0.1', 63244) disconnected abruptly.
+2024-12-31 12:39:21,760 - DEBUG - Using proactor: IocpProactor
+2024-12-31 12:39:21,761 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 12:39:36,282 - INFO - New connection from ('127.0.0.1', 63255)
+2024-12-31 12:39:36,298 - INFO - [INFO] Shared key established with ('127.0.0.1', 63255): 80000000000000000000000000000000
+2024-12-31 12:39:40,511 - INFO - Processing command: light on
+2024-12-31 12:39:40,514 - INFO - [SERVER] Client ('127.0.0.1', 63255) disconnected.
+2024-12-31 12:39:51,255 - INFO - New connection from ('127.0.0.1', 63258)
+2024-12-31 12:39:51,272 - INFO - [INFO] Shared key established with ('127.0.0.1', 63258): 020000000000000000000000000000
+2024-12-31 12:39:51,273 - ERROR - [DECRYPTION ERROR] Message too short for valid IV.
+2024-12-31 12:39:51,273 - ERROR - [ENCRYPTION ERROR] Incorrect AES key length (15 bytes)
+2024-12-31 12:39:51,273 - ERROR - [SERVER ERROR] Unexpected error: 'NoneType' object has no attribute 'encode'
+2024-12-31 13:30:03,874 - DEBUG - Using proactor: IocpProactor
+2024-12-31 13:30:03,875 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 13:30:13,150 - INFO - New connection from ('127.0.0.1', 63985)
+2024-12-31 13:30:13,168 - INFO - [INFO] Shared key established with ('127.0.0.1', 63985): 80000000000000000000000000000000
+2024-12-31 13:30:16,376 - INFO - Processing command: light on
+2024-12-31 13:30:16,377 - INFO - [SERVER] Client ('127.0.0.1', 63985) disconnected.
+2024-12-31 13:30:31,392 - INFO - New connection from ('127.0.0.1', 63989)
+2024-12-31 13:30:31,408 - INFO - [INFO] Shared key established with ('127.0.0.1', 63989): 04000000000000000000000000000000
+2024-12-31 13:30:34,275 - INFO - Processing command: light on
+2024-12-31 13:30:34,276 - INFO - [SERVER] Client ('127.0.0.1', 63989) disconnected.
+2024-12-31 13:31:02,226 - DEBUG - This is a debug message.
+2024-12-31 13:31:02,227 - INFO - This is an info message.
+2024-12-31 13:31:02,227 - ERROR - This is an error message.
+2024-12-31 13:31:02,227 - DEBUG - Using proactor: IocpProactor
+2024-12-31 13:31:02,229 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 13:31:12,434 - INFO - New connection from ('127.0.0.1', 63998)
+2024-12-31 13:31:12,450 - INFO - [INFO] Shared key established with ('127.0.0.1', 63998): 04000000000000000000000000000000
+2024-12-31 13:31:14,869 - INFO - Processing command: light on
+2024-12-31 13:31:14,870 - INFO - [SERVER] Client ('127.0.0.1', 63998) disconnected.
+2024-12-31 13:31:55,131 - DEBUG - This is a debug message.
+2024-12-31 13:31:55,131 - INFO - This is an info message.
+2024-12-31 13:31:55,131 - ERROR - This is an error message.
+2024-12-31 13:31:55,131 - DEBUG - Using proactor: IocpProactor
+2024-12-31 13:31:55,133 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 13:32:04,391 - INFO - New connection from ('127.0.0.1', 64021)
+2024-12-31 13:32:04,408 - INFO - [INFO] Shared key established with ('127.0.0.1', 64021): 10000000000000000000000000000000
+2024-12-31 13:32:07,128 - INFO - Processing command: light on
+2024-12-31 13:32:10,019 - INFO - Processing command: light off
+2024-12-31 13:32:19,134 - INFO - New connection from ('127.0.0.1', 64027)
+2024-12-31 13:32:19,150 - INFO - [INFO] Shared key established with ('127.0.0.1', 64027): 040000
+2024-12-31 13:32:19,151 - ERROR - [DECRYPTION ERROR] Message too short for valid IV.
+2024-12-31 13:32:19,152 - ERROR - [ENCRYPTION ERROR] Incorrect AES key length (3 bytes)
+2024-12-31 13:32:19,152 - ERROR - [SERVER ERROR] Unexpected error: 'NoneType' object has no attribute 'encode'
+2024-12-31 13:32:19,152 - ERROR - [ERROR RESPONSE] An unexpected server error occurred.
+2024-12-31 13:32:39,327 - INFO - New connection from ('127.0.0.1', 64035)
+2024-12-31 13:32:39,343 - INFO - [INFO] Shared key established with ('127.0.0.1', 64035): 10000000
+2024-12-31 13:32:39,344 - ERROR - [DECRYPTION ERROR] Message too short for valid IV.
+2024-12-31 13:32:39,344 - ERROR - [ENCRYPTION ERROR] Incorrect AES key length (4 bytes)
+2024-12-31 13:32:39,345 - ERROR - [SERVER ERROR] Unexpected error: 'NoneType' object has no attribute 'encode'
+2024-12-31 13:32:39,345 - ERROR - [ERROR RESPONSE] An unexpected server error occurred.

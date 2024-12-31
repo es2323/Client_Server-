@@ -57,21 +57,6 @@ def generate_random_password(length=12):
     chars = string.ascii_letters + string.digits + "!@#$%^&*()"
     return ''.join(random.choice(chars) for _ in range(length))
 
-# Coroutine to handle incoming notifications from the server
-async def listen_for_notifications(reader, shared_key):
-    while True:
-        try:
-            encrypted_notification = await reader.read(1024)
-            if not encrypted_notification:
-                break  # Server disconnected
-
-            notification = decrypt_message(encrypted_notification.decode("utf-8"), shared_key)
-            if notification != "Invalid message received or decryption error":
-                print(f"\033[93m[NOTIFICATION] {notification}\033[0m")  # Yellow color for notifications
-        except Exception as e:
-            print(f"[ERROR] Failed to receive notification: {e}")
-            break
-
 async def start_client():
     HOST = "127.0.0.1"
     PORT = 12345
@@ -94,6 +79,7 @@ async def start_client():
 
         # Derive the shared key
         shared_key = derive_shared_key(private_key, server_public_key)
+        if len(shared_key) not in [16, 24, 32]: shared_key = shared_key[:16] # Ensure the key is 16 bytes
         print(f"[INFO] Shared key established: {shared_key.hex()}")
 
         # Use the shared key for encryption/decryption
@@ -122,14 +108,6 @@ async def start_client():
         encrypted_response = await reader.read(1024)
         response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY)
         print(f"[SERVER RESPONSE] {response}")
-
-        if "Authentication successful" not in response:
-            print("[ERROR] Authentication failed.")
-            return
-
-        # Start listening for notifications in a separate task
-        asyncio.create_task(listen_for_notifications(reader, shared_key))
-
 
         # If authenticated successfully, interact with the server
         if "Authentication successful" in response: 

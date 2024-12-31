@@ -14,10 +14,8 @@ from argon2 import PasswordHasher
 logging.basicConfig(
     filename="server.log",
     level=logging.DEBUG,
-    format="%(asctime)s - %(levelname)s - %(message)s",
+    format="%(asctime)s - %(levelname)s - %(message)s"
 )
-
-active_clients = []
 
 # Shared secret key (must be 16, 24, or 32 bytes long)
 raw_key = b'my_secret_key_too_long!'
@@ -155,16 +153,6 @@ def validate_command(command):
 
     return None  # No errors
 
-async def broadcast_message(message, sender_writer, shared_key):
-    for reader, writer, key in active_clients:
-        if writer != sender_writer:  # Don't send to the sender
-            try:
-                encrypted_message = encrypt_message(message, key)
-                writer.write(encrypted_message.encode("utf-8"))
-                await writer.drain()
-            except Exception as e:
-                logging.error(f"Error broadcasting to client: {e}")
-
 # Process client commands
 async def process_command(conn, command):
     try:
@@ -273,7 +261,6 @@ async def process_command(conn, command):
             return create_error_response(f"Error: {str(e)}")
 
 async def handle_client(reader, writer):
-    global active_clients
     conn = sqlite3.connect("smart_home.db")
     try:
         client_address = writer.get_extra_info('peername')
@@ -293,9 +280,8 @@ async def handle_client(reader, writer):
 
         # Derive the shared key
         shared_key = derive_shared_key(private_key, client_public_key)
+        if len(shared_key) not in [16, 24, 32]: shared_key = shared_key[:16] # Ensure the key is 16 bytes
         logging.info(f"[INFO] Shared key established with {client_address}: {shared_key.hex()}")
-        
-        active_clients.append((reader, writer, shared_key))
 
         encrypted_auth_message = await reader.read(1024)
         auth_message = decrypt_message(encrypted_auth_message.decode("utf-8"), shared_key)
@@ -330,7 +316,7 @@ async def handle_client(reader, writer):
 
         if "failed" in response:
             return
-        #Command handling loop
+
         while True:
             try:
                 encrypted_command = await reader.read(1024)
@@ -343,10 +329,7 @@ async def handle_client(reader, writer):
                     response = create_error_response("Decryption failed or invalid message format.")
                 else:
                     response = await process_command(conn, command)
-                    
-                    if "success" in response.lower() or "changed" in response.lower():
-                        await broadcast_message(f"State updated: {response}", writer, shared_key)
-                
+
                 encrypted_response = encrypt_message(response, shared_key)
                 writer.write(encrypted_response.encode("utf-8"))
                 await writer.drain()
@@ -363,10 +346,9 @@ async def handle_client(reader, writer):
 
     except Exception as e:
         logging.error(f"[SERVER ERROR] Unexpected error: {e}")
-    finally:
-        active_clients = [(r, w, k) for r, w, k in active_clients if w != writer]
-        conn.close()
-        writer.close()
+        response = create_error_response("An unexpected server error occurred.")
+        writer.write(response.encode("utf-8"))
+        await writer.drain()
 
 
 async def main():
