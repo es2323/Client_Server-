@@ -257,3 +257,213 @@
 2024-12-31 13:32:39,344 - ERROR - [ENCRYPTION ERROR] Incorrect AES key length (4 bytes)
 2024-12-31 13:32:39,345 - ERROR - [SERVER ERROR] Unexpected error: 'NoneType' object has no attribute 'encode'
 2024-12-31 13:32:39,345 - ERROR - [ERROR RESPONSE] An unexpected server error occurred.
+2024-12-31 13:41:59,910 - DEBUG - Using proactor: IocpProactor
+2024-12-31 13:41:59,912 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 13:42:05,269 - INFO - New connection from ('127.0.0.1', 64379)
+2024-12-31 13:42:05,286 - INFO - [INFO] Shared key established with ('127.0.0.1', 64379): 80000000000000000000000000000000
+2024-12-31 13:42:08,041 - INFO - Processing command: light on
+2024-12-31 13:42:12,319 - INFO - Processing command: light off
+2024-12-31 13:42:19,497 - INFO - New connection from ('127.0.0.1', 64386)
+2024-12-31 13:42:19,513 - INFO - [INFO] Shared key established with ('127.0.0.1', 64386): 10000000000000000000000000000000
+2024-12-31 13:42:22,014 - INFO - Processing command: light on
+2024-12-31 13:42:28,181 - INFO - Processing command: light off thermostat get
+2024-12-31 13:42:50,547 - INFO - Processing command: light on
+2024-12-31 13:43:03,744 - INFO - Processing command: thermostat set67
+2024-12-31 13:43:03,744 - ERROR - [ERROR RESPONSE] Invalid action 'set67' for device 'thermostat'. Valid actions are: get, set.
+2024-12-31 13:43:03,744 - INFO - Validation error: tJtHavqxURIAORwimdnMx8Q/ub5ZWjZDrPnjsnkooP4+kzBix1cIaBVbdvIRn1fTOcVgu0R9oNzO/prPibDGAkz8hmCBQiOfJlXyFvoK2uqANeQb5pgkjp8j+c54mh0+C1Rqda+maWMGbO+Jc4wLRA==
+2024-12-31 13:43:08,006 - INFO - Processing command: thermostat set 56
+2024-12-31 13:43:08,006 - ERROR - [ERROR RESPONSE] Thermostat set to 56°C
+2024-12-31 13:43:19,880 - INFO - Processing command: fan low
+2024-12-31 13:43:29,891 - INFO - Processing command: fan high
+2024-12-31 14:03:29,024 - DEBUG - Using proactor: IocpProactor
+2024-12-31 14:03:29,027 - INFO - Loaded device states: {'light': {'state': 'on', 'temperature': None, 'speed': None, 'lock_time': None}, 'thermostat': {'state': 'on', 'temperature': 56, 'speed': None, 'lock_time': None}, 'fan': {'state': 'on', 'temperature': None, 'speed': 'high', 'lock_time': None}, 'smart lock': {'state': 'locked', 'temperature': None, 'speed': None, 'lock_time': 'lock 5:45'}, 'camera': {'state': 'on', 'temperature': None, 'speed': None, 'lock_time': None}, 'speaker': {'state': 'off', 'temperature': None, 'speed': None, 'lock_time': None}}
+2024-12-31 14:03:29,028 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 14:03:33,306 - INFO - New connection from ('127.0.0.1', 65177)
+2024-12-31 14:03:33,323 - INFO - [INFO] Shared key established with ('127.0.0.1', 65177): 04000000000000000000000000000000
+2024-12-31 14:03:38,035 - INFO - Processing command: light on
+2024-12-31 14:04:03,164 - INFO - Processing command: thermostat get
+2024-12-31 14:04:18,245 - INFO - Processing command: thermostat set 45
+2024-12-31 14:04:26,208 - INFO - Processing command: thermostat set 56
+2024-12-31 14:04:35,417 - INFO - Processing command: thermostat 90
+2024-12-31 14:04:35,417 - ERROR - [ERROR RESPONSE] Invalid action '90' for device 'thermostat'. Valid actions are: get, set.
+2024-12-31 14:04:35,418 - INFO - Validation error: 1DnLu36CiL7i5iDCbcUPl4KCS61Z+VbEqjrmFhabkhLujQd3u1JHMkwBwJPI8tGcsEVGrQQghJjk6W4UGDtX92TIYQmACF8dROcTANDTPhnYeLpzBXL8i9sZniPtlJpk396noYGYAPiIDAUCe70QXg==
+2024-12-31 15:04:48,388 - DEBUG - Using proactor: IocpProactor
+2024-12-31 15:04:48,391 - INFO - Loaded device states: {'light': {'state': 'on', 'temperature': None, 'speed': None, 'lock_time': None}, 'thermostat': {'state': 'on', 'temperature': 56, 'speed': None, 'lock_time': None}, 'fan': {'state': 'on', 'temperature': None, 'speed': 'high', 'lock_time': None}, 'smart lock': {'state': 'locked', 'temperature': None, 'speed': None, 'lock_time': 'lock 5:45'}, 'camera': {'state': 'on', 'temperature': None, 'speed': None, 'lock_time': None}, 'speaker': {'state': 'off', 'temperature': None, 'speed': None, 'lock_time': None}}
+2024-12-31 15:04:48,392 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 15:04:51,365 - INFO - New connection from ('127.0.0.1', 50657)
+2024-12-31 15:04:51,383 - INFO - [INFO] Shared key established with ('127.0.0.1', 50657): 08000000000000000000000000000000
+2024-12-31 15:04:56,692 - INFO - Processing command: light on
+2024-12-31 15:05:08,759 - INFO - Processing command: light off
+2024-12-31 15:05:12,384 - INFO - Processing command: fan on
+2024-12-31 15:05:15,689 - INFO - Processing command: fan off
+2024-12-31 15:10:13,526 - DEBUG - Using proactor: IocpProactor
+2024-12-31 15:10:13,528 - INFO - Loaded device states: {'light': {'state': 'off', 'temperature': None, 'speed': None, 'lock_time': None}, 'thermostat': {'state': 'on', 'temperature': 56, 'speed': None, 'lock_time': None}, 'fan': {'state': 'off', 'temperature': None, 'speed': None, 'lock_time': None}, 'smart lock': {'state': 'locked', 'temperature': None, 'speed': None, 'lock_time': 'lock 5:45'}, 'camera': {'state': 'on', 'temperature': None, 'speed': None, 'lock_time': None}, 'speaker': {'state': 'off', 'temperature': None, 'speed': None, 'lock_time': None}}
+2024-12-31 15:10:13,528 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 15:11:56,446 - INFO - New connection from ('127.0.0.1', 51096)
+2024-12-31 15:11:56,465 - INFO - [INFO] Shared key established with ('127.0.0.1', 51096): 01000000000000000000000000000000
+2024-12-31 15:12:00,042 - INFO - Processing command: light on
+2024-12-31 15:12:00,052 - INFO - [SERVER] Client ('127.0.0.1', 51096) disconnected.
+2024-12-31 15:18:40,277 - DEBUG - Using proactor: IocpProactor
+2024-12-31 15:18:40,279 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 15:18:43,633 - INFO - New connection from ('127.0.0.1', 51517)
+2024-12-31 15:18:43,651 - INFO - [INFO] Shared key established with ('127.0.0.1', 51517): 04000000000000000000000000000000
+2024-12-31 15:18:57,366 - INFO - Processing command: light on
+2024-12-31 15:19:08,044 - INFO - Processing command: light off
+2024-12-31 15:19:19,704 - INFO - Processing command: thermostat set 67
+2024-12-31 15:19:19,714 - ERROR - [ERROR RESPONSE] Thermostat set to 67°C
+2024-12-31 15:19:37,114 - INFO - New connection from ('127.0.0.1', 51630)
+2024-12-31 15:19:37,132 - INFO - [INFO] Shared key established with ('127.0.0.1', 51630): 01000000000000000000000000000000
+2024-12-31 15:19:44,397 - INFO - Processing command: smart lock lock 6:45
+2024-12-31 15:19:44,397 - ERROR - [ERROR RESPONSE] Unknown device 'smart'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2024-12-31 15:19:44,397 - INFO - Validation error: 85p7DTa5wmFcb8gVx+IVsl8bAo7Ek/5mnyLJZTZXGaDaCyyaaEFoschhVRUr63muSjNPCzXv08SCeyBt4kUzMy1I9zR9nqZEVim9magmLXLGbOniSTEI7z8e74n9UHMxXidbLz44Sq4b4bi79yF3aitXEe2h5MzqFN1Dl3Bi/d4=
+2024-12-31 15:20:08,594 - INFO - Processing command: smart lock lock 12:45pm
+2024-12-31 15:20:08,595 - ERROR - [ERROR RESPONSE] Unknown device 'smart'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2024-12-31 15:20:08,595 - INFO - Validation error: F9V3DfhnalgIHeIZKTlfXYUaGITWgZZ2nCTsoFWDtfO3bdzTaaufuMVJxWpGkkL/jG63LmI4QQDeJrh51qJGmDNqgE6PRtV6Ka9ErOUEVPxU46PAwzYGBPMKrKCOzhok7TSohIwc9AYLK3BoLc0PRy2hBEB1+xOIEfCA1RweLDU=
+2024-12-31 15:20:33,655 - INFO - Processing command: smart lock unlocked
+2024-12-31 15:20:33,655 - ERROR - [ERROR RESPONSE] Unknown device 'smart'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2024-12-31 15:20:33,655 - INFO - Validation error: VSTrr4lZXGcEP3xAdxz63R5vn7W8Uvj0zxVLDRsNskiCoB3Q94uWarCWMFAph0x8sbnBUdIPufrh3KVNzR5QyG6xUC7MWi+lh/vIpUwYuBbWaT3xyPStyDTE2OnD9jUWGK0yI5mgk0zA8uoTTVVdkmXQRXAFHEqQEyG5xCNis+s=
+2024-12-31 15:20:54,230 - INFO - Processing command: smart lock unlocked
+2024-12-31 15:20:54,230 - ERROR - [ERROR RESPONSE] Unknown device 'smart'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2024-12-31 15:20:54,230 - INFO - Validation error: d1rWvErPyyM8jRmwkPMclvhER1JSeqi9zPGtR3D5j2L4NyOvxW6LIO4pSca5+LsX9HiOo1Rt0iIBVkJT2RQB2DklK+jKE/jwUPvPtxx0M0aUWb0jqfxLyW+3vQzbb1SfbVH2Fab+4nt+n1VVPUFimTniZwwDSNmTce+rDZcScrc=
+2024-12-31 15:21:08,292 - INFO - Processing command: light on
+2024-12-31 16:29:49,513 - DEBUG - Using proactor: IocpProactor
+2024-12-31 16:29:49,521 - INFO - Server is running on 127.0.0.1:12345
+2024-12-31 16:29:52,842 - INFO - New connection from ('127.0.0.1', 55906)
+2024-12-31 16:29:52,872 - INFO - [INFO] Shared key established with ('127.0.0.1', 55906): 10000000000000000000000000000000
+2024-12-31 16:29:56,061 - INFO - Processing command: light on
+2024-12-31 16:29:59,181 - INFO - Processing command: fan on
+2024-12-31 16:30:01,628 - INFO - Processing command: fan off
+2024-12-31 16:30:05,956 - INFO - Processing command: thermostat get
+2024-12-31 16:30:12,204 - INFO - Processing command: thermostat set 56
+2024-12-31 16:30:12,217 - ERROR - [ERROR RESPONSE] Thermostat set to 56°C
+2024-12-31 16:30:25,089 - INFO - New connection from ('127.0.0.1', 55919)
+2024-12-31 16:30:25,119 - INFO - [INFO] Shared key established with ('127.0.0.1', 55919): 10000000000000000000000000000000
+2024-12-31 16:30:27,669 - INFO - Processing command: light on
+2024-12-31 16:30:30,603 - INFO - Processing command: light off
+2024-12-31 16:30:33,770 - INFO - Processing command: thermostat get
+2024-12-31 16:30:42,554 - INFO - Processing command: speaker on
+2024-12-31 16:30:46,393 - INFO - Processing command: speaker off
+2024-12-31 16:30:52,104 - INFO - Processing command: camera on
+2024-12-31 16:30:56,979 - INFO - Processing command: camera off
+2024-12-31 16:31:00,158 - INFO - Processing command: smart lock lock
+2024-12-31 16:31:00,158 - ERROR - [ERROR RESPONSE] Unknown device 'smart'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2024-12-31 16:31:00,158 - INFO - Validation error: C7S8ExsTinYfNCQdsuVwCr6HMfM/qCr2VFlVkAAaTKjzNWmnaDWiIkcgoQBNrNb0tp+275x69SdN5G+H8NX0vSisIdLNicd6lGFUf+MD4h9xlPfa3b44DALratH3eSZl339YswpIau4BdZHLU6I0Ljn9Ttw1pkHzDqpK4zTMI1M=
+2024-12-31 16:31:08,431 - INFO - Processing command: smart lock lock 5:56
+2024-12-31 16:31:08,431 - ERROR - [ERROR RESPONSE] Unknown device 'smart'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2024-12-31 16:31:08,431 - INFO - Validation error: r+SeP/4Ol7y601R6jm0IAQZXoibMWNUIk97SIznQxaJX/FBlyAQwF8kXDb0dyiPkLnviynE1Pzab2tAUENfWEWi+4PMfd/anYPCFJdtFEfQQtN0B+BxOHd5XEeevRCC6SNE5V4wMK345Oe4OQQ/i78/9awL9JTpKSnfpOEO5MjY=
+2025-01-02 12:23:06,089 - DEBUG - Using proactor: IocpProactor
+2025-01-02 12:23:06,094 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 12:23:06,287 - INFO - New connection from ('127.0.0.1', 52406)
+2025-01-02 12:23:06,315 - INFO - [INFO] Shared key established with ('127.0.0.1', 52406): 80000000000000000000000000000000
+2025-01-02 12:23:11,879 - INFO - Processing command: light on
+2025-01-02 12:23:14,070 - INFO - Processing command: light off
+2025-01-02 12:23:18,792 - INFO - Processing command: thermostat get
+2025-01-02 12:23:26,008 - INFO - Processing command: thermostat set 56
+2025-01-02 12:23:26,009 - ERROR - [ERROR RESPONSE] Thermostat set to 56°C
+2025-01-02 12:31:10,383 - DEBUG - Using proactor: IocpProactor
+2025-01-02 12:31:10,386 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 12:31:14,334 - INFO - New connection from ('127.0.0.1', 52489)
+2025-01-02 12:31:14,361 - INFO - [INFO] Shared key established with ('127.0.0.1', 52489): 80000000000000000000000000000000
+2025-01-02 12:31:14,463 - INFO - [SERVER] Client ('127.0.0.1', 52489) disconnected.
+2025-01-02 12:31:56,308 - DEBUG - Using proactor: IocpProactor
+2025-01-02 12:31:56,311 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 12:31:59,018 - INFO - New connection from ('127.0.0.1', 52501)
+2025-01-02 12:31:59,043 - INFO - [INFO] Shared key established with ('127.0.0.1', 52501): 10000000000000000000000000000000
+2025-01-02 12:32:03,613 - INFO - Processing command: light on
+2025-01-02 12:32:07,944 - INFO - Processing command: thermostat get
+2025-01-02 12:32:07,945 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 12:32:07,945 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 12:32:13,850 - INFO - Processing command: thermostat set 56
+2025-01-02 12:32:13,850 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 12:32:13,850 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 12:32:29,937 - WARNING - [SERVER] Client ('127.0.0.1', 52501) disconnected abruptly.
+2025-01-02 12:33:19,695 - DEBUG - Using proactor: IocpProactor
+2025-01-02 12:33:19,698 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 12:33:22,842 - INFO - New connection from ('127.0.0.1', 52522)
+2025-01-02 12:33:22,868 - INFO - [INFO] Shared key established with ('127.0.0.1', 52522): 10000000000000000000000000000000
+2025-01-02 12:33:28,356 - INFO - Processing command: light on
+2025-01-02 12:33:32,747 - INFO - Processing command: thermostat get
+2025-01-02 12:33:32,749 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 12:33:32,749 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 12:33:37,620 - INFO - Processing command: thermostat set 78
+2025-01-02 12:33:37,621 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 12:33:37,621 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 12:35:27,434 - WARNING - [SERVER] Client ('127.0.0.1', 52522) disconnected abruptly.
+2025-01-02 12:36:56,740 - DEBUG - Using proactor: IocpProactor
+2025-01-02 12:36:56,742 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 12:37:00,977 - INFO - New connection from ('127.0.0.1', 52622)
+2025-01-02 12:37:01,000 - INFO - [INFO] Shared key established with ('127.0.0.1', 52622): 01000000000000000000000000000000
+2025-01-02 12:37:08,429 - INFO - Processing command: thermostat get
+2025-01-02 12:37:08,430 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 12:37:08,430 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 12:37:13,646 - INFO - Processing command: thermostat set
+2025-01-02 12:37:13,646 - ERROR - [ERROR RESPONSE] Thermostat 'set' command must include a temperature value (e.g., 'thermostat set 25').
+2025-01-02 12:37:13,646 - INFO - Validation error: RVooExjDcrgGiPl5YEEcWaOWkoG3i179i2wcGDJgmSb+groRi84cSEHd5Hrzk7SpPsZ5LujJlvUEq2p4cR+X9QgphaYb7qxHgWS+87cQd9AP/PrBfjxeDQcB6xkHscpLBrymB6NJAaMHc4kOgdi58g==
+2025-01-02 12:37:17,932 - INFO - Processing command: light on
+2025-01-02 12:37:19,812 - INFO - Processing command: fan n
+2025-01-02 12:37:19,812 - ERROR - [ERROR RESPONSE] Invalid action 'n' for device 'fan'. Valid actions are: on, off, low, medium, high.
+2025-01-02 12:37:19,814 - INFO - Validation error: sFmfpsiRviZ6JVGpKI9pxP6bemeUtjSBW2joMYvhAfowcN/FHk5XDuU0bQvtJpO/qj2/2UqqB/vYEdfHAflZMYtaIld6DYxdDmG0x3nm23weFPwAl9sLJbeWDajRBEkS8aaJCkIznMj3zDHW0JANDA==
+2025-01-02 12:37:21,708 - INFO - Processing command: fan on
+2025-01-02 12:37:24,078 - INFO - Processing command: fan off
+2025-01-02 12:40:20,857 - DEBUG - Using proactor: IocpProactor
+2025-01-02 12:40:20,859 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 12:40:23,829 - INFO - New connection from ('127.0.0.1', 52646)
+2025-01-02 12:40:23,853 - INFO - [INFO] Shared key established with ('127.0.0.1', 52646): 01000000000000000000000000000000
+2025-01-02 12:40:23,958 - INFO - [SERVER] Client ('127.0.0.1', 52646) disconnected.
+2025-01-02 12:41:50,649 - DEBUG - Using proactor: IocpProactor
+2025-01-02 12:41:50,652 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 12:41:55,919 - INFO - New connection from ('127.0.0.1', 52672)
+2025-01-02 12:41:55,946 - INFO - [INFO] Shared key established with ('127.0.0.1', 52672): 01000000000000000000000000000000
+2025-01-02 12:42:01,982 - INFO - Processing command: light on
+2025-01-02 12:42:12,112 - INFO - Processing command: thermostat get
+2025-01-02 12:42:12,112 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 12:42:12,113 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 13:02:44,640 - DEBUG - Using proactor: IocpProactor
+2025-01-02 13:02:44,646 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 13:02:48,489 - INFO - New connection from ('127.0.0.1', 52828)
+2025-01-02 13:02:48,511 - INFO - [INFO] Shared key established with ('127.0.0.1', 52828): 10000000000000000000000000000000
+2025-01-02 13:02:52,121 - INFO - Processing command: light on
+2025-01-02 13:02:56,806 - INFO - Processing command: light off
+2025-01-02 13:03:00,266 - INFO - Processing command: thermostat get
+2025-01-02 13:03:11,285 - INFO - Processing command: thermostat set 45
+2025-01-02 13:03:14,933 - INFO - Processing command: fan on
+2025-01-02 13:03:17,196 - INFO - Processing command: fan off
+2025-01-02 13:03:22,901 - INFO - Processing command: smart lock lock
+2025-01-02 13:03:22,901 - ERROR - [ERROR RESPONSE] Unknown device 'smart'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2025-01-02 13:03:22,901 - INFO - Validation error: 9ebqA1HExicEbfUhU4QMiqOf5rK3aSER4C7StYVg69sQ+Wkvwyez1dafvSdMw0vNjvT05pRCcxz/ayTgVvmE7k1mT+fduU/cIpyiujDpP9H/a3EHbTKS4RWn/AT6ZYt4ohEp1RnPakdIud5BjlWdctq3yEZz+dlcknw2utc5Ric=
+2025-01-02 13:03:32,330 - INFO - Processing command: speaker on
+2025-01-02 13:03:35,473 - INFO - Processing command: speaker off
+2025-01-02 13:03:43,263 - INFO - Processing command: camera on
+2025-01-02 13:03:46,748 - INFO - Processing command: camera off
+2025-01-02 13:03:53,921 - INFO - Processing command: smart lock locked
+2025-01-02 13:03:53,921 - ERROR - [ERROR RESPONSE] Unknown device 'smart'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2025-01-02 13:03:53,922 - INFO - Validation error: sMkYrYpuVDJpBcv3bFWQzcuyRB8689KfTYpjhsgI5pZh6BdZNE3gsBufQz4d6uGYSY5FEw8sXI6bcMxzVBPLCBdsHR8cUIfrp3w1Q6zzCU3bKKpyyZLvG8U5qEuGxocMSpKUAxs0n0P0dzDGfMT1SYc/R0rh2ozIS3BEmEpgI6M=
+2025-01-02 13:04:02,295 - INFO - Processing command: fan medium
+2025-01-02 13:04:05,219 - INFO - Processing command: fan off
+2025-01-02 13:08:14,396 - DEBUG - Using proactor: IocpProactor
+2025-01-02 13:08:14,401 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 13:08:17,565 - INFO - New connection from ('127.0.0.1', 52875)
+2025-01-02 13:08:17,595 - INFO - [INFO] Shared key established with ('127.0.0.1', 52875): 01000000000000000000000000000000
+2025-01-02 13:08:20,914 - INFO - Processing command: light on
+2025-01-02 13:08:25,818 - INFO - Processing command: thermostat get
+2025-01-02 13:08:34,134 - INFO - Processing command: smart lock lock 5:16pm
+2025-01-02 13:08:34,135 - ERROR - [ERROR RESPONSE] Unknown device 'smart'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2025-01-02 13:08:34,135 - INFO - Validation error: W19MameCee6rhkekuIJBtNrUutJl5Jlz811DvapHpDokq4KjU2RxE3ohqQ28w7pD9POsFPG/Jit33wwvOyrcI0rsnzBbeUqKeQY7dfLdl3E365341SwVixijNAxBqEWAHWTqHEYfXxLsukuPbGjH/hM8nhpw57SYmhI5UPGn2oE=
+2025-01-02 13:08:40,436 - INFO - Processing command: smart lock locked
+2025-01-02 13:08:40,436 - ERROR - [ERROR RESPONSE] Unknown device 'smart'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2025-01-02 13:08:40,437 - INFO - Validation error: Q+8c1+NqE0FDMOpCjoeouYxCdmx4jsAXPUywjH63uiu+Nk2VstTi2dVQBM3i+VyfWzfqgSwxiIzG15vie4NnvOiC1U3yLxqZzbfBJ3xUnunJFlegM2ksST5r2orBWv1Jh4O10Dpsg8pt7ra54eXVmutR7HLMTJJMOknl/P9fSd0=
+2025-01-02 13:09:09,952 - INFO - Processing command: fan on
+2025-01-02 13:09:14,094 - INFO - Processing command: smart lock locked
+2025-01-02 13:09:14,094 - ERROR - [ERROR RESPONSE] Unknown device 'smart'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2025-01-02 13:09:14,095 - INFO - Validation error: dKvvdqf4hS/+u4kqYiPb9ty1OlJX+UZR2c8EL4Tls/84OP4AS8QaQqBrvyjwloeiQbQot8o8S9yt2ooVY/jx/y9boEiTRAQTI7XbpgDy0ktBKGQ9y2a0o7AeFiEBWNDgy0tKUJ+5tgAk/DqyXEAXeXoU58Wx/HzY/M3s/QGRhR8=
+2025-01-02 13:12:53,665 - DEBUG - Using proactor: IocpProactor
+2025-01-02 13:12:53,670 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 13:12:56,412 - INFO - New connection from ('127.0.0.1', 52912)
+2025-01-02 13:12:56,444 - INFO - [INFO] Shared key established with ('127.0.0.1', 52912): 10000000000000000000000000000000
+2025-01-02 13:12:59,922 - INFO - Processing command: light on
+2025-01-02 13:13:05,206 - INFO - Processing command: smart lock locked
+2025-01-02 13:13:18,566 - INFO - Processing command: smart lock lock 5:45 PM
+2025-01-02 13:13:23,637 - INFO - Processing command: speaker on
+2025-01-02 13:13:26,435 - INFO - Processing command: speaker off
+2025-01-02 13:13:32,083 - INFO - Processing command: thermostat get
+2025-01-02 13:13:37,775 - INFO - Processing command: thermostat set 56

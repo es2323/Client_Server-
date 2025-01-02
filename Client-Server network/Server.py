@@ -126,9 +126,14 @@ def validate_command(command):
     parts = command.split()
     if len(parts) < 2:
         return create_error_response("Invalid command format. Must include a device and action (e.g., 'light on').")
-    
-    device_name = parts[0]
-    action = parts[1]
+    # Reconstruct multi-word device names
+    if len(parts) >= 2 and parts[0] == "smart" and parts[1] == "lock":
+        device_name = "smart lock"
+        action = parts[2] if len(parts) > 2 else None
+    else:
+        device_name = parts[0]
+        action = parts[1] if len(parts) > 1 else None
+
     valid_devices = ["light", "fan", "thermostat", "smart lock", "camera", "speaker"]
     valid_actions = {
         "light": ["on", "off"],
@@ -173,16 +178,20 @@ async def process_command(conn, command):
             action = parts[2] if len(parts) > 2 else None
 
         device_state = get_device_state(conn, device_name)
-        if device_state is None:
-            return create_error_response(f"Device '{device_name}' not found.")
+        if device_state:  # Ensure the device exists
+            state, temperature, speed, lock_time = device_state
             
         cursor = conn.cursor()
         cursor.execute("SELECT device_state, temperature, speed, lock_time FROM devices WHERE device_name = ?", (device_name,))
         device_state = cursor.fetchone()
-
+        
+        device_state = get_device_state(conn, device_name)
+        if not device_state:
+            return create_error_response(f"Device '{device_name}' not found.")
         # Process actions for each device
         if device_name == "light":
                 if action in ["on", "off"]:
+                    state, temperature, speed, lock_time = device_state
                     update_device_state_db(conn, device_name, state=action)
                     cursor.execute("UPDATE devices SET device_state = ? WHERE device_name = ?", (action, device_name))
                     conn.commit()
@@ -192,20 +201,16 @@ async def process_command(conn, command):
 
         if device_name == "thermostat":
             if action == "get":
-                cursor.execute("SELECT device_state FROM devices WHERE device_name = ?", (device_name,))
-                device_state = cursor.fetchone()
-                if device_state:  # Check if the result is not None
-                    return f"Current temperature is {device_state[0]}°C"  # Adjust index based on fetched columns
-                else:
-                    return create_error_response("Error: Device state not found for the thermostat.")
+                state, temperature, _, _ = device_state
+                return f"Current temperature is {temperature}°C"
             elif action == "set" and len(parts) == 3:
-                temperature = int(parts[2])
-                update_device_state_db(conn, device_name, state="on", temperature=temperature)
-                cursor.execute("UPDATE devices SET device_state = 'on' WHERE device_name = ?", (device_name,))
-                conn.commit()
-                return create_error_response(f"Thermostat set to {temperature}°C")
-            else:
-                return "Invalid thermostat command. Use 'thermostat get' or 'thermostat set <temp>'."
+                try:
+                    temperature = int(parts[2])
+                    update_device_state_db(conn, device_name, state="on", temperature=temperature)
+                    return f"Thermostat set to {temperature}°C"
+                except ValueError:
+                    return create_error_response("Invalid temperature value. Please provide an integer.")
+
 
 
         if device_name == "fan":
@@ -222,17 +227,25 @@ async def process_command(conn, command):
                     return create_error_response("Invalid fan command. Use 'fan low/medium/high' or 'fan on/off'.")
 
         if device_name == "smart lock":
-                if action in ["locked", "unlocked"]:
-                    cursor.execute("UPDATE devices SET device_state = ? WHERE device_name = ?", (action, device_name))
-                    conn.commit()
-                    return f"Smart lock is now {action}."
-                elif action == "lock" and len(parts) >= 3:
-                    lock_time = " ".join(parts[2:])
-                    cursor.execute("UPDATE devices SET device_state = 'locked', lock_time = ? WHERE device_name = ?", (lock_time, device_name))
-                    conn.commit()
-                    return create_error_response(f"Smart lock will lock at {lock_time}.")
-                else:
-                    return "Invalid smart lock command. Use 'smart lock locked/unlocked' or 'smart lock lock <time>'."
+            state, _, _, lock_time = device_state
+
+            if action in ["locked", "unlocked"]:
+                # Update the database with the new state
+                update_device_state_db(conn, device_name, state=action)
+                return f"Smart lock is now {action}."
+
+            elif action == "lock" and len(parts) >= 3:
+                # Extract lock time from the command
+                lock_time = " ".join(parts[2:])
+                update_device_state_db(conn, device_name, state="locked", lock_time=lock_time)
+                return f"Smart lock will lock at {lock_time}."
+
+            else:
+                # Return an error for invalid actions
+                return create_error_response(
+                    "Invalid smart lock command. Use 'smart lock locked/unlocked' or 'smart lock lock <time>'."
+                )
+
 
         if device_name == "camera":
                 if action in ["on", "off"]:
@@ -267,7 +280,7 @@ async def handle_client(reader, writer):
         logging.info(f"New connection from {client_address}")
 
         # Receive the client's public key
-        client_key_bytes = await reader.read(1024)
+        client_key_bytes = await reader.read(2048)
         client_public_key = int.from_bytes(client_key_bytes, 'big')
 
         # Generate the Diffie-Hellman keypair
@@ -283,7 +296,7 @@ async def handle_client(reader, writer):
         if len(shared_key) not in [16, 24, 32]: shared_key = shared_key[:16] # Ensure the key is 16 bytes
         logging.info(f"[INFO] Shared key established with {client_address}: {shared_key.hex()}")
 
-        encrypted_auth_message = await reader.read(1024)
+        encrypted_auth_message = await reader.read(2048)
         auth_message = decrypt_message(encrypted_auth_message.decode("utf-8"), shared_key)
 
         if not auth_message or not auth_message.startswith("AUTH"):
@@ -319,7 +332,7 @@ async def handle_client(reader, writer):
 
         while True:
             try:
-                encrypted_command = await reader.read(1024)
+                encrypted_command = await reader.read(2048)
                 if not encrypted_command:  # Client disconnected
                     logging.info(f"[SERVER] Client {client_address} disconnected.")
                     break

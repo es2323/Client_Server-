@@ -74,7 +74,7 @@ async def start_client():
         await writer.drain()
 
         # Receive the server's public key
-        server_key_bytes = await reader.read(1024)
+        server_key_bytes = await reader.read(2048)
         server_public_key = int.from_bytes(server_key_bytes, 'big')
 
         # Derive the shared key
@@ -105,7 +105,7 @@ async def start_client():
         await writer.drain()
 
         # Receive and decrypt response from the server
-        encrypted_response = await reader.read(1024)
+        encrypted_response = await reader.read(2048)
         response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY)
         print(f"[SERVER RESPONSE] {response}")
 
@@ -146,16 +146,19 @@ async def start_client():
 
                 # Receive and decrypt the server's response
                 try:
-                    encrypted_response = await asyncio.wait_for(reader.read(1024), timeout=30.0)
+                    encrypted_response = await asyncio.wait_for(reader.read(2048), timeout=30.0)
                     if not encrypted_response:  # Server disconnected
                         print("[SERVER] Disconnected unexpectedly.")
                         break
 
                     response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY)
-                    if "[ERROR]" in response:
-                        print(f"\033[91m[SERVER RESPONSE] {response}\033[0m")  # Red color for errors
-                    else:
+                    print(f"[DEBUG] Raw response: {encrypted_response}")  # Debug log
+                    print(f"[DEBUG] Decrypted response: {response}")  # Debug log
+
+                    if "[ERROR]" in response or "set" in response or "temperature" in response:
                         print(f"[SERVER RESPONSE] {response}")
+                    else:
+                        print(f"\033[91m[SERVER RESPONSE] {response}\033[0m")  # Red color for errors
                 except (asyncio.TimeoutError, ConnectionResetError):
                     print("[CLIENT ERROR] Server not responding. Closing connection.")
                     break
