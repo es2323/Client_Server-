@@ -272,7 +272,7 @@
 2024-12-31 13:43:03,744 - ERROR - [ERROR RESPONSE] Invalid action 'set67' for device 'thermostat'. Valid actions are: get, set.
 2024-12-31 13:43:03,744 - INFO - Validation error: tJtHavqxURIAORwimdnMx8Q/ub5ZWjZDrPnjsnkooP4+kzBix1cIaBVbdvIRn1fTOcVgu0R9oNzO/prPibDGAkz8hmCBQiOfJlXyFvoK2uqANeQb5pgkjp8j+c54mh0+C1Rqda+maWMGbO+Jc4wLRA==
 2024-12-31 13:43:08,006 - INFO - Processing command: thermostat set 56
-2024-12-31 13:43:08,006 - ERROR - [ERROR RESPONSE] Thermostat set to 56°C
+2024-12-31 13:43:08,006 - ERROR - [ERROR RESPONSE] Thermostat set to 56ï¿½C
 2024-12-31 13:43:19,880 - INFO - Processing command: fan low
 2024-12-31 13:43:29,891 - INFO - Processing command: fan high
 2024-12-31 14:03:29,024 - DEBUG - Using proactor: IocpProactor
@@ -310,7 +310,7 @@
 2024-12-31 15:18:57,366 - INFO - Processing command: light on
 2024-12-31 15:19:08,044 - INFO - Processing command: light off
 2024-12-31 15:19:19,704 - INFO - Processing command: thermostat set 67
-2024-12-31 15:19:19,714 - ERROR - [ERROR RESPONSE] Thermostat set to 67°C
+2024-12-31 15:19:19,714 - ERROR - [ERROR RESPONSE] Thermostat set to 67ï¿½C
 2024-12-31 15:19:37,114 - INFO - New connection from ('127.0.0.1', 51630)
 2024-12-31 15:19:37,132 - INFO - [INFO] Shared key established with ('127.0.0.1', 51630): 01000000000000000000000000000000
 2024-12-31 15:19:44,397 - INFO - Processing command: smart lock lock 6:45
@@ -335,7 +335,7 @@
 2024-12-31 16:30:01,628 - INFO - Processing command: fan off
 2024-12-31 16:30:05,956 - INFO - Processing command: thermostat get
 2024-12-31 16:30:12,204 - INFO - Processing command: thermostat set 56
-2024-12-31 16:30:12,217 - ERROR - [ERROR RESPONSE] Thermostat set to 56°C
+2024-12-31 16:30:12,217 - ERROR - [ERROR RESPONSE] Thermostat set to 56ï¿½C
 2024-12-31 16:30:25,089 - INFO - New connection from ('127.0.0.1', 55919)
 2024-12-31 16:30:25,119 - INFO - [INFO] Shared key established with ('127.0.0.1', 55919): 10000000000000000000000000000000
 2024-12-31 16:30:27,669 - INFO - Processing command: light on
@@ -359,7 +359,7 @@
 2025-01-02 12:23:14,070 - INFO - Processing command: light off
 2025-01-02 12:23:18,792 - INFO - Processing command: thermostat get
 2025-01-02 12:23:26,008 - INFO - Processing command: thermostat set 56
-2025-01-02 12:23:26,009 - ERROR - [ERROR RESPONSE] Thermostat set to 56°C
+2025-01-02 12:23:26,009 - ERROR - [ERROR RESPONSE] Thermostat set to 56ï¿½C
 2025-01-02 12:31:10,383 - DEBUG - Using proactor: IocpProactor
 2025-01-02 12:31:10,386 - INFO - Server is running on 127.0.0.1:12345
 2025-01-02 12:31:14,334 - INFO - New connection from ('127.0.0.1', 52489)
@@ -467,3 +467,354 @@
 2025-01-02 13:13:26,435 - INFO - Processing command: speaker off
 2025-01-02 13:13:32,083 - INFO - Processing command: thermostat get
 2025-01-02 13:13:37,775 - INFO - Processing command: thermostat set 56
+2025-01-02 13:14:52,404 - DEBUG - Using proactor: IocpProactor
+2025-01-02 13:14:52,407 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 13:14:55,578 - INFO - New connection from ('127.0.0.1', 52932)
+2025-01-02 13:14:55,608 - INFO - [INFO] Shared key established with ('127.0.0.1', 52932): 04000000000000000000000000000000
+2025-01-02 13:14:57,396 - INFO - Processing command: frefr
+2025-01-02 13:14:57,396 - ERROR - [ERROR RESPONSE] Invalid command format. Must include a device and action (e.g., 'light on').
+2025-01-02 13:14:57,396 - INFO - Validation error: 1Uelamic3YD48jOBWz06qMGPEKQnNn19yZ6OmsGhATd2XI9+C7a4WfUnnZ8Ss1p5v46CcY7VAjQp8CzcwENOMnhVAptufu5WYw0Iq9HOalKJdmDK9lnYgzoMgEfCqf7ZNeZ6gScfOCkArAbPdhp4Hw==
+2025-01-02 13:15:02,865 - INFO - Processing command: fan onn
+2025-01-02 13:15:02,865 - ERROR - [ERROR RESPONSE] Invalid action 'onn' for device 'fan'. Valid actions are: on, off, low, medium, high.
+2025-01-02 13:15:02,865 - INFO - Validation error: omNoS3+fSxKecAfh4w3PhdQ5+njR3HyCQEMqSCrRqT0ljEK31gHCiDOoDnqj20j5eqA4vE2G9fq52cDDLLoXpTBslSOMNz/gFCdFNmWH0f9Zr3o5TlX9bWET22oZhyY/zsPAqGUPcghOWsgQulWIqw==
+2025-01-02 13:31:23,077 - DEBUG - Using proactor: IocpProactor
+2025-01-02 13:31:23,082 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 13:31:25,981 - INFO - New connection from ('127.0.0.1', 53246)
+2025-01-02 13:31:26,011 - INFO - [INFO] Shared key established with ('127.0.0.1', 53246): 40000000000000000000000000000000
+2025-01-02 13:31:29,602 - ERROR - [SERVER ERROR] Unexpected error: process_command() missing 1 required positional argument: 'writer'
+2025-01-02 13:31:29,602 - ERROR - [ERROR RESPONSE] An unexpected server error occurred.
+2025-01-02 13:56:33,228 - DEBUG - Using proactor: IocpProactor
+2025-01-02 13:56:33,235 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 14:08:46,015 - INFO - New connection from ('127.0.0.1', 54009)
+2025-01-02 14:08:46,034 - INFO - [INFO] Shared key established with ('127.0.0.1', 54009): 10000000000000000000000000000000
+2025-01-02 14:08:49,584 - ERROR - [SERVER ERROR] Unexpected error: process_command() missing 1 required positional argument: 'writer'
+2025-01-02 14:08:49,584 - ERROR - [ERROR RESPONSE] An unexpected server error occurred.
+2025-01-02 14:13:04,883 - INFO - New connection from ('127.0.0.1', 54068)
+2025-01-02 14:13:04,900 - INFO - [INFO] Shared key established with ('127.0.0.1', 54068): 40000000000000000000000000000000
+2025-01-02 14:13:07,835 - ERROR - [SERVER ERROR] Unexpected error: process_command() missing 1 required positional argument: 'writer'
+2025-01-02 14:13:07,835 - ERROR - [ERROR RESPONSE] An unexpected server error occurred.
+2025-01-02 15:49:45,362 - DEBUG - Using proactor: IocpProactor
+2025-01-02 15:49:45,365 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 15:49:47,897 - INFO - New connection from ('127.0.0.1', 54879)
+2025-01-02 15:49:47,919 - INFO - [INFO] Shared key established with ('127.0.0.1', 54879): 01000000000000000000000000000000
+2025-01-02 15:49:52,300 - INFO - Processing command: light on
+2025-01-02 15:49:52,305 - ERROR - [ENCRYPTION ERROR] 'NoneType' object has no attribute 'encode'
+2025-01-02 15:49:52,305 - ERROR - [SERVER ERROR] Unexpected error: 'NoneType' object has no attribute 'encode'
+2025-01-02 15:49:52,305 - ERROR - [ERROR RESPONSE] An unexpected server error occurred.
+2025-01-02 15:50:35,170 - INFO - New connection from ('127.0.0.1', 54897)
+2025-01-02 15:50:35,186 - INFO - [INFO] Shared key established with ('127.0.0.1', 54897): 01000000000000000000000000000000
+2025-01-02 15:50:39,358 - INFO - Processing command: light on
+2025-01-02 15:50:39,359 - ERROR - [ENCRYPTION ERROR] 'NoneType' object has no attribute 'encode'
+2025-01-02 15:50:39,359 - ERROR - [SERVER ERROR] Unexpected error: 'NoneType' object has no attribute 'encode'
+2025-01-02 15:50:39,359 - ERROR - [ERROR RESPONSE] An unexpected server error occurred.
+2025-01-02 15:55:27,661 - DEBUG - Using proactor: IocpProactor
+2025-01-02 15:55:27,664 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 15:55:30,945 - INFO - New connection from ('127.0.0.1', 54944)
+2025-01-02 15:55:30,961 - INFO - [INFO] Shared key established with ('127.0.0.1', 54944): 01000000000000000000000000000000
+2025-01-02 15:55:33,797 - INFO - Processing command: light on
+2025-01-02 15:55:37,705 - INFO - Processing command: thermostat get
+2025-01-02 15:55:37,705 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 15:55:37,705 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 15:55:55,833 - INFO - Processing command: hermostat get
+2025-01-02 15:55:55,833 - ERROR - [ERROR RESPONSE] Unknown device 'hermostat'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2025-01-02 15:55:55,833 - INFO - Validation error: EQkMWMzy47+aM8QPEn3ZViGQ+QTM6NTIL3WhSJDF7RZ+m2ui1HvzNHXrHm1o3W3/Cjov3BsMVDW8TGgM6MJcyux7C6rt8ktDp3ecC15+vo/LqqZhQjMzcJ+xMrarSRLUVBWyZ+ATnN4w4WCTtJgnuj1s//a5OHLbm1Qw6K3cdr0=
+2025-01-02 15:56:23,738 - INFO - Processing command: thermostat get
+2025-01-02 15:56:23,738 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 15:56:23,738 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 15:56:38,511 - INFO - Processing command: thermostat get
+2025-01-02 15:56:38,511 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 15:56:38,511 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 15:56:45,877 - INFO - Processing command: thermostat get
+2025-01-02 15:56:45,877 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 15:56:45,877 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 15:56:52,706 - INFO - Processing command: thermostat get
+2025-01-02 15:56:52,707 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 15:56:52,707 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 15:57:04,013 - INFO - Processing command: thermostat get
+2025-01-02 15:57:04,013 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 15:57:04,013 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 15:57:24,562 - INFO - Processing command: thermostat get
+2025-01-02 15:57:24,562 - ERROR - Error processing command: tuple indices must be integers or slices, not str
+2025-01-02 15:57:24,562 - ERROR - [ERROR RESPONSE] Error: tuple indices must be integers or slices, not str
+2025-01-02 15:58:32,179 - DEBUG - Using proactor: IocpProactor
+2025-01-02 15:58:32,181 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 15:58:35,186 - INFO - New connection from ('127.0.0.1', 54990)
+2025-01-02 15:58:35,203 - INFO - [INFO] Shared key established with ('127.0.0.1', 54990): 10000000000000000000000000000000
+2025-01-02 15:58:42,172 - INFO - Processing command: light on
+2025-01-02 15:58:46,451 - INFO - Processing command: light off
+2025-01-02 15:58:49,965 - INFO - Processing command: thermostat get
+2025-01-02 15:58:55,057 - INFO - Processing command: thermostat set 67
+2025-01-02 15:58:57,149 - INFO - Processing command: jjoi
+2025-01-02 15:58:57,149 - ERROR - [ERROR RESPONSE] Invalid command format. Must include a device and action (e.g., 'light on').
+2025-01-02 15:58:57,149 - INFO - Validation error: I0V+FGtRpJ8ywE6glb344Sa8pP35f+1ucNirkT0yXSfuq3YFitdRyh6yZjlPmCs7BErTl1fBAZUC+gaGxdND9/B6gLoiugvsFrQ4650XNXXi/5UQuscaK2Hyeb37TV/+o9u8MDMwIVwC2/Kq4y2/gw==
+2025-01-02 15:58:59,801 - INFO - Processing command: fejjf&(*&
+2025-01-02 15:58:59,801 - ERROR - [ERROR RESPONSE] Invalid command format. Must include a device and action (e.g., 'light on').
+2025-01-02 15:58:59,801 - INFO - Validation error: 3vMflVNR7MGa3vB7ee+qlkImtfGqQO4st/5h55wyuW3oUldQsooqOCM7347A9OoSuR75y/Mf28YYHeCZnn+VbjQmuf0BkHSATe4HL4/FQouw4YgKMGL8qhjC9s27qSrvVCR4DISWe+dd9Vmp3KH5DA==
+2025-01-02 15:59:02,744 - INFO - Processing command: fan of
+2025-01-02 15:59:02,744 - ERROR - [ERROR RESPONSE] Invalid action 'of' for device 'fan'. Valid actions are: on, off, low, medium, high.
+2025-01-02 15:59:02,744 - INFO - Validation error: p8ClF+ocO9BrYBu93kzR5XfGadaqETM0lyUMziiepp/Ze2vBckKdnF6fKI87Pl5miE1fn+W7jmUE0Jn+kcJA9SBi/YZmii9ywLMui+3w+f6CtE7XkeAUcTEVfb3MELbFxyETXt9N/4bR/uMLWK9fUA==
+2025-01-02 15:59:05,762 - WARNING - [SERVER] Client ('127.0.0.1', 54990) disconnected abruptly.
+2025-01-02 15:59:49,741 - DEBUG - Using proactor: IocpProactor
+2025-01-02 15:59:49,744 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 15:59:52,322 - INFO - New connection from ('127.0.0.1', 55003)
+2025-01-02 15:59:52,339 - INFO - [INFO] Shared key established with ('127.0.0.1', 55003): 80000000000000000000000000000000
+2025-01-02 15:59:57,290 - INFO - Processing command: light on
+2025-01-02 16:00:03,405 - INFO - Processing command: thermostat set 66
+2025-01-02 16:00:06,561 - INFO - Processing command: jef*)(*
+2025-01-02 16:00:06,561 - ERROR - [ERROR RESPONSE] Invalid command format. Must include a device and action (e.g., 'light on').
+2025-01-02 16:00:06,561 - INFO - Validation error: YiwRPnSkiXgI2QK7l8L95u7RtTgPhb2nWIzyOfqmn1cFVr7Jz9k7okJXzq5eCHtIKXm7hSMT3py+FRO5+umOCzUoY81R4t4q9GMx8RTRCJ/3Nm1Qdk5BVp5WTAJRlyFfdX9fBznjvTwoTxx85y6Hcw==
+2025-01-02 16:11:49,860 - DEBUG - Using proactor: IocpProactor
+2025-01-02 16:11:49,861 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 16:12:05,912 - INFO - New connection from ('127.0.0.1', 55154)
+2025-01-02 16:12:05,931 - INFO - [INFO] Shared key established with ('127.0.0.1', 55154): 04000000000000000000000000000000
+2025-01-02 16:12:05,935 - ERROR - [DECRYPTION ERROR] 'utf-8' codec can't decode byte 0xfb in position 1: invalid start byte
+2025-01-02 16:12:15,556 - INFO - New connection from ('127.0.0.1', 55158)
+2025-01-02 16:12:15,574 - INFO - [INFO] Shared key established with ('127.0.0.1', 55158): 04000000000000000000000000000000
+2025-01-02 16:12:15,577 - ERROR - [DECRYPTION ERROR] 'utf-8' codec can't decode byte 0x8b in position 2: invalid start byte
+2025-01-02 16:18:38,057 - DEBUG - Using proactor: IocpProactor
+2025-01-02 16:18:38,059 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 16:18:50,010 - INFO - New connection from ('127.0.0.1', 55226)
+2025-01-02 16:18:50,028 - INFO - [INFO] Shared key established with ('127.0.0.1', 55226): 40000000000000000000000000000000
+2025-01-02 16:18:50,031 - ERROR - [DECRYPTION ERROR] 'utf-8' codec can't decode byte 0xc7 in position 0: invalid continuation byte
+2025-01-02 16:21:16,281 - DEBUG - Using proactor: IocpProactor
+2025-01-02 16:21:16,283 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 16:21:24,440 - INFO - New connection from ('127.0.0.1', 55256)
+2025-01-02 16:21:24,457 - INFO - [INFO] Shared key established with ('127.0.0.1', 55256): 80000000000000000000000000000000
+2025-01-02 16:21:24,460 - ERROR - [DECRYPTION ERROR] 'utf-8' codec can't decode byte 0x9a in position 4: invalid start byte
+2025-01-02 16:26:11,660 - DEBUG - Using proactor: IocpProactor
+2025-01-02 16:26:11,661 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 16:26:14,653 - INFO - New connection from ('127.0.0.1', 55298)
+2025-01-02 16:26:14,671 - INFO - [INFO] Shared key established with ('127.0.0.1', 55298): 10000000000000000000000000000000
+2025-01-02 16:26:14,673 - ERROR - [DECRYPTION ERROR] 'utf-8' codec can't decode byte 0xe3 in position 0: invalid continuation byte
+2025-01-02 16:29:12,821 - INFO - New connection from ('127.0.0.1', 55319)
+2025-01-02 16:29:12,838 - INFO - [INFO] Shared key established with ('127.0.0.1', 55319): 04000000000000000000000000000000
+2025-01-02 16:29:12,839 - ERROR - [DECRYPTION ERROR] 'utf-8' codec can't decode byte 0xbe in position 1: invalid start byte
+2025-01-02 16:30:59,678 - DEBUG - Using proactor: IocpProactor
+2025-01-02 16:30:59,680 - INFO - Server is running on 127.0.0.1:12345
+2025-01-02 16:31:03,414 - INFO - New connection from ('127.0.0.1', 55339)
+2025-01-02 16:31:03,432 - INFO - [INFO] Shared key established with ('127.0.0.1', 55339): 08000000000000000000000000000000
+2025-01-02 16:31:03,435 - ERROR - [DECRYPTION ERROR] 'utf-8' codec can't decode byte 0xc4 in position 0: invalid continuation byte
+2025-01-03 13:35:49,883 - DEBUG - Using proactor: IocpProactor
+2025-01-03 13:35:49,889 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 13:35:49,967 - INFO - New connection from ('127.0.0.1', 63474)
+2025-01-03 13:35:50,010 - INFO - [INFO] Shared key established with ('127.0.0.1', 63474): 40000000000000000000000000000000
+2025-01-03 13:35:50,013 - ERROR - [DECRYPTION ERROR] 'utf-8' codec can't decode byte 0xe6 in position 0: invalid continuation byte
+2025-01-03 13:43:44,341 - DEBUG - Using proactor: IocpProactor
+2025-01-03 13:43:44,347 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 13:43:47,832 - INFO - New connection from ('127.0.0.1', 63598)
+2025-01-03 13:43:47,859 - INFO - [INFO] Shared key established with ('127.0.0.1', 63598): 100000000000000000000000
+2025-01-03 13:43:47,860 - ERROR - [DECRYPTION ERROR] Padding issue: Message too short for valid IV.
+2025-01-03 13:43:47,860 - ERROR - [ENCRYPTION ERROR] Incorrect AES key length (12 bytes)
+2025-01-03 13:43:47,860 - ERROR - [SERVER ERROR] Unexpected error: 'NoneType' object has no attribute 'encode'
+2025-01-03 13:43:47,860 - ERROR - [ENCRYPTION ERROR] Incorrect AES key length (12 bytes)
+2025-01-03 13:43:47,861 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=352>
+Traceback (most recent call last):
+  File "c:/Users/enosh/Desktop/Coursework 25'/Network Systems Development/Client-Server network/Server.py", line 332, in handle_client
+    writer.write(response.encode("utf-8"))
+                 ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'encode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:/Users/enosh/Desktop/Coursework 25'/Network Systems Development/Client-Server network/Server.py", line 392, in handle_client
+    writer.write(response.encode("utf-8"))
+                 ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'encode'
+2025-01-03 13:55:48,096 - DEBUG - Using proactor: IocpProactor
+2025-01-03 13:55:48,099 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 13:56:09,090 - INFO - New connection from ('127.0.0.1', 63761)
+2025-01-03 13:56:09,118 - INFO - [INFO] Shared key established with ('127.0.0.1', 63761): 40000000000000000000000000000000
+2025-01-03 13:56:09,120 - ERROR - [DECRYPTION ERROR] Padding issue: 'utf-8' codec can't decode byte 0xdd in position 4: invalid continuation byte
+2025-01-03 13:58:45,180 - DEBUG - Using proactor: IocpProactor
+2025-01-03 13:58:45,184 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 13:58:47,737 - INFO - New connection from ('127.0.0.1', 63792)
+2025-01-03 13:58:47,762 - INFO - [INFO] Shared key established with ('127.0.0.1', 63792): 01000000000000000000000000000000
+2025-01-03 13:58:47,762 - ERROR - [DECRYPTION ERROR] Padding issue: 'utf-8' codec can't decode byte 0xe5 in position 4: invalid continuation byte
+2025-01-03 14:11:36,149 - INFO - New connection from ('127.0.0.1', 63991)
+2025-01-03 14:11:36,172 - INFO - [INFO] Shared key established with ('127.0.0.1', 63991): 01000000000000000000000000000000
+2025-01-03 14:11:36,180 - ERROR - [DECRYPTION ERROR] Padding issue: 'utf-8' codec can't decode byte 0xde in position 1: invalid continuation byte
+2025-01-03 14:11:44,403 - DEBUG - Using proactor: IocpProactor
+2025-01-03 14:11:44,406 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 14:11:47,677 - INFO - New connection from ('127.0.0.1', 64009)
+2025-01-03 14:11:47,703 - INFO - [INFO] Shared key established with ('127.0.0.1', 64009): 01000000
+2025-01-03 14:11:47,706 - ERROR - [DECRYPTION ERROR] Padding issue: Message too short for valid IV.
+2025-01-03 14:11:47,706 - ERROR - [ENCRYPTION ERROR] Incorrect AES key length (4 bytes)
+2025-01-03 14:11:47,706 - ERROR - [SERVER ERROR] Unexpected error: 'NoneType' object has no attribute 'encode'
+2025-01-03 14:11:47,706 - ERROR - [ENCRYPTION ERROR] Incorrect AES key length (4 bytes)
+2025-01-03 14:16:18,147 - DEBUG - Using proactor: IocpProactor
+2025-01-03 14:16:18,150 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 14:16:21,405 - INFO - New connection from ('127.0.0.1', 64085)
+2025-01-03 14:16:21,428 - INFO - [INFO] Shared key established with ('127.0.0.1', 64085): 80000000000000000000000000000000
+2025-01-03 14:16:21,437 - ERROR - [DECRYPTION ERROR] Padding issue: 'utf-8' codec can't decode byte 0xe0 in position 1: invalid continuation byte
+2025-01-03 14:24:08,866 - DEBUG - Using proactor: IocpProactor
+2025-01-03 14:24:08,869 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 14:24:11,242 - INFO - New connection from ('127.0.0.1', 64206)
+2025-01-03 14:24:11,260 - INFO - [INFO] Shared key established with ('127.0.0.1', 64206): 10000000000000000000000000000000
+2025-01-03 14:24:11,342 - INFO - [SERVER] Client ('127.0.0.1', 64206) disconnected.
+2025-01-03 14:28:32,004 - DEBUG - Using proactor: IocpProactor
+2025-01-03 14:28:32,007 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 14:28:35,369 - INFO - New connection from ('127.0.0.1', 64295)
+2025-01-03 14:28:35,462 - INFO - [SERVER] Client ('127.0.0.1', 64295) disconnected.
+2025-01-03 14:52:44,244 - DEBUG - Using proactor: IocpProactor
+2025-01-03 14:52:44,247 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 14:52:48,026 - INFO - New connection from ('127.0.0.1', 64663)
+2025-01-03 14:52:48,045 - INFO - [INFO] Shared key established with ('127.0.0.1', 64663): 08000000000000000000000000000000
+2025-01-03 14:52:52,599 - INFO - Processing command: light on
+2025-01-03 14:52:54,835 - INFO - Processing command: light off
+2025-01-03 14:52:58,516 - INFO - Processing command: thermostat get
+2025-01-03 14:53:05,265 - INFO - Processing command: thermostat set 569
+2025-01-03 14:53:14,420 - INFO - Processing command: smart lock lock
+2025-01-03 14:53:18,978 - INFO - Processing command: smart lock locked
+2025-01-03 15:07:50,832 - DEBUG - Using proactor: IocpProactor
+2025-01-03 15:07:50,834 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 15:07:54,174 - INFO - New connection from ('127.0.0.1', 64956)
+2025-01-03 15:07:54,191 - INFO - [INFO] Shared key established with ('127.0.0.1', 64956): 40000000000000000000000000000000
+2025-01-03 15:07:54,193 - ERROR - [SERVER ERROR] Unexpected error: decrypt_message() missing 1 required positional argument: 'expected_packet_id'
+2025-01-03 15:07:54,193 - ERROR - [ERROR RESPONSE] An unexpected server error occurred.
+2025-01-03 15:07:54,193 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=584 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:/Users/enosh/Desktop/Coursework 25'/Network Systems Development/Client-Server network/Server.py", line 307, in handle_client
+    auth_message = decrypt_message(encrypted_auth_message.decode("utf-8"), shared_key)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: decrypt_message() missing 1 required positional argument: 'expected_packet_id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:/Users/enosh/Desktop/Coursework 25'/Network Systems Development/Client-Server network/Server.py", line 369, in handle_client
+    response = create_error_response("An unexpected server error occurred.")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:/Users/enosh/Desktop/Coursework 25'/Network Systems Development/Client-Server network/Server.py", line 129, in create_error_response
+    return encrypt_message(f"[ERROR] {error_message}", SECRET_KEY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: encrypt_message() missing 1 required positional argument: 'packet_id'
+2025-01-03 15:16:49,162 - DEBUG - Using proactor: IocpProactor
+2025-01-03 15:16:49,164 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 15:16:52,636 - INFO - New connection from ('127.0.0.1', 65131)
+2025-01-03 15:16:52,654 - INFO - [INFO] Shared key established with ('127.0.0.1', 65131): 40000000000000000000000000000000
+2025-01-03 15:16:52,657 - ERROR - [DECRYPTION ERROR] Packet ID mismatch. Possible replay attack detected.
+2025-01-03 15:17:08,918 - DEBUG - Using proactor: IocpProactor
+2025-01-03 15:17:08,920 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 15:17:12,629 - INFO - New connection from ('127.0.0.1', 65140)
+2025-01-03 15:17:12,646 - INFO - [INFO] Shared key established with ('127.0.0.1', 65140): 20000000000000000000000000000000
+2025-01-03 15:17:12,651 - ERROR - [DECRYPTION ERROR] Packet ID mismatch. Possible replay attack detected.
+2025-01-03 15:21:42,370 - DEBUG - Using proactor: IocpProactor
+2025-01-03 15:21:42,372 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 15:21:49,408 - INFO - New connection from ('127.0.0.1', 65226)
+2025-01-03 15:21:49,426 - INFO - [INFO] Shared key established with ('127.0.0.1', 65226): 10000000000000000000000000
+2025-01-03 15:21:49,426 - ERROR - [DECRYPTION ERROR] Message too short for valid IV.
+2025-01-03 15:21:49,426 - ERROR - [ENCRYPTION ERROR] Incorrect AES key length (13 bytes)
+2025-01-03 15:21:49,426 - ERROR - [SERVER ERROR] Unexpected error: 'NoneType' object has no attribute 'encode'
+2025-01-03 15:21:49,426 - ERROR - [ENCRYPTION ERROR] Incorrect AES key length (13 bytes)
+2025-01-03 15:21:49,426 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=520>
+Traceback (most recent call last):
+  File "c:/Users/enosh/Desktop/Coursework 25'/Network Systems Development/Client-Server network/Server.py", line 312, in handle_client
+    writer.write(response.encode("utf-8"))
+                 ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'encode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:/Users/enosh/Desktop/Coursework 25'/Network Systems Development/Client-Server network/Server.py", line 377, in handle_client
+    writer.write(response.encode("utf-8"))
+                 ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'encode'
+2025-01-03 15:26:45,656 - DEBUG - Using proactor: IocpProactor
+2025-01-03 15:26:45,659 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 15:26:48,240 - INFO - New connection from ('127.0.0.1', 65284)
+2025-01-03 15:26:48,258 - INFO - [INFO] Shared key established with ('127.0.0.1', 65284): 80000000000000000000000000000000
+2025-01-03 15:26:48,261 - ERROR - [DECRYPTION ERROR] Packet ID mismatch. Possible replay attack detected.
+2025-01-03 15:33:03,453 - DEBUG - Using proactor: IocpProactor
+2025-01-03 15:33:03,455 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 15:33:07,548 - INFO - New connection from ('127.0.0.1', 65416)
+2025-01-03 15:33:07,565 - INFO - [INFO] Shared key established with ('127.0.0.1', 65416): 10000000000000000000000000000000
+2025-01-03 15:33:07,568 - ERROR - [DECRYPTION ERROR] Packet ID mismatch. Possible replay attack detected.
+2025-01-03 15:40:28,888 - INFO - New connection from ('127.0.0.1', 49205)
+2025-01-03 15:40:28,905 - INFO - [INFO] Shared key established with ('127.0.0.1', 49205): 02000000000000000000000000000000
+2025-01-03 15:40:28,907 - ERROR - [DECRYPTION ERROR] Packet ID mismatch. Possible replay attack detected.
+2025-01-03 15:40:35,497 - DEBUG - Using proactor: IocpProactor
+2025-01-03 15:40:35,498 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 15:40:39,420 - INFO - New connection from ('127.0.0.1', 49212)
+2025-01-03 15:40:39,438 - INFO - [INFO] Shared key established with ('127.0.0.1', 49212): 10000000000000000000000000000000
+2025-01-03 15:40:39,443 - ERROR - [DECRYPTION ERROR] Packet ID mismatch. Possible replay attack detected.
+2025-01-03 16:06:00,235 - DEBUG - Using proactor: IocpProactor
+2025-01-03 16:06:00,237 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 16:06:03,106 - INFO - New connection from ('127.0.0.1', 50244)
+2025-01-03 16:06:03,122 - INFO - [INFO] Shared key established with ('127.0.0.1', 50244): 40000000000000000000000000000000
+2025-01-03 16:06:03,125 - ERROR - [SERVER] Invalid packet format.
+2025-01-03 16:06:25,156 - DEBUG - Using proactor: IocpProactor
+2025-01-03 16:06:25,158 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 16:06:28,092 - INFO - New connection from ('127.0.0.1', 50251)
+2025-01-03 16:06:28,110 - INFO - [INFO] Shared key established with ('127.0.0.1', 50251): 02000000000000000000000000000000
+2025-01-03 16:06:28,111 - ERROR - [SERVER] Invalid packet format.
+2025-01-03 16:07:38,984 - DEBUG - Using proactor: IocpProactor
+2025-01-03 16:07:38,986 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 16:07:42,258 - INFO - New connection from ('127.0.0.1', 50298)
+2025-01-03 16:07:42,275 - INFO - [INFO] Shared key established with ('127.0.0.1', 50298): 40000000000000000000000000000000
+2025-01-03 16:07:42,277 - ERROR - [SERVER] Invalid packet format.
+2025-01-03 20:01:55,057 - DEBUG - Using proactor: IocpProactor
+2025-01-03 20:01:55,060 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 20:01:55,193 - INFO - New connection from ('127.0.0.1', 55723)
+2025-01-03 20:01:55,214 - INFO - [INFO] Shared key established with ('127.0.0.1', 55723): 80000000000000000000000000000000
+2025-01-03 20:01:55,216 - ERROR - [SERVER] Invalid packet format.
+2025-01-03 20:01:58,538 - INFO - New connection from ('127.0.0.1', 55731)
+2025-01-03 20:01:58,556 - INFO - [INFO] Shared key established with ('127.0.0.1', 55731): 10000000000000000000000000000000
+2025-01-03 20:01:58,558 - ERROR - [SERVER] Invalid packet format.
+2025-01-03 20:03:40,090 - DEBUG - Using proactor: IocpProactor
+2025-01-03 20:03:40,091 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 20:03:43,420 - INFO - New connection from ('127.0.0.1', 55790)
+2025-01-03 20:03:43,437 - INFO - [INFO] Shared key established with ('127.0.0.1', 55790): 08000000000000000000000000000000
+2025-01-03 20:03:43,439 - INFO - [SERVER] Received packet ID for auth: 6f543fe5-9ed1-4d90-a725-5ce92ad7cd91
+2025-01-03 20:03:51,732 - INFO - [SERVER] Received packet ID: 6c8a17e9-6fcc-424d-88af-aff3cbc4de15
+2025-01-03 20:03:51,732 - INFO - Processing command: light on
+2025-01-03 20:04:22,767 - INFO - [SERVER] Received packet ID: 6e31dcd3-091e-4e9f-a93a-6a0ccebf9fd2
+2025-01-03 20:04:22,767 - INFO - Processing command: thermostat get
+2025-01-03 20:04:32,960 - INFO - [SERVER] Received packet ID: 7aaa11ea-fc80-4e88-99c3-0da62f1fe7e0
+2025-01-03 20:04:32,960 - INFO - Processing command: thermostat set 45
+2025-01-03 20:06:18,691 - DEBUG - Using proactor: IocpProactor
+2025-01-03 20:06:18,695 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 20:06:29,085 - INFO - New connection from ('127.0.0.1', 55847)
+2025-01-03 20:06:29,105 - INFO - [INFO] Shared key established with ('127.0.0.1', 55847): 01000000000000000000000000000000
+2025-01-03 20:06:29,108 - INFO - [SERVER] Received packet ID for auth: a1e2d66d-3edc-48ae-9e38-e97b67ecec76
+2025-01-03 20:08:33,706 - DEBUG - Using proactor: IocpProactor
+2025-01-03 20:08:33,708 - INFO - Server is running on 127.0.0.1:12345
+2025-01-03 20:08:37,280 - INFO - New connection from ('127.0.0.1', 55898)
+2025-01-03 20:08:37,298 - INFO - [INFO] Shared key established with ('127.0.0.1', 55898): 20000000000000000000000000000000
+2025-01-03 20:08:37,299 - INFO - [SERVER] Received packet ID for auth: 6378a8bb-b8b3-4656-b1c8-acd9ba26e573
+2025-01-03 20:08:49,645 - INFO - [SERVER] Received packet ID: 923cd61e-11d0-46c2-8eb8-58e1fe9cbad7
+2025-01-03 20:08:49,645 - INFO - Processing command: light on
+2025-01-03 20:09:08,937 - INFO - [SERVER] Received packet ID: 7925d17a-aa76-44c0-a9c7-3cbfb507398a
+2025-01-03 20:09:08,937 - INFO - Processing command: light off
+2025-01-03 20:09:19,057 - INFO - [SERVER] Received packet ID: babed222-4a98-453a-9e33-38eb1542b083
+2025-01-03 20:09:19,057 - INFO - Processing command: thermostat get
+2025-01-03 20:09:27,416 - INFO - [SERVER] Received packet ID: 1d401c15-40d4-4d7f-ac02-12a0611d189e
+2025-01-03 20:09:27,417 - INFO - Processing command: thermostat set 56
+2025-01-03 20:09:36,351 - INFO - [SERVER] Received packet ID: 51f0e502-597f-4d6b-bdbd-c686a56ed247
+2025-01-03 20:09:36,352 - INFO - Processing command: fan off
+2025-01-03 20:09:39,489 - INFO - [SERVER] Received packet ID: d3b983ab-7b5e-4b1b-b6eb-97a9b652813f
+2025-01-03 20:09:39,489 - INFO - Processing command: fan low
+2025-01-03 20:09:51,847 - INFO - [SERVER] Received packet ID: 99b12a6d-b663-46a2-b63f-a90230d3b83f
+2025-01-03 20:09:51,848 - INFO - Processing command: fan of
+2025-01-03 20:09:51,848 - ERROR - [ERROR RESPONSE] Invalid action 'of' for device 'fan'. Valid actions are: on, off, low, medium, high.
+2025-01-03 20:09:51,848 - ERROR - [COMMAND ERROR] encrypt_message() missing 1 required positional argument: 'packet_id'
+2025-01-03 20:10:03,740 - INFO - [SERVER] Received packet ID: 7dad4366-2129-40ee-a175-529c332b61a0
+2025-01-03 20:10:03,741 - INFO - Processing command: smart lock lock
+2025-01-03 20:10:08,222 - INFO - [SERVER] Received packet ID: 309b6e71-0686-4418-a1fd-df0aab241a12
+2025-01-03 20:10:08,222 - INFO - Processing command: smart lock locked
+2025-01-03 20:10:11,653 - INFO - [SERVER] Received packet ID: b058c4e0-d2f4-4046-8b6a-6da9eaa18b15
+2025-01-03 20:10:11,653 - INFO - Processing command: camera on
+2025-01-03 20:10:23,579 - INFO - [SERVER] Received packet ID: 95ca8a9d-ce97-4e9a-b228-6ed336dad607
+2025-01-03 20:10:23,579 - INFO - Processing command: speaker on
+2025-01-03 20:10:29,544 - INFO - [SERVER] Received packet ID: 4816a0bf-51e3-4f55-a897-30e3695e4ecd
+2025-01-03 20:10:29,544 - INFO - Processing command: light on
+2025-01-03 20:10:31,415 - INFO - [SERVER] Received packet ID: f5e0a4cf-f2ec-44ee-a022-1ea8f5b99923
+2025-01-03 20:10:31,415 - INFO - Processing command: fan on
+2025-01-03 20:10:33,622 - INFO - [SERVER] Received packet ID: 72b51f07-2946-4c78-a85e-19a048c22d5f
+2025-01-03 20:10:33,622 - INFO - Processing command: ligh of
+2025-01-03 20:10:33,622 - ERROR - [ERROR RESPONSE] Unknown device 'ligh'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2025-01-03 20:10:33,622 - ERROR - [COMMAND ERROR] encrypt_message() missing 1 required positional argument: 'packet_id'

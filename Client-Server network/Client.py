@@ -6,24 +6,26 @@ import base64
 import os
 import random
 import string
+import uuid
 
 # Shared secret key (must be 16, 24, or 32 bytes long)
 raw_key = b'my_secret_key_too_long!'
 SECRET_KEY = raw_key[:16]
 
 # Encryption function
-def encrypt_message(message, key):
+def encrypt_message(message, key, packet_id):
     try:
         iv = os.urandom(16)
         cipher = AES.new(key, AES.MODE_CBC, iv)
-        encrypted = cipher.encrypt(pad(message.encode("utf-8"), AES.block_size))
+        message_with_id = f"{packet_id}:{message}"
+        encrypted = cipher.encrypt(pad(message_with_id.encode("utf-8"), AES.block_size))
         return base64.b64encode(iv + encrypted).decode("utf-8")
     except Exception as e:
         print(f"[ERROR] Encryption failed: {e}")
         return None
 
 # Decryption function
-def decrypt_message(encrypted_message, key):
+def decrypt_message(encrypted_message, key, expected_packet_id):
     try:
         raw_data = base64.b64decode(encrypted_message)
         if len(raw_data) < 16:
@@ -32,11 +34,15 @@ def decrypt_message(encrypted_message, key):
         encrypted = raw_data[16:]
         cipher = AES.new(key, AES.MODE_CBC, iv)
         decrypted_data = unpad(cipher.decrypt(encrypted), AES.block_size)
-        return decrypted_data.decode("utf-8")
-    except Exception as e:
+        decrypted_message = decrypted_data.decode("utf-8") 
+        packet_id, message = decrypted_message.split(":", 1)
+
+        if packet_id != expected_packet_id:
+            raise ValueError("Packet ID mismatch. Possible replay attack detected.") 
+        return message 
+    except Exception as e: 
         print(f"[ERROR] Decryption failed: {e}")
         return "[ERROR] Unable to decrypt the server's response."
-
 # Diffie-Hellman key exchange functions
 def generate_dh_keypair():
     private_key = getrandbits(2048)
@@ -79,8 +85,8 @@ async def start_client():
 
         # Derive the shared key
         shared_key = derive_shared_key(private_key, server_public_key)
-        if len(shared_key) not in [16, 24, 32]: shared_key = shared_key[:16] # Ensure the key is 16 bytes
-        print(f"[INFO] Shared key established: {shared_key.hex()}")
+        if len(shared_key) not in [16, 24, 32]: shared_key = shared_key[:16]  # Ensure the key is 16 bytes
+        #print(f"[INFO] Shared key established: {shared_key.hex()}")
 
         # Use the shared key for encryption/decryption
         global SECRET_KEY
@@ -93,20 +99,24 @@ async def start_client():
         print(f"Generated temporary password: {password}")
 
         # Prepare authentication message
+        
+        packet_id = str(uuid.uuid4())
+        #print(f"[CLIENT] Generated packet ID for auth: {packet_id}")
+
         auth_message = f"AUTH {username} {password}"
-        encrypted_auth_message = encrypt_message(auth_message, SECRET_KEY)
+        encrypted_auth_message = encrypt_message(auth_message, SECRET_KEY, packet_id)
 
         if not encrypted_auth_message:
             print("[ERROR] Failed to encrypt authentication message.")
             return
 
         # Send encrypted authentication message to the server
-        writer.write(encrypted_auth_message.encode("utf-8"))
+        writer.write((packet_id + ":" + encrypted_auth_message).encode("utf-8"))
         await writer.drain()
 
         # Receive and decrypt response from the server
         encrypted_response = await reader.read(2048)
-        response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY)
+        response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY, packet_id)
         print(f"[SERVER RESPONSE] {response}")
 
         # If authenticated successfully, interact with the server
@@ -136,12 +146,15 @@ async def start_client():
                     continue  # Restart the loop after showing help
 
                 # Encrypt and send the command to the server
-                encrypted_message = encrypt_message(command, SECRET_KEY)
+                packet_id = str(uuid.uuid4())
+                #print(f"[CLIENT] Generated packet ID: {packet_id}")  # Log the packet ID
+
+                encrypted_message = encrypt_message(command, SECRET_KEY, packet_id)
                 if not encrypted_message:
                     print("[CLIENT ERROR] Failed to encrypt command message.")
                     continue  # Restart loop if encryption fails
 
-                writer.write(encrypted_message.encode("utf-8"))
+                writer.write((packet_id + ":" + encrypted_message).encode("utf-8"))
                 await writer.drain()
 
                 # Receive and decrypt the server's response
@@ -151,7 +164,7 @@ async def start_client():
                         print("[SERVER] Disconnected unexpectedly.")
                         break
 
-                    response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY)
+                    response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY, packet_id)
                     print(f"[DEBUG] Raw response: {encrypted_response}")  # Debug log
                     print(f"[DEBUG] Decrypted response: {response}")  # Debug log
 
