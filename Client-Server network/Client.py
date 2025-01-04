@@ -4,13 +4,7 @@ from Crypto.Util.Padding import pad, unpad
 from Crypto.Random.random import getrandbits
 import base64
 import os
-import random
-import string
 import uuid
-
-# Shared secret key (must be 16, 24, or 32 bytes long)
-raw_key = b'my_secret_key_too_long!'
-SECRET_KEY = raw_key[:16]
 
 # Encryption function
 def encrypt_message(message, key, packet_id):
@@ -43,6 +37,7 @@ def decrypt_message(encrypted_message, key, expected_packet_id):
     except Exception as e: 
         print(f"[ERROR] Decryption failed: {e}")
         return "[ERROR] Unable to decrypt the server's response."
+
 # Diffie-Hellman key exchange functions
 def generate_dh_keypair():
     private_key = getrandbits(2048)
@@ -54,15 +49,6 @@ def derive_shared_key(private_key, received_public_key):
     byte_length = (shared_key.bit_length() + 7) // 8
     return shared_key.to_bytes(byte_length, 'big')[:16]
 
-# Helper function to generate random username
-def generate_random_username(length=8):
-    return ''.join(random.choices(string.ascii_lowercase + string.digits, k=length))
-
-# Helper function to generate random password
-def generate_random_password(length=12):
-    chars = string.ascii_letters + string.digits + "!@#$%^&*()"
-    return ''.join(random.choice(chars) for _ in range(length))
-
 async def start_client():
     HOST = "127.0.0.1"
     PORT = 12345
@@ -70,8 +56,7 @@ async def start_client():
         reader, writer = await asyncio.open_connection(HOST, PORT)
         print(f"[CONNECTED] Connected to the server at {HOST}:{PORT}")
 
-                # Key negotiation phase
-        # Generate the Diffie-Hellman keypair
+        # Key negotiation phase
         private_key, public_key = generate_dh_keypair()
 
         # Send the public key to the server
@@ -85,42 +70,30 @@ async def start_client():
 
         # Derive the shared key
         shared_key = derive_shared_key(private_key, server_public_key)
-        if len(shared_key) not in [16, 24, 32]: shared_key = shared_key[:16]  # Ensure the key is 16 bytes
-        #print(f"[INFO] Shared key established: {shared_key.hex()}")
+        if len(shared_key) not in [16, 24, 32]: shared_key = shared_key[:16]
+        print(f"[INFO] Shared key established.")
 
-        # Use the shared key for encryption/decryption
-        global SECRET_KEY
-        SECRET_KEY = shared_key
-
-        # Generate random username and password
-        username = generate_random_username()
-        password = generate_random_password()
-        print(f"Generated temporary username: {username}")
-        print(f"Generated temporary password: {password}")
-
-        # Prepare authentication message
-        
+        # Authentication phase
+        username = input("Enter your username: ").strip()
+        password = input("Enter your password: ").strip()
         packet_id = str(uuid.uuid4())
-        #print(f"[CLIENT] Generated packet ID for auth: {packet_id}")
 
         auth_message = f"AUTH {username} {password}"
-        encrypted_auth_message = encrypt_message(auth_message, SECRET_KEY, packet_id)
+        encrypted_auth_message = encrypt_message(auth_message, shared_key, packet_id)
 
         if not encrypted_auth_message:
             print("[ERROR] Failed to encrypt authentication message.")
             return
 
-        # Send encrypted authentication message to the server
         writer.write((packet_id + ":" + encrypted_auth_message).encode("utf-8"))
         await writer.drain()
 
-        # Receive and decrypt response from the server
+        # Receive and decrypt server response
         encrypted_response = await reader.read(2048)
-        response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY, packet_id)
+        response = decrypt_message(encrypted_response.decode("utf-8"), shared_key, packet_id)
         print(f"[SERVER RESPONSE] {response}")
 
-        # If authenticated successfully, interact with the server
-        if "Authentication successful" in response: 
+        if "Authentication successful" in response:
             while True:
                 command = input("Hi, please enter a command ('help' for commands, 'exit' to quit): ").strip()
 
@@ -133,49 +106,39 @@ async def start_client():
 
                 if command.lower() == "help":
                     print("Available commands:\n"
-                        "light on/off\n"
-                        "fan on/off\n"
-                        "fan low/medium/high\n"
-                        "thermostat get\n"
-                        "thermostat set <temp>\n"
-                        "smart lock locked/unlocked\n"
-                        "smart lock lock <time in 12-hour format>\n"
-                        "camera on/off\n"
-                        "speaker on/off\n"
-                        "speaker play <song>")
-                    continue  # Restart the loop after showing help
+                          "light on/off\n"
+                          "fan on/off\n"
+                          "fan low/medium/high\n"
+                          "thermostat get\n"
+                          "thermostat set <temp>\n"
+                          "smart lock locked/unlocked\n"
+                          "smart lock lock <time in 12-hour format>\n"
+                          "camera on/off\n"
+                          "speaker on/off\n"
+                          "speaker play <song>")
+                    continue
 
                 # Encrypt and send the command to the server
                 packet_id = str(uuid.uuid4())
-                #print(f"[CLIENT] Generated packet ID: {packet_id}")  # Log the packet ID
-
-                encrypted_message = encrypt_message(command, SECRET_KEY, packet_id)
+                encrypted_message = encrypt_message(command, shared_key, packet_id)
                 if not encrypted_message:
                     print("[CLIENT ERROR] Failed to encrypt command message.")
-                    continue  # Restart loop if encryption fails
+                    continue
 
                 writer.write((packet_id + ":" + encrypted_message).encode("utf-8"))
                 await writer.drain()
 
-                # Receive and decrypt the server's response
                 try:
                     encrypted_response = await asyncio.wait_for(reader.read(2048), timeout=30.0)
-                    if not encrypted_response:  # Server disconnected
+                    if not encrypted_response:
                         print("[SERVER] Disconnected unexpectedly.")
                         break
 
-                    response = decrypt_message(encrypted_response.decode("utf-8"), SECRET_KEY, packet_id)
-                    print(f"[DEBUG] Raw response: {encrypted_response}")  # Debug log
-                    print(f"[DEBUG] Decrypted response: {response}")  # Debug log
-
-                    if "[ERROR]" in response or "set" in response or "temperature" in response:
-                        print(f"[SERVER RESPONSE] {response}")
-                    else:
-                        print(f"\033[91m[SERVER RESPONSE] {response}\033[0m")  # Red color for errors
+                    response = decrypt_message(encrypted_response.decode("utf-8"), shared_key, packet_id)
+                    print(f"[SERVER RESPONSE] {response}")
                 except (asyncio.TimeoutError, ConnectionResetError):
                     print("[CLIENT ERROR] Server not responding. Closing connection.")
                     break
-
 
     except Exception as e:
         print(f"[ERROR] {e}")
@@ -186,8 +149,6 @@ async def start_client():
         except:
             pass
         print("[DISCONNECTED] Client connection closed.")
-
-        
 
 if __name__ == "__main__":
     asyncio.run(start_client())
