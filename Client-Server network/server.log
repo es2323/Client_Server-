@@ -1324,3 +1324,74 @@ UnboundLocalError: cannot access local variable 'packet_id' where it is not asso
 2025-01-06 12:09:02,960 - INFO - Processing command: fan lo
 2025-01-06 12:09:02,960 - INFO - Validation error: Invalid action 'lo' for device 'fan'. Valid actions are: on, off, low, medium, high.
 2025-01-06 12:09:05,601 - INFO - [SERVER] Client ('127.0.0.1', 62035) disconnected.
+2025-01-06 12:12:42,288 - DEBUG - Using proactor: IocpProactor
+2025-01-06 12:12:42,291 - INFO - Server is running on 127.0.0.1:12345
+2025-01-06 12:12:52,362 - INFO - New connection from ('127.0.0.1', 62213)
+2025-01-06 12:12:52,394 - INFO - [INFO] Shared key established with ('127.0.0.1', 62213): 10000000000000000000000000000000
+2025-01-06 12:13:00,649 - INFO - New connection from ('127.0.0.1', 62217)
+2025-01-06 12:13:00,679 - INFO - [INFO] Shared key established with ('127.0.0.1', 62217): 01000000000000000000000000000000
+2025-01-06 12:13:20,736 - INFO - [SERVER] Received packet ID: 724d8969-1e4d-4d55-b41b-e0f9f0b1c238
+2025-01-06 12:13:20,736 - INFO - [SERVER] Processing command: light on
+2025-01-06 12:13:20,736 - INFO - Processing command: light on
+2025-01-06 12:13:31,355 - INFO - [SERVER] Received packet ID: 36edfa9f-22ef-4099-ab01-1ac0fc850fef
+2025-01-06 12:13:31,355 - INFO - [SERVER] Processing command: light off
+2025-01-06 12:13:31,355 - INFO - Processing command: light off
+2025-01-06 12:13:41,895 - INFO - [SERVER] Received packet ID: 75f09911-7c6c-480b-bca1-9e1a44fb8c7b
+2025-01-06 12:13:41,895 - INFO - [SERVER] Processing command: fan high
+2025-01-06 12:13:41,895 - INFO - Processing command: fan high
+2025-01-06 12:13:52,034 - INFO - [SERVER] Received packet ID: c7fd8db6-d676-4d66-9a79-34974589f2cd
+2025-01-06 12:13:52,034 - INFO - [SERVER] Processing command: fan low
+2025-01-06 12:13:52,035 - INFO - Processing command: fan low
+2025-01-06 12:14:00,619 - INFO - [SERVER] Client ('127.0.0.1', 62217) disconnected.
+2025-01-06 12:14:05,287 - INFO - [SERVER] Client ('127.0.0.1', 62213) disconnected.
+2025-01-06 12:15:45,820 - DEBUG - Using proactor: IocpProactor
+2025-01-06 12:15:45,823 - INFO - Server is running on 127.0.0.1:12345
+2025-01-06 12:15:49,090 - INFO - New connection from ('127.0.0.1', 62245)
+2025-01-06 12:15:49,115 - INFO - [INFO] Shared key established with ('127.0.0.1', 62245): 01000000000000000000000000000000
+2025-01-06 12:16:01,935 - INFO - [SERVER] Received packet ID: d0f2fa32-2fc7-4392-9d26-e809f3dee476
+2025-01-06 12:16:01,936 - INFO - [SERVER] Processing command: fan on and light off
+2025-01-06 12:16:01,936 - INFO - Processing command: fan on and light off
+2025-01-06 12:16:17,140 - INFO - [SERVER] Received packet ID: 8a1b117a-b9d4-473b-a6ec-ff4c0df226af
+2025-01-06 12:16:17,140 - INFO - [SERVER] Processing command: fan on and light on
+2025-01-06 12:16:17,140 - INFO - Processing command: fan on and light on
+2025-01-06 12:39:37,685 - DEBUG - Using proactor: IocpProactor
+2025-01-06 12:39:37,687 - INFO - Server is running on 127.0.0.1:12345
+2025-01-06 12:40:04,598 - INFO - New connection from ('127.0.0.1', 62969)
+2025-01-06 12:40:04,617 - INFO - [INFO] Shared key established with ('127.0.0.1', 62969): 01000000000000000000000000000000
+2025-01-06 13:28:51,946 - DEBUG - Using proactor: IocpProactor
+2025-01-06 13:28:51,949 - INFO - Server is running on 127.0.0.1:12345
+2025-01-06 13:28:52,414 - INFO - New connection from ('127.0.0.1', 63833)
+2025-01-06 13:28:52,433 - INFO - [INFO] Shared key established with ('127.0.0.1', 63833): 04000000000000000000000000000000
+2025-01-06 13:29:05,306 - INFO - [SERVER] Received packet ID: 44dd5f9f-a35a-4cae-a564-919faec2f5c9
+2025-01-06 13:29:05,306 - INFO - [SERVER] Processing command: light on
+2025-01-06 13:29:05,306 - INFO - Processing command: light on
+2025-01-06 13:29:07,618 - INFO - [SERVER] Received packet ID: 2f718c4d-6d0b-4ccc-9e59-6221d0c94a15
+2025-01-06 13:29:07,618 - INFO - [SERVER] Processing command: light off
+2025-01-06 13:29:07,618 - INFO - Processing command: light off
+2025-01-06 13:29:13,070 - INFO - [SERVER] Received packet ID: 4f6eb9c1-d021-41fd-b08c-c9625f6e4783
+2025-01-06 13:29:13,070 - INFO - [SERVER] Processing command: thermostat get
+2025-01-06 13:29:13,070 - INFO - Processing command: thermostat get
+2025-01-06 13:29:18,036 - INFO - [SERVER] Received packet ID: 4bf0985e-d71e-4fd6-b3fb-d91147b2b649
+2025-01-06 13:29:18,036 - INFO - [SERVER] Processing command: thermostat set 56
+2025-01-06 13:29:18,036 - INFO - Processing command: thermostat set 56
+2025-01-06 13:29:21,524 - INFO - [SERVER] Received packet ID: 77b77ae0-e6ca-4763-93fe-da57e2ef8564
+2025-01-06 13:29:21,524 - INFO - [SERVER] Processing command: ligh on
+2025-01-06 13:29:21,524 - INFO - Processing command: ligh on
+2025-01-06 13:29:21,524 - INFO - Validation error: Unknown device 'ligh'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2025-01-06 13:29:41,595 - INFO - [SERVER] Received packet ID: 0f483cb4-c207-4b69-adb5-fca88442e20d
+2025-01-06 13:29:41,595 - INFO - [SERVER] Processing command: thermostat 45
+2025-01-06 13:29:41,595 - INFO - Processing command: thermostat 45
+2025-01-06 13:29:41,595 - INFO - Validation error: Invalid action '45' for device 'thermostat'. Valid actions are: get, set.
+2025-01-06 13:29:46,486 - INFO - [SERVER] Received packet ID: 26236572-059d-4a50-b505-d830bc70e5fb
+2025-01-06 13:29:46,486 - INFO - [SERVER] Processing command: fan o
+2025-01-06 13:29:46,486 - INFO - Processing command: fan o
+2025-01-06 13:29:46,486 - INFO - Validation error: Invalid action 'o' for device 'fan'. Valid actions are: on, off, low, medium, high.
+2025-01-06 13:29:56,926 - INFO - [SERVER] Received packet ID: 4d8a6b4c-2504-4e61-9ca8-e9d8fa80b1e9
+2025-01-06 13:29:56,926 - INFO - [SERVER] Processing command: speaker ol
+2025-01-06 13:29:56,926 - INFO - Processing command: speaker ol
+2025-01-06 13:29:56,926 - INFO - Validation error: Invalid action 'ol' for device 'speaker'. Valid actions are: on, off, play.
+2025-01-06 13:30:03,255 - INFO - [SERVER] Received packet ID: e35bbeb8-1886-4f79-8f6b-905ed36d9f26
+2025-01-06 13:30:03,255 - INFO - [SERVER] Processing command: camera ol
+2025-01-06 13:30:03,255 - INFO - Processing command: camera ol
+2025-01-06 13:30:03,255 - INFO - Validation error: Invalid action 'ol' for device 'camera'. Valid actions are: on, off.
+2025-01-06 13:30:08,733 - INFO - [SERVER] Client ('127.0.0.1', 63833) disconnected.

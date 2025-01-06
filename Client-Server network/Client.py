@@ -6,8 +6,19 @@ import base64
 import os
 import uuid
 
-# Encryption function
+# Function to encrypt a message using AES-CBC
 def encrypt_message(message, key, packet_id):
+    """
+    Encrypt a message using AES-CBC.
+
+    Args:
+        message (str): The plaintext message to encrypt.
+        key (bytes): The shared secret key for encryption.
+        packet_id (str): Unique packet ID for identifying the message.
+
+    Returns:
+        str: Base64-encoded encrypted message or None if encryption fails.
+    """
     try:
         iv = os.urandom(16)
         cipher = AES.new(key, AES.MODE_CBC, iv)
@@ -18,8 +29,19 @@ def encrypt_message(message, key, packet_id):
         print(f"[ERROR] Encryption failed: {e}")
         return None
 
-# Decryption function
+# Function to decrypt a message using AES-CBC
 def decrypt_message(encrypted_message, key, expected_packet_id):
+    """
+    Decrypt a message using AES-CBC.
+
+    Args:
+        encrypted_message (str): Base64-encoded encrypted message to decrypt.
+        key (bytes): The shared secret key for decryption.
+        expected_packet_id (str): Packet ID expected in the decrypted message.
+
+    Returns:
+        str: Decrypted plaintext message or an error message if decryption fails.
+    """
     try:
         raw_data = base64.b64decode(encrypted_message)
         if len(raw_data) < 16:
@@ -31,6 +53,7 @@ def decrypt_message(encrypted_message, key, expected_packet_id):
         decrypted_message = decrypted_data.decode("utf-8") 
         packet_id, message = decrypted_message.split(":", 1)
 
+        # Check for replay attacks
         if packet_id != expected_packet_id:
             raise ValueError("Packet ID mismatch. Possible replay attack detected.") 
         return message 
@@ -40,16 +63,37 @@ def decrypt_message(encrypted_message, key, expected_packet_id):
 
 # Diffie-Hellman key exchange functions
 def generate_dh_keypair():
+    """
+    Generate a Diffie-Hellman key pair.
+
+    Returns:
+        tuple: A private key and public key.
+    """
     private_key = getrandbits(2048)
     public_key = pow(2, private_key, 2**2048 - 1)
     return private_key, public_key
 
+# Deriving Shared Key using Diffie-Hellma
 def derive_shared_key(private_key, received_public_key):
+    """
+    Derive a shared secret key using Diffie-Hellman.
+
+    Args:
+        private_key (int): The client's private key.
+        received_public_key (int): The server's public key.
+
+    Returns:
+        bytes: The derived shared key truncated to 16 bytes.
+    """
     shared_key = pow(received_public_key, private_key, 2**2048 - 1)
     byte_length = (shared_key.bit_length() + 7) // 8
     return shared_key.to_bytes(byte_length, 'big')[:16]
 
+# Main client Function 
 async def start_client():
+    """
+    Start the client, handle authentication, and interact with the server.
+    """
     HOST = "127.0.0.1"
     PORT = 12345
     try:
@@ -70,7 +114,8 @@ async def start_client():
 
         # Derive the shared key
         shared_key = derive_shared_key(private_key, server_public_key)
-        if len(shared_key) not in [16, 24, 32]: shared_key = shared_key[:16]
+        if len(shared_key) not in [16, 24, 32]: 
+            shared_key = shared_key[:16]
         print(f"[INFO] Shared key established.")
 
         # Authentication phase
@@ -139,6 +184,8 @@ async def start_client():
                 except (asyncio.TimeoutError, ConnectionResetError):
                     print("[CLIENT ERROR] Server not responding. Closing connection.")
                     break
+                except Exception as e:
+                    print(f"[CLIENT ERROR] Unexpected error: {e}")
 
     except Exception as e:
         print(f"[ERROR] {e}")

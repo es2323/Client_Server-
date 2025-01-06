@@ -20,6 +20,7 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
+# Hardcoded admin credentials
 raw_key = b'my_secret_key_too_long!'
 SECRET_KEY = raw_key[:16]
 
@@ -30,6 +31,17 @@ HARD_CODED_PASSWORD = "password123"
 
 # Encryption function
 def encrypt_message(message, key, packet_id):
+    """
+    Encrypt a message using AES-CBC.
+
+    Args:
+        message (str): The plaintext message to encrypt.
+        key (bytes): The shared secret key for encryption.
+        packet_id (str): Unique packet ID for the message.
+
+    Returns:
+        str: Base64-encoded encrypted message or None if encryption fails.
+    """
     try:
         iv = os.urandom(16)
         cipher = AES.new(key, AES.MODE_CBC, iv)
@@ -42,6 +54,17 @@ def encrypt_message(message, key, packet_id):
 
 # Decryption function
 def decrypt_message(encrypted_message, key, expected_packet_id):
+    """
+    Decrypt a message using AES-CBC.
+
+    Args:
+        encrypted_message (str): Base64-encoded encrypted message to decrypt.
+        key (bytes): The shared secret key for decryption.
+        expected_packet_id (str): Packet ID expected in the decrypted message.
+
+    Returns:
+        str: Decrypted plaintext message or an error message if decryption fails.
+    """
     try:
         raw_data = base64.b64decode(encrypted_message)
         if len(raw_data) < 16:
@@ -53,6 +76,7 @@ def decrypt_message(encrypted_message, key, expected_packet_id):
         decrypted_message = decrypted_data.decode("utf-8") 
         packet_id, message = decrypted_message.split(":", 1)
 
+        # Check for replay attacks
         if packet_id != expected_packet_id:
             raise ValueError("Packet ID mismatch. Possible replay attack detected.") 
         return message 
@@ -61,15 +85,31 @@ def decrypt_message(encrypted_message, key, expected_packet_id):
     except ValueError as e:
         logging.error(f"[DECRYPTION ERROR] Decryption failed: {e}")
     except Exception as e: 
-        logging.error(f"[DECRYPTION ERROR] Unexpected error: {e}") 
-    return "[ERROR] Unable to decrypt the server's response."
+        logging.error(f"[DECRYPTION ERROR] {e}")
+        return "[ERROR] Unable to decrypt the client's message."
 # Diffie-Hellman key exchange functions
 def generate_dh_keypair():
+    """
+    Generate a Diffie-Hellman key pair.
+
+    Returns:
+        tuple: A private key and public key.
+    """
     private_key = getrandbits(2048)
     public_key = pow(2, private_key, 2**2048 - 1)
     return private_key, public_key
 
 def derive_shared_key(private_key, received_public_key):
+    """
+    Derive a shared secret key using Diffie-Hellman.
+
+    Args:
+        private_key (int): The server's private key.
+        received_public_key (int): The client's public key.
+
+    Returns:
+        bytes: The derived shared key truncated to 16 bytes.
+    """
     shared_key = pow(received_public_key, private_key, 2**2048 - 1)
     byte_length = (shared_key.bit_length() + 7) // 8
     return shared_key.to_bytes(byte_length, 'big')[:16]
@@ -88,7 +128,14 @@ def generate_random_password(length=12):
     chars = string.ascii_letters + string.digits + "!@#$%^&*()"
     return ''.join(random.choice(chars) for _ in range(length))
 
+# Initialize the SQLite database for devices
 def initialize_database():
+    """
+    Initialize the SQLite database for storing device states.
+
+    Returns:
+        sqlite3.Connection: A connection to the initialized database.
+    """
     conn = sqlite3.connect("smart_home.db")
     cursor = conn.cursor()
     cursor.execute("""
@@ -118,14 +165,35 @@ def initialize_database():
     conn.commit()
     return conn
 
-# Fetch device state
+# Fetch device state from the database
 def get_device_state(conn, device_name):
+    """
+    Retrieve the state of a device from the database.
+
+    Args:
+        conn (sqlite3.Connection): Database connection.
+        device_name (str): Name of the device.
+
+    Returns:
+        tuple: Device state information or None if the device does not exist.
+    """
     cursor = conn.cursor()
     cursor.execute("SELECT device_state, temperature, speed, lock_time FROM devices WHERE LOWER(device_name) = LOWER(?)", (device_name,))
     return cursor.fetchone()
 
-# Update device state
+# Update device state in the database
 def update_device_state_db(conn, device_name, state=None, temperature=None, speed=None, lock_time=None):
+    """
+    Update the state of a device in the database.
+
+    Args:
+        conn (sqlite3.Connection): Database connection.
+        device_name (str): Name of the device.
+        state (str, optional): New state of the device.
+        temperature (int, optional): New temperature setting.
+        speed (str, optional): New speed setting.
+        lock_time (str, optional): New lock time setting.
+    """
     cursor = conn.cursor()
     cursor.execute(
         "UPDATE devices SET device_state = ?, temperature = ?, speed = ?, lock_time = ? WHERE device_name = ?",
@@ -176,6 +244,18 @@ def validate_command(command):
 
 # Process client commands
 async def process_command(conn, command, packet_id, shared_key):
+    """
+    Process commands received from the client.
+
+    Args:
+        conn (sqlite3.Connection): Database connection.
+        command (str): Command received from the client.
+        packet_id (str): Packet ID for the command.
+        shared_key (bytes): Shared encryption key.
+
+    Returns:
+        str: Encrypted response message.
+    """
     try:
         logging.info(f"Processing command: {command}")
 
@@ -198,7 +278,7 @@ async def process_command(conn, command, packet_id, shared_key):
             return encrypt_message(f"[ERROR] Device '{device_name}' not found.", shared_key, packet_id)
 
             
-        # Process actions for each device
+        # Process device-specific actions
         if device_name == "light":
                 if action in ["on", "off"]:
                     update_device_state_db(conn, device_name, state=action)
@@ -207,12 +287,12 @@ async def process_command(conn, command, packet_id, shared_key):
         elif device_name == "thermostat":
             if action == "get":
                 _, temperature, _, _ = device_state
-                return encrypt_message(f"Current temperature is {temperature}°C", shared_key, packet_id)
+                return encrypt_message(f"Current temperature is {temperature}°C.", shared_key, packet_id)
             elif action == "set" and len(parts) == 3:
                 try:
                     temperature = int(parts[2])
                     update_device_state_db(conn, device_name, state="on", temperature=temperature)
-                    return encrypt_message(f"Thermostat set to {temperature}°C", shared_key, packet_id)
+                    return encrypt_message(f"Thermostat set to {temperature}°C.", shared_key, packet_id)
                 except ValueError:
                     return encrypt_message("[ERROR] Invalid temperature value. Please provide an integer.", shared_key, packet_id)
 
