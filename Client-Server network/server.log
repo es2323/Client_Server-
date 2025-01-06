@@ -1073,3 +1073,157 @@ UnboundLocalError: cannot access local variable 'packet_id' where it is not asso
 2025-01-04 20:40:28,440 - INFO - New connection from ('127.0.0.1', 58563)
 2025-01-04 20:40:28,459 - INFO - [INFO] Shared key established with ('127.0.0.1', 58563): 80000000000000000000000000000000
 2025-01-04 20:40:32,003 - INFO - [SERVER] Received packet ID for auth: e53f8ce5-8c3b-41f1-89a5-fe2adbb462b0
+2025-01-04 20:41:02,138 - DEBUG - Using proactor: IocpProactor
+2025-01-04 20:41:02,140 - INFO - Server is running on 127.0.0.1:12345
+2025-01-04 20:41:05,695 - INFO - New connection from ('127.0.0.1', 58573)
+2025-01-04 20:41:05,711 - INFO - [INFO] Shared key established with ('127.0.0.1', 58573): 40000000000000000000000000000000
+2025-01-04 20:41:19,654 - INFO - [SERVER] Received packet ID for auth: 8fc4d841-8feb-45f5-b2cd-eca1db756913
+2025-01-04 20:41:24,964 - INFO - [SERVER] Received packet ID: 749e152c-5aaa-4378-90b6-a44b4c50089c
+2025-01-04 20:41:24,964 - INFO - Processing command: light on
+2025-01-04 20:41:28,830 - INFO - [SERVER] Received packet ID: e08afa73-fe76-46fb-a3bd-679c8959479b
+2025-01-04 20:41:28,831 - INFO - Processing command: light off
+2025-01-05 16:00:30,606 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:00:30,625 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:00:31,634 - INFO - New connection from ('127.0.0.1', 50686)
+2025-01-05 16:00:37,892 - INFO - [INFO] Shared key established with ('127.0.0.1', 50686): bfd6190d20da90c71fdca84522ddd0ea
+2025-01-05 16:00:52,018 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:00:52,020 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:00:57,702 - INFO - New connection from ('127.0.0.1', 50708)
+2025-01-05 16:01:06,252 - INFO - [INFO] Shared key established with ('127.0.0.1', 50708): 4cb9a816316ae54a7b5717b9e4ffdb31
+2025-01-05 16:01:33,915 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:01:33,919 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:01:38,452 - INFO - New connection from ('127.0.0.1', 50720)
+2025-01-05 16:01:38,477 - INFO - [INFO] Shared key established with ('127.0.0.1', 50720): 01000000000000000000000000000000
+2025-01-05 16:01:43,936 - INFO - [SERVER] Received packet ID for auth: 598a6be4-8900-42a3-9a99-fa438e295c1d
+2025-01-05 16:01:51,056 - INFO - New connection from ('127.0.0.1', 50727)
+2025-01-05 16:01:51,078 - INFO - [INFO] Shared key established with ('127.0.0.1', 50727): 04000000000000000000000000000000
+2025-01-05 16:01:58,994 - INFO - [SERVER] Received packet ID for auth: 63127e66-ac8e-43f4-97ed-810b9f14fb44
+2025-01-05 16:02:15,569 - INFO - New connection from ('127.0.0.1', 50743)
+2025-01-05 16:02:15,595 - INFO - [INFO] Shared key established with ('127.0.0.1', 50743): 08000000000000000000000000000000
+2025-01-05 16:02:23,156 - INFO - [SERVER] Received packet ID for auth: 4ed0729a-5bcd-4087-9c70-788e48b520b0
+2025-01-05 16:02:25,989 - INFO - [SERVER] Received packet ID: 8c295d59-68cf-485a-8986-a0eed1737d97
+2025-01-05 16:02:25,989 - INFO - Processing command: light on
+2025-01-05 16:02:30,556 - INFO - [SERVER] Received packet ID: 31058317-9c65-46be-b8df-bd98792f52a8
+2025-01-05 16:02:30,556 - INFO - Processing command: light off
+2025-01-05 16:02:34,930 - INFO - [SERVER] Received packet ID: ac6a771e-5e63-44d3-b911-1f2345d21aaf
+2025-01-05 16:02:34,931 - INFO - Processing command: ligh off
+2025-01-05 16:02:34,931 - ERROR - [ERROR RESPONSE] Unknown device 'ligh'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2025-01-05 16:02:34,931 - ERROR - [COMMAND ERROR] encrypt_message() missing 1 required positional argument: 'packet_id'
+2025-01-05 16:02:38,394 - INFO - [SERVER] Received packet ID: c5ed5625-53ac-4ed3-b30c-213b356ad5c9
+2025-01-05 16:02:38,395 - INFO - Processing command: light off
+2025-01-05 16:02:51,492 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:02:51,496 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:02:58,195 - INFO - New connection from ('127.0.0.1', 50752)
+2025-01-05 16:02:58,220 - INFO - [INFO] Shared key established with ('127.0.0.1', 50752): 80000000000000000000000000000000
+2025-01-05 16:03:06,341 - INFO - [SERVER] Received packet ID for auth: a18349a5-4512-4784-9515-7adeed88ac77
+2025-01-05 16:03:08,723 - INFO - [SERVER] Received packet ID: 6f5dc3c4-2327-4781-83eb-c2d7c7c30f0a
+2025-01-05 16:03:08,723 - INFO - Processing command: light on
+2025-01-05 16:03:29,911 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:03:29,914 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:03:33,784 - INFO - New connection from ('127.0.0.1', 50761)
+2025-01-05 16:03:33,806 - INFO - [INFO] Shared key established with ('127.0.0.1', 50761): 01000000000000000000000000000000
+2025-01-05 16:03:41,961 - INFO - [SERVER] Received packet ID for auth: b6a714db-d19b-4fa4-a73f-9074d7a64716
+2025-01-05 16:03:44,600 - INFO - [SERVER] Received packet ID: 4b127e8a-6903-4214-86c2-90a12d77ca23
+2025-01-05 16:03:44,601 - INFO - Processing command: light on
+2025-01-05 16:03:47,162 - INFO - [SERVER] Received packet ID: 95236104-8ef8-405b-baa5-a3de7eef51c4
+2025-01-05 16:03:47,163 - INFO - Processing command: light off
+2025-01-05 16:04:15,976 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:04:15,978 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:04:25,534 - INFO - New connection from ('127.0.0.1', 50770)
+2025-01-05 16:04:25,558 - INFO - [INFO] Shared key established with ('127.0.0.1', 50770): 04000000000000000000000000000000
+2025-01-05 16:04:35,454 - INFO - [SERVER] Received packet ID for auth: 30f3924a-b4ad-42cd-b962-7118920c76f5
+2025-01-05 16:04:38,769 - INFO - [SERVER] Received packet ID: 7c24cc86-416f-4917-833a-15d897ebf432
+2025-01-05 16:04:38,769 - INFO - Processing command: light on
+2025-01-05 16:04:42,292 - INFO - [SERVER] Received packet ID: 0634f8d7-7bb3-4e00-b75c-bc82ca9ece1a
+2025-01-05 16:04:42,292 - INFO - Processing command: light off
+2025-01-05 16:09:49,175 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:09:49,179 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:09:54,139 - INFO - New connection from ('127.0.0.1', 50888)
+2025-01-05 16:09:54,162 - INFO - [INFO] Shared key established with ('127.0.0.1', 50888): 40000000000000000000000000000000
+2025-01-05 16:10:00,693 - INFO - [SERVER] Received packet ID for auth: 139af6ac-7c9e-4717-acfa-e21f886dbbc6
+2025-01-05 16:10:03,219 - INFO - [SERVER] Received packet ID: ec784bf4-a170-45e9-8d7d-d79bba89900f
+2025-01-05 16:10:03,219 - INFO - Processing command: light on
+2025-01-05 16:10:14,232 - INFO - [SERVER] Client ('127.0.0.1', 50888) disconnected.
+2025-01-05 16:11:58,818 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:11:58,823 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:12:02,497 - INFO - New connection from ('127.0.0.1', 50910)
+2025-01-05 16:12:02,523 - INFO - [INFO] Shared key established with ('127.0.0.1', 50910): 40000000000000000000000000000000
+2025-01-05 16:12:09,370 - INFO - [SERVER] Received packet ID for auth: 9b99c575-2b2c-4d91-9674-574702f4c7e2
+2025-01-05 16:12:11,826 - INFO - [SERVER] Received packet ID: 937b2021-68a4-4888-8036-0c164331a67f
+2025-01-05 16:12:11,826 - INFO - Processing command: light on
+2025-01-05 16:34:10,271 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:34:10,273 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:34:16,579 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:34:16,582 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:34:20,795 - INFO - New connection from ('127.0.0.1', 53838)
+2025-01-05 16:34:20,821 - INFO - [INFO] Shared key established with ('127.0.0.1', 53838): 01000000000000000000000000000000
+2025-01-05 16:34:31,128 - ERROR - [SERVER] Unexpected error: process_command() missing 1 required positional argument: 'packet_id'
+2025-01-05 16:44:17,340 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:44:17,343 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:44:22,340 - INFO - New connection from ('127.0.0.1', 54013)
+2025-01-05 16:44:22,371 - INFO - [INFO] Shared key established with ('127.0.0.1', 54013): 10000000000000000000000000000000
+2025-01-05 16:44:33,579 - ERROR - [SERVER] Unexpected error: process_command() missing 1 required positional argument: 'packet_id'
+2025-01-05 16:48:36,561 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:48:36,564 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:48:41,288 - INFO - New connection from ('127.0.0.1', 54090)
+2025-01-05 16:48:41,314 - INFO - [INFO] Shared key established with ('127.0.0.1', 54090): 20000000000000000000000000000000
+2025-01-05 16:48:53,154 - ERROR - [SERVER] Unexpected error: process_command() missing 1 required positional argument: 'packet_id'
+2025-01-05 16:55:41,606 - DEBUG - Using proactor: IocpProactor
+2025-01-05 16:55:41,609 - INFO - Server is running on 127.0.0.1:12345
+2025-01-05 16:55:46,012 - INFO - New connection from ('127.0.0.1', 54592)
+2025-01-05 16:55:46,037 - INFO - [INFO] Shared key established with ('127.0.0.1', 54592): 04000000000000000000000000000000
+2025-01-05 16:56:09,189 - INFO - New connection from ('127.0.0.1', 54659)
+2025-01-05 16:56:09,216 - INFO - [INFO] Shared key established with ('127.0.0.1', 54659): 02000000000000000000000000000000
+2025-01-05 16:56:19,327 - INFO - [SERVER] Received packet ID: 70817506-0433-48f8-8385-400aff337fd3
+2025-01-05 16:56:19,327 - INFO - [SERVER] Processing command: light on
+2025-01-05 16:56:19,327 - INFO - Processing command: light on
+2025-01-05 16:56:21,999 - INFO - [SERVER] Received packet ID: fc0c3c11-75d5-413a-a0bc-f539259edbf7
+2025-01-05 16:56:22,000 - INFO - [SERVER] Processing command: ligt off
+2025-01-05 16:56:22,000 - INFO - Processing command: ligt off
+2025-01-05 16:56:22,000 - ERROR - [ERROR RESPONSE] Unknown device 'ligt'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2025-01-05 16:56:22,000 - ERROR - [COMMAND ERROR] encrypt_message() missing 1 required positional argument: 'packet_id'
+2025-01-05 16:56:27,331 - INFO - [SERVER] Received packet ID: 1ea136d8-6056-44df-8a71-87cbe3510dd1
+2025-01-05 16:56:27,331 - INFO - [SERVER] Processing command: thermostat get
+2025-01-05 16:56:27,331 - INFO - Processing command: thermostat get
+2025-01-05 16:56:32,500 - INFO - [SERVER] Received packet ID: 3c4bc5c5-433b-415b-837c-2a65d53d5e5e
+2025-01-05 16:56:32,500 - INFO - [SERVER] Processing command: thermostat set 23
+2025-01-05 16:56:32,500 - INFO - Processing command: thermostat set 23
+2025-01-06 11:36:46,979 - DEBUG - Using proactor: IocpProactor
+2025-01-06 11:36:46,983 - INFO - Server is running on 127.0.0.1:12345
+2025-01-06 11:36:47,219 - INFO - New connection from ('127.0.0.1', 61339)
+2025-01-06 11:36:47,249 - INFO - [INFO] Shared key established with ('127.0.0.1', 61339): 01000000000000000000000000000000
+2025-01-06 11:36:57,751 - INFO - [SERVER] Received packet ID: ee197ec6-8b49-4f9e-b578-d81c9545e5c1
+2025-01-06 11:36:57,752 - INFO - [SERVER] Processing command: light on
+2025-01-06 11:36:57,752 - INFO - Processing command: light on
+2025-01-06 11:36:59,974 - INFO - [SERVER] Received packet ID: 04c81ede-4ffd-431e-b27d-840ded0c9ff5
+2025-01-06 11:36:59,975 - INFO - [SERVER] Processing command: light off
+2025-01-06 11:36:59,975 - INFO - Processing command: light off
+2025-01-06 11:37:04,462 - INFO - [SERVER] Received packet ID: 57fb2c30-1671-488e-8ac3-cd38f56b29e0
+2025-01-06 11:37:04,462 - INFO - [SERVER] Processing command: thermostat get
+2025-01-06 11:37:04,462 - INFO - Processing command: thermostat get
+2025-01-06 11:37:19,888 - INFO - [SERVER] Received packet ID: 2a4a43fb-bd5c-47a3-b4e1-5e5ab0b8fbf6
+2025-01-06 11:37:19,888 - INFO - [SERVER] Processing command: thermostat set 24
+2025-01-06 11:37:19,888 - INFO - Processing command: thermostat set 24
+2025-01-06 11:37:27,932 - INFO - [SERVER] Received packet ID: e6b59232-c062-4548-ba94-e118bd869f59
+2025-01-06 11:37:27,934 - INFO - [SERVER] Processing command: fan on
+2025-01-06 11:37:27,934 - INFO - Processing command: fan on
+2025-01-06 11:37:38,559 - INFO - [SERVER] Received packet ID: d24bbdc8-56a4-4f05-8742-87b979f5bc01
+2025-01-06 11:37:38,560 - INFO - [SERVER] Processing command: fan high
+2025-01-06 11:37:38,560 - INFO - Processing command: fan high
+2025-01-06 11:37:49,738 - INFO - [SERVER] Received packet ID: a688e9a3-f813-49ba-a85e-85eebdae54b1
+2025-01-06 11:37:49,738 - INFO - [SERVER] Processing command: smart lock locked
+2025-01-06 11:37:49,738 - INFO - Processing command: smart lock locked
+2025-01-06 11:37:53,384 - INFO - [SERVER] Received packet ID: 99b45727-f50c-43d6-97cb-52839bb486cf
+2025-01-06 11:37:53,384 - INFO - [SERVER] Processing command: speaker on
+2025-01-06 11:37:53,384 - INFO - Processing command: speaker on
+2025-01-06 11:37:56,522 - INFO - [SERVER] Received packet ID: a4f20c18-00dd-44e6-b7b7-22fbe259360d
+2025-01-06 11:37:56,522 - INFO - [SERVER] Processing command: camera on
+2025-01-06 11:37:56,523 - INFO - Processing command: camera on
+2025-01-06 11:38:06,945 - INFO - [SERVER] Received packet ID: 05a34f7f-71b8-47c4-b034-089bafde5f1f
+2025-01-06 11:38:06,945 - INFO - [SERVER] Processing command: smart lock lock 4:45pm
+2025-01-06 11:38:06,945 - INFO - Processing command: smart lock lock 4:45pm
+2025-01-06 11:38:12,901 - INFO - [SERVER] Received packet ID: ae04adec-b05c-47f8-bd01-b510cc5b9b35
+2025-01-06 11:38:12,901 - INFO - [SERVER] Processing command: light of
+2025-01-06 11:38:12,901 - INFO - Processing command: light of
+2025-01-06 11:38:12,901 - ERROR - [ERROR RESPONSE] Invalid action 'of' for device 'light'. Valid actions are: on, off.
+2025-01-06 11:38:12,903 - ERROR - [COMMAND ERROR] encrypt_message() missing 1 required positional argument: 'packet_id'

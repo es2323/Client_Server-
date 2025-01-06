@@ -20,10 +20,10 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-# Shared secret key (must be 16, 24, or 32 bytes long)
 raw_key = b'my_secret_key_too_long!'
 SECRET_KEY = raw_key[:16]
 
+# Shared secret key (must be 16, 24, or 32 bytes long)
 HARD_CODED_USERNAME = "admin"
 HARD_CODED_PASSWORD = "password123"
 
@@ -35,7 +35,7 @@ def encrypt_message(message, key, packet_id):
         cipher = AES.new(key, AES.MODE_CBC, iv)
         message_with_id = f"{packet_id}:{message}"
         encrypted = cipher.encrypt(pad(message_with_id.encode("utf-8"), AES.block_size))
-        return base64.b64encode(iv + encrypted).decode("utf-8")
+        return base64.b64encode(iv + encrypted).decode("utf-8") 
     except Exception as e:
         logging.error(f"[ENCRYPTION ERROR] {e}")
         return None
@@ -56,9 +56,13 @@ def decrypt_message(encrypted_message, key, expected_packet_id):
         if packet_id != expected_packet_id:
             raise ValueError("Packet ID mismatch. Possible replay attack detected.") 
         return message 
+    except base64.binascii.Error as e:
+        logging.error(f"[DECRYPTION ERROR] Base64 decoding failed: {e}")
+    except ValueError as e:
+        logging.error(f"[DECRYPTION ERROR] Decryption failed: {e}")
     except Exception as e: 
-        logging.error(f"[DECRYPTION ERROR] {e}") 
-        return "[ERROR] Unable to decrypt the server's response."
+        logging.error(f"[DECRYPTION ERROR] Unexpected error: {e}") 
+    return "[ERROR] Unable to decrypt the server's response."
 # Diffie-Hellman key exchange functions
 def generate_dh_keypair():
     private_key = getrandbits(2048)
@@ -314,15 +318,10 @@ async def handle_client(reader, writer):
         encrypted_auth_message = await reader.read(2048)     
         received_data = encrypted_auth_message.decode("utf-8").split(":", 1)
         if len(received_data) != 2:
-            logging.error("[SERVER] Invalid packet format.")
-            packet_id = "00000000-0000-0000-0000-000000000000"  # Fallback packet ID
-            response = encrypt_message("Invalid packet format", shared_key, packet_id)
-            writer.write(response.encode("utf-8"))
-            await writer.drain()
+            logging.error("[SERVER] Invalid packet format during authentication.")
             return
-        
         packet_id, encrypted_message = received_data
-        logging.info(f"[SERVER] Received packet ID for auth: {packet_id}")
+
         auth_message = decrypt_message(encrypted_message, shared_key, packet_id)
         if not auth_message or not auth_message.startswith("AUTH"):
             response = encrypt_message("Invalid authentication message", shared_key, packet_id)
@@ -330,15 +329,7 @@ async def handle_client(reader, writer):
             await writer.drain()
             return
 
-        try:
-            _, username, password = auth_message.split()
-        except ValueError:
-            response = encrypt_message("Invalid authentication format", shared_key, packet_id)
-            writer.write(response.encode("utf-8"))
-            await writer.drain()
-            return
-
-        # Check credentials against hardcoded values
+        _, username, password = auth_message.split()
         if username != HARD_CODED_USERNAME or password != HARD_CODED_PASSWORD:
             response = encrypt_message("Authentication failed: Invalid username or password", shared_key, packet_id)
             writer.write(response.encode("utf-8"))
@@ -356,23 +347,30 @@ async def handle_client(reader, writer):
                 if not encrypted_command:  # Client disconnected
                     logging.info(f"[SERVER] Client {client_address} disconnected.")
                     break
-
+                # Split and decrypt the command
                 received_data = encrypted_command.decode("utf-8").split(":", 1)
                 if len(received_data) != 2:
                     logging.error("[SERVER] Invalid packet format.")
                     break
 
                 packet_id, encrypted_message = received_data
-                logging.info(f"[SERVER] Received packet ID: {packet_id}")  # Log the packet ID
-
+                logging.info(f"[SERVER] Received packet ID: {packet_id}")
                 command = decrypt_message(encrypted_message, shared_key, packet_id)
+
                 if command == "[ERROR] Unable to decrypt the server's response":
                     response = encrypt_message("Decryption failed or invalid message format.", shared_key, packet_id)
                 else:
+                    logging.info(f"[SERVER] Processing command: {command}")
                     response = await process_command(conn, command, packet_id)
-                writer.write(response.encode("utf-8"))
-                await writer.drain()
 
+                # Send the response back to the client
+                if response:
+                    encrypted_response = encrypt_message(response, shared_key, packet_id)
+                    writer.write(encrypted_response.encode("utf-8"))
+                    await writer.drain()
+            except Exception as e:
+                logging.error(f"[SERVER ERROR] {e}")
+                
             except asyncio.TimeoutError:
                 response = encrypt_message("Session timed out due to inactivity.", shared_key, packet_id)
                 writer.write(response.encode("utf-8"))
@@ -388,7 +386,11 @@ async def handle_client(reader, writer):
         fallback_packet_id = "00000000-0000-0000-0000-000000000000"  # Fallback packet ID
         response = encrypt_message("Server encountered an unexpected error.", shared_key, fallback_packet_id)
         writer.write(response.encode("utf-8"))
-        await writer.drain()
+        writer.close()
+        await writer.wait_closed()
+        conn.close()
+        logging.info(f"[SERVER] Connection with {client_address} closed.")
+
 
 
 async def main():
