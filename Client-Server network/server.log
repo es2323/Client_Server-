@@ -1227,3 +1227,100 @@ UnboundLocalError: cannot access local variable 'packet_id' where it is not asso
 2025-01-06 11:38:12,901 - INFO - Processing command: light of
 2025-01-06 11:38:12,901 - ERROR - [ERROR RESPONSE] Invalid action 'of' for device 'light'. Valid actions are: on, off.
 2025-01-06 11:38:12,903 - ERROR - [COMMAND ERROR] encrypt_message() missing 1 required positional argument: 'packet_id'
+2025-01-06 11:45:32,371 - DEBUG - Using proactor: IocpProactor
+2025-01-06 11:45:32,374 - INFO - Server is running on 127.0.0.1:12345
+2025-01-06 11:45:35,366 - INFO - New connection from ('127.0.0.1', 61547)
+2025-01-06 11:45:35,400 - INFO - [INFO] Shared key established with ('127.0.0.1', 61547): 40000000000000000000000000000000
+2025-01-06 11:45:44,731 - INFO - [SERVER] Received packet ID: 8dd154ea-2818-4106-adcc-0d6c7fdf56db
+2025-01-06 11:45:44,731 - INFO - [SERVER] Processing command: light on
+2025-01-06 11:45:44,731 - INFO - Processing command: light on
+2025-01-06 11:45:48,920 - INFO - [SERVER] Received packet ID: 7cfe39ae-2e48-4086-b67d-f6617de3310e
+2025-01-06 11:45:48,920 - INFO - [SERVER] Processing command: light off
+2025-01-06 11:45:48,920 - INFO - Processing command: light off
+2025-01-06 11:45:52,122 - INFO - [SERVER] Received packet ID: 37b77775-ac7c-427b-ad98-be4126c31781
+2025-01-06 11:45:52,122 - INFO - [SERVER] Processing command: light of
+2025-01-06 11:45:52,122 - INFO - Processing command: light of
+2025-01-06 11:45:52,122 - ERROR - [ERROR RESPONSE] Invalid action 'of' for device 'light'. Valid actions are: on, off.
+2025-01-06 11:45:52,122 - ERROR - [COMMAND ERROR] encrypt_message() missing 1 required positional argument: 'packet_id'
+2025-01-06 11:46:00,712 - INFO - [SERVER] Received packet ID: 9ce7ea55-599e-492f-ac30-c2db6610631a
+2025-01-06 11:46:00,713 - INFO - [SERVER] Processing command: fan o
+2025-01-06 11:46:00,713 - INFO - Processing command: fan o
+2025-01-06 11:46:00,713 - ERROR - [ERROR RESPONSE] Invalid action 'o' for device 'fan'. Valid actions are: on, off, low, medium, high.
+2025-01-06 11:46:00,713 - ERROR - [COMMAND ERROR] encrypt_message() missing 1 required positional argument: 'packet_id'
+2025-01-06 11:46:03,996 - INFO - [SERVER] Received packet ID: 68373359-7790-4c33-94c7-70b7c459eaf6
+2025-01-06 11:46:03,996 - INFO - [SERVER] Processing command: fan of
+2025-01-06 11:46:03,996 - INFO - Processing command: fan of
+2025-01-06 11:46:03,997 - ERROR - [ERROR RESPONSE] Invalid action 'of' for device 'fan'. Valid actions are: on, off, low, medium, high.
+2025-01-06 11:46:03,997 - ERROR - [COMMAND ERROR] encrypt_message() missing 1 required positional argument: 'packet_id'
+2025-01-06 11:46:06,374 - INFO - [SERVER] Received packet ID: 1a18fa0c-3c23-4cee-babd-4c7ffcd646f4
+2025-01-06 11:46:06,375 - INFO - [SERVER] Processing command: fan off
+2025-01-06 11:46:06,375 - INFO - Processing command: fan off
+2025-01-06 11:46:32,278 - INFO - [SERVER] Received packet ID: b0c2fcf5-fd24-4f0e-b49a-763eff8ac14a
+2025-01-06 11:46:32,279 - INFO - [SERVER] Processing command: camera o
+2025-01-06 11:46:32,279 - INFO - Processing command: camera o
+2025-01-06 11:46:32,279 - ERROR - [ERROR RESPONSE] Invalid action 'o' for device 'camera'. Valid actions are: on, off.
+2025-01-06 11:46:32,279 - ERROR - [COMMAND ERROR] encrypt_message() missing 1 required positional argument: 'packet_id'
+2025-01-06 11:46:36,632 - INFO - [SERVER] Received packet ID: b7a64bff-a261-49c1-bde1-f57864c89e78
+2025-01-06 11:46:36,632 - INFO - [SERVER] Processing command: camera on
+2025-01-06 11:46:36,632 - INFO - Processing command: camera on
+2025-01-06 12:07:25,570 - DEBUG - Using proactor: IocpProactor
+2025-01-06 12:07:25,572 - INFO - Server is running on 127.0.0.1:12345
+2025-01-06 12:07:30,196 - INFO - New connection from ('127.0.0.1', 62035)
+2025-01-06 12:07:30,227 - INFO - [INFO] Shared key established with ('127.0.0.1', 62035): 10000000000000000000000000000000
+2025-01-06 12:07:38,268 - INFO - [SERVER] Received packet ID: 1e8abf87-4941-4ffa-94bf-fb523c8172c6
+2025-01-06 12:07:38,268 - INFO - [SERVER] Processing command: light on
+2025-01-06 12:07:38,268 - INFO - Processing command: light on
+2025-01-06 12:07:40,759 - INFO - [SERVER] Received packet ID: a1de5d10-ad30-4851-aab4-6b1c97b85b13
+2025-01-06 12:07:40,759 - INFO - [SERVER] Processing command: light off
+2025-01-06 12:07:40,759 - INFO - Processing command: light off
+2025-01-06 12:07:43,414 - INFO - [SERVER] Received packet ID: a3743453-f301-44d7-946e-e1ccb0e2a1a6
+2025-01-06 12:07:43,414 - INFO - [SERVER] Processing command: ligh of
+2025-01-06 12:07:43,414 - INFO - Processing command: ligh of
+2025-01-06 12:07:43,414 - INFO - Validation error: Unknown device 'ligh'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2025-01-06 12:07:49,895 - INFO - [SERVER] Received packet ID: 202bd170-9b57-4226-aa53-eb7a69c3c0bc
+2025-01-06 12:07:49,895 - INFO - [SERVER] Processing command: light of
+2025-01-06 12:07:49,896 - INFO - Processing command: light of
+2025-01-06 12:07:49,896 - INFO - Validation error: Invalid action 'of' for device 'light'. Valid actions are: on, off.
+2025-01-06 12:07:58,922 - INFO - [SERVER] Received packet ID: 575b87a0-ab3d-46c4-8096-70db6d8e07cb
+2025-01-06 12:07:58,922 - INFO - [SERVER] Processing command: thermostat get
+2025-01-06 12:07:58,923 - INFO - Processing command: thermostat get
+2025-01-06 12:08:04,679 - INFO - [SERVER] Received packet ID: 95dd561a-f2d8-439b-9d57-cd0a5caa5fa0
+2025-01-06 12:08:04,679 - INFO - [SERVER] Processing command: thermostat ge
+2025-01-06 12:08:04,679 - INFO - Processing command: thermostat ge
+2025-01-06 12:08:04,679 - INFO - Validation error: Invalid action 'ge' for device 'thermostat'. Valid actions are: get, set.
+2025-01-06 12:08:07,640 - INFO - [SERVER] Received packet ID: c2afed1a-8035-4d80-9005-a45a058a3177
+2025-01-06 12:08:07,641 - INFO - [SERVER] Processing command: fkrkferf
+2025-01-06 12:08:07,641 - INFO - Processing command: fkrkferf
+2025-01-06 12:08:07,641 - INFO - Validation error: Invalid command format. Must include a device and action (e.g., 'light on').
+2025-01-06 12:08:11,136 - INFO - [SERVER] Received packet ID: 2c6bb4b5-12e0-4710-b90f-a3b57859e3e6
+2025-01-06 12:08:11,136 - INFO - [SERVER] Processing command: tgtrgtgr
+2025-01-06 12:08:11,136 - INFO - Processing command: tgtrgtgr
+2025-01-06 12:08:11,136 - INFO - Validation error: Invalid command format. Must include a device and action (e.g., 'light on').
+2025-01-06 12:08:16,453 - INFO - [SERVER] Received packet ID: c39a90d3-e00a-4d47-99f7-290b36f5dcf0
+2025-01-06 12:08:16,453 - INFO - [SERVER] Processing command: smart lock lockedd
+2025-01-06 12:08:16,453 - INFO - Processing command: smart lock lockedd
+2025-01-06 12:08:16,453 - INFO - Validation error: Invalid action 'lockedd' for device 'smart lock'. Valid actions are: locked, unlocked, lock.
+2025-01-06 12:08:21,278 - INFO - [SERVER] Received packet ID: 00c66b57-d9c8-4c66-9f02-ca94df70ad29
+2025-01-06 12:08:21,278 - INFO - [SERVER] Processing command: smart lock locked
+2025-01-06 12:08:21,278 - INFO - Processing command: smart lock locked
+2025-01-06 12:08:32,502 - INFO - [SERVER] Received packet ID: 796936fa-32d0-4cf5-aaad-f0c3ee17d676
+2025-01-06 12:08:32,502 - INFO - [SERVER] Processing command: smart lock lock 5:45pm
+2025-01-06 12:08:32,502 - INFO - Processing command: smart lock lock 5:45pm
+2025-01-06 12:08:36,671 - INFO - [SERVER] Received packet ID: f04a7172-37a0-4fde-b283-51f743459c79
+2025-01-06 12:08:36,671 - INFO - [SERVER] Processing command: speaker on
+2025-01-06 12:08:36,671 - INFO - Processing command: speaker on
+2025-01-06 12:08:39,960 - INFO - [SERVER] Received packet ID: 215a2bbb-04f9-4a78-a408-d0995cd88f68
+2025-01-06 12:08:39,960 - INFO - [SERVER] Processing command: speaker of
+2025-01-06 12:08:39,960 - INFO - Processing command: speaker of
+2025-01-06 12:08:39,960 - INFO - Validation error: Invalid action 'of' for device 'speaker'. Valid actions are: on, off, play.
+2025-01-06 12:08:42,873 - INFO - [SERVER] Received packet ID: 06f6fd8a-df0e-49ca-8458-a46dae6c068b
+2025-01-06 12:08:42,873 - INFO - [SERVER] Processing command: speaker off
+2025-01-06 12:08:42,873 - INFO - Processing command: speaker off
+2025-01-06 12:08:55,393 - INFO - [SERVER] Received packet ID: 7440edcc-71b0-4b68-a92a-83a187930d12
+2025-01-06 12:08:55,394 - INFO - [SERVER] Processing command: fan low
+2025-01-06 12:08:55,394 - INFO - Processing command: fan low
+2025-01-06 12:09:02,959 - INFO - [SERVER] Received packet ID: f105caea-877a-4bd4-a58f-b2c4df4ed5ed
+2025-01-06 12:09:02,959 - INFO - [SERVER] Processing command: fan lo
+2025-01-06 12:09:02,960 - INFO - Processing command: fan lo
+2025-01-06 12:09:02,960 - INFO - Validation error: Invalid action 'lo' for device 'fan'. Valid actions are: on, off, low, medium, high.
+2025-01-06 12:09:05,601 - INFO - [SERVER] Client ('127.0.0.1', 62035) disconnected.

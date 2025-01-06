@@ -141,7 +141,7 @@ def create_error_response(error_message):
 def validate_command(command):
     parts = command.split()
     if len(parts) < 2:
-        return create_error_response("Invalid command format. Must include a device and action (e.g., 'light on').")
+        return "Invalid command format. Must include a device and action (e.g., 'light on')."
     # Reconstruct multi-word device names
     if len(parts) >= 2 and parts[0] == "smart" and parts[1] == "lock":
         device_name = "smart lock"
@@ -161,21 +161,21 @@ def validate_command(command):
     }
 
     if device_name not in valid_devices:
-        return create_error_response(f"Unknown device '{device_name}'. Valid devices are: {', '.join(valid_devices)}.")
+        return f"Unknown device '{device_name}'. Valid devices are: {', '.join(valid_devices)}."
 
     if action not in valid_actions.get(device_name, []):
-        return create_error_response(f"Invalid action '{action}' for device '{device_name}'. Valid actions are: {', '.join(valid_actions[device_name])}.")
+        return f"Invalid action '{action}' for device '{device_name}'. Valid actions are: {', '.join(valid_actions[device_name])}."
 
     if device_name == "thermostat" and action == "set" and len(parts) != 3:
-        return create_error_response("Thermostat 'set' command must include a temperature value (e.g., 'thermostat set 25').")
+        return "Thermostat 'set' command must include a temperature value (e.g., 'thermostat set 25')."
 
     if device_name == "smart lock" and action == "lock" and len(parts) < 3:
-        return create_error_response("Smart lock 'lock' command must include a time (e.g., 'smart lock lock 10:00 AM').")
+        return "Smart lock 'lock' command must include a time (e.g., 'smart lock lock 10:00 AM')."
 
     return None  # No errors
 
 # Process client commands
-async def process_command(conn, command, packet_id):
+async def process_command(conn, command, packet_id, shared_key):
     try:
         logging.info(f"Processing command: {command}")
 
@@ -183,7 +183,7 @@ async def process_command(conn, command, packet_id):
         validation_error = validate_command(command)
         if validation_error:
             logging.info(f"Validation error: {validation_error}")
-            return encrypt_message(validation_error, SECRET_KEY, packet_id)
+            return encrypt_message(f"[ERROR] {validation_error}", shared_key, packet_id)
         
         parts = command.split()
         device_name, action = parts[0], parts[1]
@@ -192,104 +192,74 @@ async def process_command(conn, command, packet_id):
         if len(parts) > 2 and parts[0] == "smart" and parts[1] == "lock":
             device_name = "smart lock"
             action = parts[2] if len(parts) > 2 else None
-
-        device_state = get_device_state(conn, device_name)
-        if device_state:  # Ensure the device exists
-            state, temperature, speed, lock_time = device_state
-            
-        cursor = conn.cursor()
-        cursor.execute("SELECT device_state, temperature, speed, lock_time FROM devices WHERE device_name = ?", (device_name,))
-        device_state = cursor.fetchone()
         
         device_state = get_device_state(conn, device_name)
         if not device_state:
-            return encrypt_message(create_error_response(f"Device '{device_name}' not found."), SECRET_KEY, packet_id)
+            return encrypt_message(f"[ERROR] Device '{device_name}' not found.", shared_key, packet_id)
 
             
         # Process actions for each device
         if device_name == "light":
                 if action in ["on", "off"]:
-                    state, temperature, speed, lock_time = device_state
                     update_device_state_db(conn, device_name, state=action)
-                    cursor.execute("UPDATE devices SET device_state = ? WHERE device_name = ?", (action, device_name))
-                    conn.commit()
-                    return f"Light turned {action}."
-                else:
-                    return create_error_response("Invalid light command. Use 'light on' or 'light off'.")
+                    return encrypt_message(f"Light turned {action}.", shared_key, packet_id)
 
-        if device_name == "thermostat":
+        elif device_name == "thermostat":
             if action == "get":
-                state, temperature, _, _ = device_state
-                return f"Current temperature is {temperature}°C"
+                _, temperature, _, _ = device_state
+                return encrypt_message(f"Current temperature is {temperature}°C", shared_key, packet_id)
             elif action == "set" and len(parts) == 3:
                 try:
                     temperature = int(parts[2])
                     update_device_state_db(conn, device_name, state="on", temperature=temperature)
-                    return f"Thermostat set to {temperature}°C"
+                    return encrypt_message(f"Thermostat set to {temperature}°C", shared_key, packet_id)
                 except ValueError:
-                    return create_error_response("Invalid temperature value. Please provide an integer.")
+                    return encrypt_message("[ERROR] Invalid temperature value. Please provide an integer.", shared_key, packet_id)
 
 
 
-        if device_name == "fan":
+        elif device_name == "fan":
                 if action in ["low", "medium", "high"]:
-                    update_device_state_db(conn, device_name, state=action)
-                    cursor.execute("UPDATE devices SET device_state = 'on', speed = ? WHERE device_name = ?", (action, device_name))
-                    conn.commit()
-                    return f"Fan set to {action} speed."
+                    update_device_state_db(conn, device_name, state="on", speed=action)
+                    return encrypt_message(f"Fan set to {action} speed.", shared_key, packet_id)
                 elif action in ["on", "off"]:
-                    cursor.execute("UPDATE devices SET device_state = ? WHERE device_name = ?", (action, device_name))
-                    conn.commit()
-                    return f"Fan turned {action}."
-                else:
-                    return create_error_response("Invalid fan command. Use 'fan low/medium/high' or 'fan on/off'.")
+                    update_device_state_db(conn, device_name, state=action)
+                    return encrypt_message(f"Fan turned {action}.", shared_key, packet_id)
 
-        if device_name == "smart lock":
+        elif device_name == "smart lock":
             state, _, _, lock_time = device_state
 
             if action in ["locked", "unlocked"]:
                 # Update the database with the new state
                 update_device_state_db(conn, device_name, state=action)
-                return f"Smart lock is now {action}."
+                return encrypt_message(f"Smart lock is now {action}.", shared_key, packet_id)
 
             elif action == "lock" and len(parts) >= 3:
                 # Extract lock time from the command
                 lock_time = " ".join(parts[2:])
                 update_device_state_db(conn, device_name, state="locked", lock_time=lock_time)
-                return f"Smart lock will lock at {lock_time}."
+                return encrypt_message(f"Smart lock will lock at {lock_time}.", shared_key, packet_id)
 
-            else:
-                # Return an error for invalid actions
-                return create_error_response(
-                    "Invalid smart lock command. Use 'smart lock locked/unlocked' or 'smart lock lock <time>'."
-                )
+        elif device_name == "camera":
+            if action in ["on", "off"]:
+                update_device_state_db(conn, device_name, state=action)
+                return encrypt_message(f"Camera is now {action}.", shared_key, packet_id)
 
-
-        if device_name == "camera":
-                if action in ["on", "off"]:
-                    update_device_state_db(conn, device_name, action)
-                    return f"Camera is now {action}."
-                else:
-                    return create_error_response("Invalid camera command. Use 'camera on/off'.")
-
-        if device_name == "speaker":
-                if action in ["on", "off"]:
-                    update_device_state_db(conn, device_name, action)
-                    return f"Speaker is now {action}."
-                elif action == "play" and len(parts) > 2:
+        elif device_name == "speaker":
+            if action in ["on", "off"]:
+                update_device_state_db(conn, device_name, state=action)
+                return encrypt_message(f"Speaker is now {action}.", shared_key, packet_id)
+            elif action == "play" and len(parts) > 2:
                     song = " ".join(parts[2:])
-                    return f"Playing '{song}' on the speaker."
-                else:
-                    return create_error_response("Invalid speaker command. Use 'speaker on/off' or 'speaker play <song>'.")
+                    return encrypt_message(f"Playing '{song}' on the speaker.", shared_key, packet_id)
 
-        elif action in ["on", "off"]:
-                update_device_state_db(conn, device_name, state = action)
-                return f"{device_name} is now {action}."
-        else:
-                return create_error_response("Invalid command")
+        # Default case for unhandled commands
+        return encrypt_message(f"[ERROR] Unknown action '{action}' for device '{device_name}'.", shared_key, packet_id)
+
+
     except Exception as e:
         logging.error(f"[COMMAND ERROR] {e}")
-        return encrypt_message("An error occurred while processing the command.", SECRET_KEY, packet_id)
+        return encrypt_message("[ERROR] An error occurred while processing the command.", shared_key, packet_id)
 
 async def handle_client(reader, writer):
     conn = sqlite3.connect("smart_home.db")
@@ -358,16 +328,14 @@ async def handle_client(reader, writer):
                 command = decrypt_message(encrypted_message, shared_key, packet_id)
 
                 if command == "[ERROR] Unable to decrypt the server's response":
-                    response = encrypt_message("Decryption failed or invalid message format.", shared_key, packet_id)
+                    response = encrypt_message("[ERROR] Decryption failed or invalid message format.", shared_key, packet_id)
                 else:
                     logging.info(f"[SERVER] Processing command: {command}")
-                    response = await process_command(conn, command, packet_id)
+                response = await process_command(conn, command, packet_id, shared_key)
 
                 # Send the response back to the client
-                if response:
-                    encrypted_response = encrypt_message(response, shared_key, packet_id)
-                    writer.write(encrypted_response.encode("utf-8"))
-                    await writer.drain()
+                writer.write(response.encode("utf-8"))
+                await writer.drain()
             except Exception as e:
                 logging.error(f"[SERVER ERROR] {e}")
                 
