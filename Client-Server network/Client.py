@@ -156,7 +156,7 @@ async def start_client():
                     # Use asyncio.create_task to allow user input without blocking timeout tracking
                     try:
                         command = await asyncio.wait_for(
-                            asyncio.to_thread(input, "Hi, please enter a command ('help' for commands, 'exit' to quit): "),
+                            asyncio.to_thread(input, "Welcome! Please enter a command, if unsure enter 'help' for commands, 'list devices' for current states or 'exit' to quit): "),
                             timeout=INACTIVITY_TIMEOUT - (current_time - last_interaction_time)
                         )
                     except asyncio.TimeoutError:
@@ -167,6 +167,10 @@ async def start_client():
 
                     if command.lower() == "exit":
                         print("Closing connection...")
+                        packet_id = str(uuid.uuid4())
+                        encrypted_message = encrypt_message("exit", shared_key, packet_id)
+                        writer.write((packet_id + ":" + encrypted_message).encode("utf-8"))
+                        await writer.drain()
                         writer.close()
                         await writer.wait_closed()
                         print("[DISCONNECTED] Client connection closed.")
@@ -174,6 +178,7 @@ async def start_client():
 
                     if command.lower() == "help":
                         print("Available commands:\n"
+                              "list devices\n"
                               "light on/off\n"
                               "fan on/off\n"
                               "fan low/medium/high\n"

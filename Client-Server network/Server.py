@@ -13,6 +13,7 @@ from argon2 import PasswordHasher
 from passlib.hash import sha256_crypt as PasswordHashe
 
 
+
 # Logging setup
 logging.basicConfig(
     filename="server.log",
@@ -207,6 +208,10 @@ def create_error_response(error_message):
 
 # Validate command structure and content
 def validate_command(command):
+    # Special handling for the 'exit' command
+    if command.lower() == "exit":
+        return None
+    
     parts = command.split()
     if len(parts) < 2:
         return "Invalid command format. Must include a device and action (e.g., 'light on')."
@@ -254,10 +259,28 @@ async def process_command(conn, command, packet_id, shared_key):
         shared_key (bytes): Shared encryption key.
 
     Returns:
-        str: Encrypted response message.
+        str: Encrypted response message or None for 'exit'.
     """
     try:
         logging.info(f"Processing command: {command}")
+        # Handle 'exit' command
+        if command.lower() == "exit":
+            logging.info("[SERVER] Client requested to exit.")
+            return None  
+        
+        # Handle 'list devices' command
+        if command.lower() == "list devices":
+            cursor = conn.cursor()
+            cursor.execute("SELECT device_name, device_state, temperature, speed, lock_time FROM devices")
+            devices = cursor.fetchall()
+
+            # Format the list of devices
+            devices_list = "\n".join(
+                f"{name}: state={state}, temp={temp}, speed={speed}, lock_time={lock_time}"
+                for name, state, temp, speed, lock_time in devices
+            )
+            response_message = f"Available Devices:\n{devices_list}"
+            return encrypt_message(response_message, shared_key, packet_id)
 
         # Validate command structure
         validation_error = validate_command(command)
