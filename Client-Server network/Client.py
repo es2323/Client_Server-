@@ -92,10 +92,12 @@ def derive_shared_key(private_key, received_public_key):
 # Main client Function 
 async def start_client():
     """
-    Start the client, handle authentication, and interact with the server.
+    Start the client, handle authentication, and interact with the server with inactivity timeout.
     """
     HOST = "127.0.0.1"
     PORT = 12345
+    INACTIVITY_TIMEOUT = 30  # Timeout in seconds
+
     try:
         reader, writer = await asyncio.open_connection(HOST, PORT)
         print(f"[CONNECTED] Connected to the server at {HOST}:{PORT}")
@@ -139,41 +141,64 @@ async def start_client():
         print(f"[SERVER RESPONSE] {response}")
 
         if "Authentication successful" in response:
+            last_interaction_time = asyncio.get_event_loop().time()
+
             while True:
-                command = input("Hi, please enter a command ('help' for commands, 'exit' to quit): ").strip()
-
-                if command.lower() == "exit":
-                    print("Closing connection...")
-                    writer.close()
-                    await writer.wait_closed()
-                    print("[DISCONNECTED] Client connection closed.")
-                    break
-
-                if command.lower() == "help":
-                    print("Available commands:\n"
-                          "light on/off\n"
-                          "fan on/off\n"
-                          "fan low/medium/high\n"
-                          "thermostat get\n"
-                          "thermostat set <temp>\n"
-                          "smart lock locked/unlocked\n"
-                          "smart lock lock <time in 12-hour format>\n"
-                          "camera on/off\n"
-                          "speaker on/off\n"
-                          "speaker play <song>")
-                    continue
-
-                # Encrypt and send the command to the server
-                packet_id = str(uuid.uuid4())
-                encrypted_message = encrypt_message(command, shared_key, packet_id)
-                if not encrypted_message:
-                    print("[CLIENT ERROR] Failed to encrypt command message.")
-                    continue
-
-                writer.write((packet_id + ":" + encrypted_message).encode("utf-8"))
-                await writer.drain()
-
                 try:
+                    # Check for inactivity timeout
+                    current_time = asyncio.get_event_loop().time()
+                    if current_time - last_interaction_time > INACTIVITY_TIMEOUT:
+                        print("[CLIENT] Connection closed due to inactivity.")
+                        writer.close()
+                        await writer.wait_closed()
+                        break
+
+                    # Use asyncio.create_task to allow user input without blocking timeout tracking
+                    try:
+                        command = await asyncio.wait_for(
+                            asyncio.to_thread(input, "Hi, please enter a command ('help' for commands, 'exit' to quit): "),
+                            timeout=INACTIVITY_TIMEOUT - (current_time - last_interaction_time)
+                        )
+                    except asyncio.TimeoutError:
+                        print("[CLIENT] Connection closed due to inactivity.")
+                        writer.close()
+                        await writer.wait_closed()
+                        break
+
+                    if command.lower() == "exit":
+                        print("Closing connection...")
+                        writer.close()
+                        await writer.wait_closed()
+                        print("[DISCONNECTED] Client connection closed.")
+                        break
+
+                    if command.lower() == "help":
+                        print("Available commands:\n"
+                              "light on/off\n"
+                              "fan on/off\n"
+                              "fan low/medium/high\n"
+                              "thermostat get\n"
+                              "thermostat set <temp>\n"
+                              "smart lock locked/unlocked\n"
+                              "smart lock lock <time in 12-hour format>\n"
+                              "camera on/off\n"
+                              "speaker on/off\n"
+                              "speaker play <song>")
+                        last_interaction_time = asyncio.get_event_loop().time()
+                        continue
+
+                    # Encrypt and send the command to the server
+                    packet_id = str(uuid.uuid4())
+                    encrypted_message = encrypt_message(command, shared_key, packet_id)
+                    if not encrypted_message:
+                        print("[CLIENT ERROR] Failed to encrypt command message.")
+                        continue
+
+                    writer.write((packet_id + ":" + encrypted_message).encode("utf-8"))
+                    await writer.drain()
+                    last_interaction_time = asyncio.get_event_loop().time()
+
+                    # Wait for server response
                     encrypted_response = await asyncio.wait_for(reader.read(2048), timeout=30.0)
                     if not encrypted_response:
                         print("[SERVER] Disconnected unexpectedly.")
@@ -181,11 +206,16 @@ async def start_client():
 
                     response = decrypt_message(encrypted_response.decode("utf-8"), shared_key, packet_id)
                     print(f"[SERVER RESPONSE] {response}")
-                except (asyncio.TimeoutError, ConnectionResetError):
+
+                except asyncio.TimeoutError:
                     print("[CLIENT ERROR] Server not responding. Closing connection.")
+                    break
+                except ConnectionResetError:
+                    print("[CLIENT ERROR] Server disconnected unexpectedly.")
                     break
                 except Exception as e:
                     print(f"[CLIENT ERROR] Unexpected error: {e}")
+                    break
 
     except Exception as e:
         print(f"[ERROR] {e}")
