@@ -15,6 +15,9 @@ from passlib.hash import sha256_crypt as PasswordHashe
 
 
 # Logging setup
+# Reset the log file
+open("server.log", "w").close()
+
 logging.basicConfig(
     filename="server.log",
     level=logging.DEBUG,
