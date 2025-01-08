@@ -2,9 +2,7 @@
 The Secure Smart Home Client-Server System is a Python-based project that facilitates encrypted communication between a client and server to manage smart home devices. It ensures secure and reliable operation using Diffie-Hellman key exchange, AES-CBC encryption, and robust error handling.
 
 # Features
-
 Secure Communication:
-
 Dynamic key exchange using Diffie-Hellman.
 End-to-end AES-CBC encryption for all messages.
 Authentication:
@@ -33,20 +31,17 @@ sqlite3
 pycryptodome
 argon2-cffi
 passlib
-# Usage
 
+# Usage
 Start the Server:
 Launch the server script to initialize the database and start listening for client connections.
-
 Connect the Client:
 Run the client script to establish a secure connection with the server.
-
 Authentication:
 Enter the username and password when prompted.
 (Default credentials: admin/password123)
 
 # Commands
-
 list devices: View all devices and their current states.
 light on/off: Control the light.
 fan low/medium/high: Set fan speed.
