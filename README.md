@@ -39,7 +39,7 @@ Connect the Client:
 Run the client script to establish a secure connection with the server.
 Authentication:
 Enter the username and password when prompted.
-(Default credentials: admin/password123)
+(Default credentials: testuser/Scorpio123&^!)
 
 # Commands
 list devices: View all devices and their current states.
