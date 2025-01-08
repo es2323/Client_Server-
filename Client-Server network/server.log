@@ -1,4 +1,71 @@
-2025-01-08 17:12:08,677 - DEBUG - Using proactor: IocpProactor
-2025-01-08 17:12:08,680 - INFO - Server is running on 127.0.0.1:12345
-2025-01-08 17:12:12,518 - INFO - New connection from ('127.0.0.1', 51726)
-2025-01-08 17:12:12,535 - INFO - [INFO] Shared key established with ('127.0.0.1', 51726): 10000000000000000000000000000000
+2025-01-08 19:08:23,535 - DEBUG - Using proactor: IocpProactor
+2025-01-08 19:08:23,539 - INFO - Server is running on 127.0.0.1:12345
+2025-01-08 19:08:28,497 - INFO - New connection from ('127.0.0.1', 54457)
+2025-01-08 19:08:28,530 - INFO - [INFO] Shared key established with ('127.0.0.1', 54457): 10000000000000000000000000000000
+2025-01-08 19:08:45,584 - INFO - [SERVER] Received packet ID: e6886288-a60f-4f61-8efb-1a2e3a5e8807
+2025-01-08 19:08:45,585 - INFO - [SERVER] Processing command: light on
+2025-01-08 19:08:45,585 - INFO - Processing command: light on
+2025-01-08 19:09:02,710 - INFO - [SERVER] Received packet ID: 0c8ca6ef-24f2-4f20-a07b-873ba125e28c
+2025-01-08 19:09:02,710 - INFO - [SERVER] Processing command: thermostat get
+2025-01-08 19:09:02,710 - INFO - Processing command: thermostat get
+2025-01-08 19:09:08,025 - INFO - [SERVER] Received packet ID: 84e5dc1d-f485-4a3d-85ac-d6fcfeb736cf
+2025-01-08 19:09:08,025 - INFO - [SERVER] Processing command: thermostat set 67
+2025-01-08 19:09:08,025 - INFO - Processing command: thermostat set 67
+2025-01-08 19:09:17,404 - INFO - [SERVER] Received packet ID: 7dd6c390-139c-464a-ae6e-e1134de24eaf
+2025-01-08 19:09:17,404 - INFO - [SERVER] Processing command: fan on 
+2025-01-08 19:09:17,404 - INFO - Processing command: fan on 
+2025-01-08 19:09:28,736 - INFO - [SERVER] Received packet ID: db23ff74-8058-4c47-b06f-5d963c297ba7
+2025-01-08 19:09:28,737 - INFO - [SERVER] Processing command: fan off
+2025-01-08 19:09:28,737 - INFO - Processing command: fan off
+2025-01-08 19:09:38,647 - INFO - [SERVER] Received packet ID: 72d1ec47-a609-4b89-b8b8-45f38d8c25a1
+2025-01-08 19:09:38,647 - INFO - [SERVER] Processing command: fan high 
+2025-01-08 19:09:38,647 - INFO - Processing command: fan high 
+2025-01-08 19:09:42,021 - INFO - [SERVER] Received packet ID: 9f2904fc-6ec6-45b6-973d-bfe423822c59
+2025-01-08 19:09:42,022 - INFO - [SERVER] Processing command: list devices 
+2025-01-08 19:09:42,022 - INFO - Processing command: list devices 
+2025-01-08 19:09:42,022 - INFO - Validation error: Unknown device 'list'. Valid devices are: light, fan, thermostat, smart lock, camera, speaker.
+2025-01-08 19:09:53,413 - INFO - [SERVER] Received packet ID: 0fd7f272-12a8-489f-8d9f-b948951c7187
+2025-01-08 19:09:53,413 - INFO - [SERVER] Processing command: list devices
+2025-01-08 19:09:53,413 - INFO - Processing command: list devices
+2025-01-08 19:10:03,698 - INFO - [SERVER] Received packet ID: b7b73f32-20b3-4f8d-964f-674acfaf6a4c
+2025-01-08 19:10:03,698 - INFO - [SERVER] Processing command: fan low
+2025-01-08 19:10:03,698 - INFO - Processing command: fan low
+2025-01-08 19:10:07,374 - INFO - [SERVER] Received packet ID: c6a17e62-2099-476b-b551-e8e55056ecd5
+2025-01-08 19:10:07,374 - INFO - [SERVER] Processing command: list devices
+2025-01-08 19:10:07,374 - INFO - Processing command: list devices
+2025-01-08 19:10:18,466 - INFO - [SERVER] Received packet ID: 8bc4bd45-258f-4e61-8fa8-5d39bb8b2051
+2025-01-08 19:10:18,466 - INFO - [SERVER] Processing command: smart lock locked
+2025-01-08 19:10:18,466 - INFO - Processing command: smart lock locked
+2025-01-08 19:10:26,475 - INFO - [SERVER] Received packet ID: 46430846-b068-4424-bcad-00d01e2c81ab
+2025-01-08 19:10:26,475 - INFO - [SERVER] Processing command: smart lock unlocked 
+2025-01-08 19:10:26,475 - INFO - Processing command: smart lock unlocked 
+2025-01-08 19:10:36,341 - INFO - [SERVER] Received packet ID: 6fc876db-6ab5-443f-8a07-79ad84183162
+2025-01-08 19:10:36,341 - INFO - [SERVER] Processing command: smart lock lock 6:17pm
+2025-01-08 19:10:36,341 - INFO - Processing command: smart lock lock 6:17pm
+2025-01-08 19:10:46,810 - INFO - [SERVER] Received packet ID: ad83e494-e86b-4156-8637-e840a29ddfc5
+2025-01-08 19:10:46,810 - INFO - [SERVER] Processing command: camera on
+2025-01-08 19:10:46,811 - INFO - Processing command: camera on
+2025-01-08 19:10:50,650 - INFO - [SERVER] Received packet ID: 19c1c679-163f-408d-a046-a29c5a95f7cb
+2025-01-08 19:10:50,650 - INFO - [SERVER] Processing command: list devices
+2025-01-08 19:10:50,651 - INFO - Processing command: list devices
+2025-01-08 19:10:57,480 - INFO - [SERVER] Received packet ID: 75423007-e0a0-4c84-8b8e-13a54d45966c
+2025-01-08 19:10:57,481 - INFO - [SERVER] Processing command: speaker on
+2025-01-08 19:10:57,481 - INFO - Processing command: speaker on
+2025-01-08 19:11:03,060 - INFO - [SERVER] Received packet ID: ac0f4715-dafc-48e5-992a-6dd9c06bebce
+2025-01-08 19:11:03,060 - INFO - [SERVER] Processing command: list devices
+2025-01-08 19:11:03,060 - INFO - Processing command: list devices
+2025-01-08 19:11:15,469 - INFO - [SERVER] Received packet ID: e01afcb5-2b4d-4618-b15f-34ce302438d7
+2025-01-08 19:11:15,469 - INFO - [SERVER] Processing command: speaker play Is this Love
+2025-01-08 19:11:15,469 - INFO - Processing command: speaker play Is this Love
+2025-01-08 19:11:21,453 - INFO - [SERVER] Received packet ID: d7e96947-ffed-4d13-84fa-9fefe7656e23
+2025-01-08 19:11:21,453 - INFO - [SERVER] Processing command: exit
+2025-01-08 19:11:21,453 - INFO - Processing command: exit
+2025-01-08 19:11:21,453 - INFO - [SERVER] Client requested to exit.
+2025-01-08 19:11:21,454 - ERROR - [SERVER ERROR] 'NoneType' object has no attribute 'encode'
+2025-01-08 19:11:21,454 - INFO - [SERVER] Client ('127.0.0.1', 54457) disconnected.
+2025-01-08 19:11:30,784 - INFO - New connection from ('127.0.0.1', 54496)
+2025-01-08 19:11:30,807 - INFO - [INFO] Shared key established with ('127.0.0.1', 54496): 01000000000000000000000000000000
+2025-01-08 19:11:38,971 - INFO - [SERVER] Received packet ID: 53e75280-6f18-441d-9a4c-580c747634cd
+2025-01-08 19:11:38,971 - INFO - [SERVER] Processing command: light on
+2025-01-08 19:11:38,971 - INFO - Processing command: light on
+2025-01-08 19:12:08,978 - INFO - [SERVER] Client ('127.0.0.1', 54496) disconnected.

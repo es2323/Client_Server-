@@ -29,8 +29,8 @@ raw_key = b'my_secret_key_too_long!'
 SECRET_KEY = raw_key[:16]
 
 # Shared secret key (must be 16, 24, or 32 bytes long)
-HARD_CODED_USERNAME = "admin"
-HARD_CODED_PASSWORD = "password123"
+HARD_CODED_USERNAME = "testuser"
+HARD_CODED_PASSWORD = "Scorpio123&^!"
 
 
 # Encryption function
@@ -472,8 +472,10 @@ async def main():
     conn.close()
     server = await asyncio.start_server(handle_client, "127.0.0.1", 12345)
     logging.info("Server is running on 127.0.0.1:12345")
+    print("Server is running!")
     async with server:
         await server.serve_forever()
+
 
 if __name__ == "__main__":
     asyncio.run(main())
